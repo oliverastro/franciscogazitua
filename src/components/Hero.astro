@@ -1,0 +1,104 @@
+---
+import t from "../i18n/translations";
+
+export interface Props {
+  lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const txt = t(lang);
+---
+
+<section class="hero">
+  <div class="hero-overlay">
+    <span class="hero-featured-label">{txt.hero.obraDestacada}</span>
+    <h1 class="hero-title">{txt.hero.buquesAcero}</h1>
+    <p class="hero-description">{txt.hero.description}</p>
+    <a href="#obras" class="btn">{txt.hero.verMas}</a>
+  </div>
+  <div class="hero-nav">
+    <button class="hero-arrow" aria-label="Previous">←</button>
+    <button class="hero-arrow" aria-label="Next">→</button>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-light);
+    margin-top: var(--header-height);
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    text-align: center;
+    max-width: 700px;
+    padding: 40px 20px;
+    z-index: 1;
+  }
+
+  .hero-featured-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--color-muted);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    color: var(--color-muted);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-nav {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    gap: 16px;
+  }
+
+  .hero-arrow {
+    background: none;
+    border: 1px solid var(--color-border);
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-arrow:hover {
+    border-color: var(--color-text);
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.2rem;
+    }
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import t from "../i18n/translations";
+
+export interface Props {
+  lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const txt = t(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<section class="section" id="libros">
+  <div class="container">
+    <h2 class="section-title">{txt.libros.titulo}</h2>
+    <p class="section-subtitle">{txt.libros.subtitulo}</p>
+
+    <div class="card-grid">
+      {txt.libros.lista.map((libro) => (
+        <div class="book-card">
+          <div class="book-cover">
+            <span class="book-placeholder">{libro.titulo}</span>
+          </div>
+          <div class="book-info">
+            <h3 class="book-title">{libro.titulo}</h3>
+            <p class="book-author">{libro.autor}</p>
+            <span class="book-year">{libro.anio}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-action">
+      <a href={`${base}${lang === "es" ? "" : "/en"}/libros/`} class="btn">{txt.libros.verTodos}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .book-card {
+    transition: transform 0.3s;
+  }
+
+  .book-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .book-cover {
+    aspect-ratio: 3 / 4;
+    background: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .book-placeholder {
+    font-family: var(--font-serif);
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .book-info {
+    text-align: center;
+  }
+
+  .book-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .book-author {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-bottom: 2px;
+  }
+
+  .book-year {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+
+  .section-action {
+    text-align: center;
+    margin-top: 48px;
+  }
+</style>

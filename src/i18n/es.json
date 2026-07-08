@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "inicio": "Inicio",
+    "obras": "Obras",
+    "series": "Series",
+    "libros": "Libros",
+    "videos": "Videos",
+    "publicaciones": "Publicaciones",
+    "biografia": "Biografía",
+    "artePublico": "Arte en Espacio Público",
+    "contacto": "Contacto"
+  },
+  "hero": {
+    "obraDestacada": "OBRA DESTACADA",
+    "buquesAcero": "BUQUES DE ACERO",
+    "description": "Esculturas del Pacífico Sur y el Cabo de Hornos, inspiradas en la épica de grandes naves, navegantes y literatos bajo la Cruz del Sur.",
+    "verMas": "VER MÁS"
+  },
+  "biografia": {
+    "titulo": "BIOGRAFÍA",
+    "texto": "Escultor chileno y Premio Nacional de Artes Plásticas, reconocido por una trayectoria que une la tradición andina con la escultura pública monumental. Formado en Chile e Inglaterra, ha emplazado más de 50 obras en espacios urbanos de todo el mundo, forjando en piedra, acero y madera una profunda reflexión poética sobre la materia y el territorio.",
+    "verMas": "VER MÁS"
+  },
+  "obras": {
+    "titulo": "OBRAS",
+    "subtitulo": "Explora las obras del artista por categoría",
+    "categorias": {
+      "puentes": "PUENTES",
+      "piedra": "PIEDRA",
+      "buques": "BUQUES",
+      "caballos": "CABALLOS",
+      "toros": "TOROS"
+    },
+    "verTodas": "VER TODAS LAS OBRAS"
+  },
+  "series": {
+    "titulo": "SERIES",
+    "subtitulo": "Explora las principales series de obras del artista",
+    "items": ["Caballos", "Buques", "Sauces", "Lengas", "Figura Humana"],
+    "verTodas": "VER TODAS LAS SERIES"
+  },
+  "libros": {
+    "titulo": "LIBROS",
+    "subtitulo": "Libros publicados sobre la trayectoria y obra del artista",
+    "lista": [
+      { "titulo": "Gazitúa: Obra Completa", "autor": "Ediciones Origo", "anio": "2019" },
+      { "titulo": "El Peso de la Materia", "autor": "A. Rojas / Hueders", "anio": "2015" },
+      { "titulo": "Escultura y Territorio", "autor": "M. Fernández / RIL Editores", "anio": "2011" },
+      { "titulo": "Caballos y Buques", "autor": "Ediciones Origo", "anio": "2007" },
+      { "titulo": "Retrospectiva 30 años", "autor": "Museo de Bellas Artes", "anio": "2001" }
+    ],
+    "verTodos": "VER TODOS LOS LIBROS"
+  },
+  "videos": {
+    "titulo": "VIDEOS",
+    "subtitulo": "Videos del artista y su trabajo",
+    "verTodos": "VER TODOS LOS VIDEOS"
+  },
+  "publicaciones": {
+    "titulo": "PUBLICACIONES",
+    "subtitulo": "Artículos, catálogos y publicaciones sobre la obra del artista",
+    "verTodas": "VER TODAS LAS PUBLICACIONES"
+  },
+  "artePublico": {
+    "titulo": "ARTE EN ESPACIO PÚBLICO",
+    "subtitulo": "Intervenciones y obras del artista en espacios públicos",
+    "verMas": "VER MÁS"
+  },
+  "contacto": {
+    "titulo": "CONTACTO",
+    "ubicacion": "Ubicación",
+    "correo": "Correo",
+    "telefono": "Teléfono",
+    "redes": "Redes Sociales",
+    "verMapa": "Ver mapa",
+    "email": "contacto@gazitua.cl",
+    "phone": "+56 9 0000 0000",
+    "social": "@franciscogazitua"
+  },
+  "footer": {
+    "copyright": "© 2026 Francisco Gazitúa. Todos los derechos reservados."
+  }
+}

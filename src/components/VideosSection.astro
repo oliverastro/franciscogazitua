@@ -1,0 +1,77 @@
+---
+import t from "../i18n/translations";
+
+export interface Props {
+  lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const txt = t(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+const videos = [1, 2, 3, 4, 5];
+---
+
+<section class="section" id="videos">
+  <div class="container">
+    <h2 class="section-title">{txt.videos.titulo}</h2>
+    <p class="section-subtitle">{txt.videos.subtitulo}</p>
+
+    <div class="card-grid">
+      {videos.map((num) => (
+        <div class="video-card">
+          <div class="video-thumb">
+            <span class="video-placeholder">VIDEO {num}</span>
+          </div>
+          <div class="video-info">
+            <h3 class="video-title">Video {num}</h3>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="section-action">
+      <a href={`${base}${lang === "es" ? "" : "/en"}/videos/`} class="btn">{txt.videos.verTodos}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-card {
+    transition: transform 0.3s;
+  }
+
+  .video-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .video-thumb {
+    aspect-ratio: 16 / 9;
+    background: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .video-placeholder {
+    font-family: var(--font-serif);
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+
+  .video-info {
+    text-align: center;
+  }
+
+  .video-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  .section-action {
+    text-align: center;
+    margin-top: 48px;
+  }
+</style>

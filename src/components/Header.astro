@@ -1,0 +1,158 @@
+---
+import t from "../i18n/translations";
+
+export interface Props {
+  lang: "es" | "en";
+  altUrl: string;
+  altLang: string;
+}
+
+const { lang, altUrl, altLang } = Astro.props;
+const txt = t(lang);
+
+const navItems = [
+  { key: "inicio", href: lang === "es" ? "/" : "/en/" },
+  { key: "obras", href: `#obras` },
+  { key: "series", href: `#series` },
+  { key: "libros", href: `#libros` },
+  { key: "videos", href: `#videos` },
+  { key: "publicaciones", href: `#publicaciones` },
+  { key: "biografia", href: `#biografia` },
+  { key: "artePublico", href: `#arte-publico` },
+  { key: "contacto", href: `#contacto` },
+];
+---
+
+<header class="header">
+  <div class="header-inner container">
+    <a href={lang === "es" ? "/" : "/en/"} class="logo">
+      Francisco Gazitúa
+    </a>
+
+    <nav class="nav">
+      {navItems.map((item) => (
+        <a href={item.href} class="nav-link">{txt.nav[item.key]}</a>
+      ))}
+    </nav>
+
+    <a href={altUrl} class="lang-toggle">{altLang === "en" ? "EN" : "ES"}</a>
+
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 32px;
+  }
+
+  .logo {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: var(--color-text);
+  }
+
+  .lang-toggle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 6px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .lang-toggle:hover {
+    border-color: var(--color-text);
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 900px) {
+    .nav {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .logo {
+      flex: 1;
+    }
+  }
+</style>
+
+<script>
+  document.querySelector(".menu-toggle")?.addEventListener("click", () => {
+    const nav = document.querySelector(".nav");
+    if (nav) {
+      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+      nav.style.flexDirection = "column";
+      nav.style.position = "absolute";
+      nav.style.top = "var(--header-height)";
+      nav.style.left = "0";
+      nav.style.right = "0";
+      nav.style.background = "white";
+      nav.style.padding = "20px";
+      nav.style.borderBottom = "1px solid var(--color-border)";
+    }
+  });
+</script>

@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "inicio": "Home",
+    "obras": "Works",
+    "series": "Series",
+    "libros": "Books",
+    "videos": "Videos",
+    "publicaciones": "Publications",
+    "biografia": "Biography",
+    "artePublico": "Public Art",
+    "contacto": "Contact"
+  },
+  "hero": {
+    "obraDestacada": "FEATURED WORK",
+    "buquesAcero": "STEEL SHIPS",
+    "description": "Sculptures of the South Pacific and Cape Horn, inspired by the epic of great ships, navigators and writers under the Southern Cross.",
+    "verMas": "SEE MORE"
+  },
+  "biografia": {
+    "titulo": "BIOGRAPHY",
+    "texto": "Chilean sculptor and National Prize of Plastic Arts, recognized for a career that unites the Andean tradition with monumental public sculpture. Trained in Chile and England, he has placed more than 50 works in urban spaces around the world, forging in stone, steel and wood a profound poetic reflection on matter and territory.",
+    "verMas": "SEE MORE"
+  },
+  "obras": {
+    "titulo": "WORKS",
+    "subtitulo": "Explore the artist's works by category",
+    "categorias": {
+      "puentes": "BRIDGES",
+      "piedra": "STONE",
+      "buques": "SHIPS",
+      "caballos": "HORSES",
+      "toros": "BULLS"
+    },
+    "verTodas": "SEE ALL WORKS"
+  },
+  "series": {
+    "titulo": "SERIES",
+    "subtitulo": "Explore the artist's main series of works",
+    "items": ["Horses", "Ships", "Willows", "Lengas", "Human Figure"],
+    "verTodas": "SEE ALL SERIES"
+  },
+  "libros": {
+    "titulo": "BOOKS",
+    "subtitulo": "Books published about the artist's career and work",
+    "lista": [
+      { "titulo": "Gazitúa: Complete Works", "autor": "Ediciones Origo", "anio": "2019" },
+      { "titulo": "The Weight of Matter", "autor": "A. Rojas / Hueders", "anio": "2015" },
+      { "titulo": "Sculpture and Territory", "autor": "M. Fernández / RIL Editores", "anio": "2011" },
+      { "titulo": "Horses and Ships", "autor": "Ediciones Origo", "anio": "2007" },
+      { "titulo": "30 Year Retrospective", "autor": "Museum of Fine Arts", "anio": "2001" }
+    ],
+    "verTodos": "SEE ALL BOOKS"
+  },
+  "videos": {
+    "titulo": "VIDEOS",
+    "subtitulo": "Videos about the artist and his work",
+    "verTodos": "SEE ALL VIDEOS"
+  },
+  "publicaciones": {
+    "titulo": "PUBLICATIONS",
+    "subtitulo": "Articles, catalogs and publications about the artist's work",
+    "verTodas": "SEE ALL PUBLICATIONS"
+  },
+  "artePublico": {
+    "titulo": "PUBLIC ART",
+    "subtitulo": "Interventions and works by the artist in public spaces",
+    "verMas": "SEE MORE"
+  },
+  "contacto": {
+    "titulo": "CONTACT",
+    "ubicacion": "Location",
+    "correo": "Email",
+    "telefono": "Phone",
+    "redes": "Social Media",
+    "verMapa": "View map",
+    "email": "contacto@gazitua.cl",
+    "phone": "+56 9 0000 0000",
+    "social": "@franciscogazitua"
+  },
+  "footer": {
+    "copyright": "© 2026 Francisco Gazitúa. All rights reserved."
+  }
+}

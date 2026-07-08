@@ -1,0 +1,41 @@
+---
+import t from "../i18n/translations";
+
+export interface Props {
+  lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const txt = t(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<section class="section" id="biografia">
+  <div class="container">
+    <h2 class="section-title">{txt.biografia.titulo}</h2>
+    <div class="bio-content">
+      <p class="bio-text">{txt.biografia.texto}</p>
+      <div class="bio-action">
+        <a href={`${base}${lang === "es" ? "/biografia" : "/en/biografia"}`} class="btn">{txt.biografia.verMas}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bio-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .bio-text {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .bio-action {
+    text-align: center;
+  }
+</style>
