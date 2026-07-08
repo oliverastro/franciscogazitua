@@ -1,5 +1,6 @@
 ---
 import t from "../i18n/translations";
+import { getCollection } from "astro:content";
 
 export interface Props {
   lang: "es" | "en";
@@ -8,8 +9,8 @@ export interface Props {
 const { lang } = Astro.props;
 const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-const projects = [1, 2, 3, 4, 5];
+const allProjects = await getCollection("arte-publico");
+const projectsList = allProjects.slice(0, 5);
 ---
 
 <section class="section" id="arte-publico">
@@ -18,15 +19,20 @@ const projects = [1, 2, 3, 4, 5];
     <p class="section-subtitle">{txt.artePublico.subtitulo}</p>
 
     <div class="card-grid">
-      {projects.map((_, i) => (
-        <div class="art-card">
+      {projectsList.map((p) => (
+        <a href={`${base}${lang === "es" ? "" : "/en"}/arte-publico/${p.id}/`} class="art-card">
           <div class="art-image">
-            <span class="art-placeholder">PROYECTO {i + 1}</span>
+            {p.data.images?.[0] ? (
+              <img src={p.data.images[0]} alt={p.data.title} />
+            ) : (
+              <span class="art-placeholder">{p.data.title}</span>
+            )}
           </div>
           <div class="art-info">
-            <h3 class="art-title">PROYECTO {i + 1}</h3>
+            <h3 class="art-title">{p.data.title}</h3>
+            <p class="art-location">{p.data.location}</p>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 

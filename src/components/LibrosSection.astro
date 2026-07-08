@@ -1,5 +1,6 @@
 ---
 import t from "../i18n/translations";
+import { getCollection } from "astro:content";
 
 export interface Props {
   lang: "es" | "en";
@@ -8,6 +9,8 @@ export interface Props {
 const { lang } = Astro.props;
 const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const allLibros = await getCollection("libros");
+const librosList = allLibros.slice(0, 5);
 ---
 
 <section class="section" id="libros">
@@ -16,17 +19,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     <p class="section-subtitle">{txt.libros.subtitulo}</p>
 
     <div class="card-grid">
-      {txt.libros.lista.map((libro) => (
-        <div class="book-card">
+      {librosList.map((l) => (
+        <a href={`${base}${lang === "es" ? "" : "/en"}/libros/${l.id}/`} class="book-card">
           <div class="book-cover">
-            <span class="book-placeholder">{libro.titulo}</span>
+            {l.data.image ? (
+              <img src={l.data.image} alt={l.data.title} />
+            ) : (
+              <span class="book-placeholder">{l.data.title}</span>
+            )}
           </div>
           <div class="book-info">
-            <h3 class="book-title">{libro.titulo}</h3>
-            <p class="book-author">{libro.autor}</p>
-            <span class="book-year">{libro.anio}</span>
+            <h3 class="book-title">{l.data.title}</h3>
+            <p class="book-author">{l.data.author}</p>
+            <span class="book-year">{l.data.year}</span>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 

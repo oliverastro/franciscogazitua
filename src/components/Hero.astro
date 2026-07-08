@@ -1,5 +1,6 @@
 ---
 import t from "../i18n/translations";
+import { getCollection } from "astro:content";
 
 export interface Props {
   lang: "es" | "en";
@@ -7,13 +8,16 @@ export interface Props {
 
 const { lang } = Astro.props;
 const txt = t(lang);
+const obras = await getCollection("obras");
+const featured = obras.filter((o) => o.data.featured);
+const heroObra = featured.length > 0 ? featured[0] : obras[0];
 ---
 
 <section class="hero">
   <div class="hero-overlay">
     <span class="hero-featured-label">{txt.hero.obraDestacada}</span>
-    <h1 class="hero-title">{txt.hero.buquesAcero}</h1>
-    <p class="hero-description">{txt.hero.description}</p>
+    <h1 class="hero-title">{heroObra?.data.title || txt.hero.buquesAcero}</h1>
+    <p class="hero-description">{heroObra?.data.description || txt.hero.description}</p>
     <a href="#obras" class="btn">{txt.hero.verMas}</a>
   </div>
   <div class="hero-nav">

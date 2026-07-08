@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const all = await getCollection("arte-publico");
+  return [{ params: { slug: undefined } }, ...all.map((p) => ({ params: { slug: p.id } }))];
+}
+
+const { slug } = Astro.params;
+const lang = "en";
+const all = await getCollection("arte-publico");
+all.sort((a, b) => b.data.year - a.data.year);
+const project = slug ? all.find((p) => p.id === slug) : null;
+const basePath = "/en";
+---
+
+<BaseLayout title={project ? project.data.title : "Public Art"} lang={lang}>
+  {project ? (
+    <section class="section"><div class="container">
+      <a href={`${basePath}/arte-publico/`} class="back-link">&larr; Back to Public Art</a>
+      <h1 class="section-title">{project.data.title}</h1>
+      <p><strong>Location:</strong> {project.data.location}</p>
+      <p><strong>Year:</strong> {project.data.year}</p>
+      {project.data.description && <p>{project.data.description}</p>}
+    </div></section>
+  ) : (
+    <section class="section"><div class="container">
+      <h1 class="section-title">Public Art</h1>
+      <p class="section-subtitle">Interventions and works in public spaces</p>
+      <div class="card-grid">
+        {all.map((p) => (
+          <a href={`${basePath}/arte-publico/${p.id}/`} class="art-card">
+            <div class="art-image"><span>{p.data.title}</span></div>
+            <div class="art-info"><h3>{p.data.title}</h3><p>{p.data.location}</p><span>{p.data.year}</span></div>
+          </a>
+        ))}
+      </div>
+    </div></section>
+  )}
+</BaseLayout>
+
+<style>
+  .back-link { display: inline-block; font-size: 0.85rem; color: var(--color-muted); margin-bottom: 24px; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .art-card { transition: transform 0.3s; }
+  .art-card:hover { transform: translateY(-4px); }
+  .art-image { aspect-ratio: 4 / 3; background: var(--color-light); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+  .art-info { text-align: center; }
+  .art-info h3 { font-size: 0.95rem; font-weight: 600; }
+  .art-info p { font-size: 0.8rem; color: var(--color-muted); }
+  .art-info span { font-size: 0.75rem; color: var(--color-muted); }
+</style>

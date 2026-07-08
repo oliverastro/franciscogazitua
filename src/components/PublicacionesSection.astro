@@ -1,5 +1,6 @@
 ---
 import t from "../i18n/translations";
+import { getCollection } from "astro:content";
 
 export interface Props {
   lang: "es" | "en";
@@ -8,8 +9,8 @@ export interface Props {
 const { lang } = Astro.props;
 const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-const items = [1, 2, 3, 4, 5];
+const allPub = await getCollection("publicaciones");
+const pubList = allPub.slice(0, 5);
 ---
 
 <section class="section" id="publicaciones">
@@ -18,17 +19,21 @@ const items = [1, 2, 3, 4, 5];
     <p class="section-subtitle">{txt.publicaciones.subtitulo}</p>
 
     <div class="card-grid">
-      {items.map((_, i) => (
-        <div class="pub-card">
+      {pubList.map((p) => (
+        <a href={`${base}${lang === "es" ? "" : "/en"}/publicaciones/${p.id}/`} class="pub-card">
           <div class="pub-cover">
-            <span class="pub-placeholder">Publicación {i + 1}</span>
+            {p.data.image ? (
+              <img src={p.data.image} alt={p.data.title} />
+            ) : (
+              <span class="pub-placeholder">{p.data.title}</span>
+            )}
           </div>
           <div class="pub-info">
-            <h3 class="pub-title">Título de la publicación</h3>
-            <p class="pub-meta">Autor / Editorial</p>
-            <span class="pub-year">Año</span>
+            <h3 class="pub-title">{p.data.title}</h3>
+            <p class="pub-meta">{p.data.author}</p>
+            <span class="pub-year">{p.data.year}</span>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 

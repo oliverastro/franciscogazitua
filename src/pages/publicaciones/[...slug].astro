@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const allPub = await getCollection("publicaciones");
+  const paths = allPub.map((p) => ({ params: { slug: p.id } }));
+  paths.push({ params: { slug: undefined } });
+  return paths;
+}
+
+const { slug } = Astro.params;
+const lang = "es";
+const allPub = await getCollection("publicaciones");
+allPub.sort((a, b) => b.data.year - a.data.year);
+
+const pub = slug ? allPub.find((p) => p.id === slug) : null;
+---
+
+<BaseLayout title={pub ? pub.data.title : "Publicaciones"} lang={lang}>
+  {pub ? (
+    <section class="section">
+      <div class="container">
+        <a href="/publicaciones/" class="back-link">&larr; Volver a Publicaciones</a>
+        <h1 class="section-title">{pub.data.title}</h1>
+        <div class="pub-detail">
+          {pub.data.image && (
+            <div class="pub-cover">
+              <img src={pub.data.image} alt={pub.data.title} />
+            </div>
+          )}
+          <p class="pub-meta">
+            {pub.data.author} &middot; {pub.data.publisher} &middot; {pub.data.year}
+          </p>
+          <p class="pub-type">{pub.data.publication_type}</p>
+          {pub.data.description && <p class="pub-desc">{pub.data.description}</p>}
+          {pub.data.link && (
+            <a href={pub.data.link} target="_blank" rel="noopener" class="btn">
+              Leer más
+            </a>
+          )}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Publicaciones</h1>
+        <p class="section-subtitle">Artículos, catálogos y publicaciones sobre la obra del artista</p>
+        <div class="card-grid">
+          {allPub.map((p) => (
+            <a href={`/publicaciones/${p.id}/`} class="pub-card">
+              <div class="pub-cover">
+                {p.data.image ? (
+                  <img src={p.data.image} alt={p.data.title} />
+                ) : (
+                  <span class="pub-placeholder">{p.data.title}</span>
+                )}
+              </div>
+              <div class="pub-info">
+                <h3 class="pub-title">{p.data.title}</h3>
+                <p class="pub-author">{p.data.author}</p>
+                <span class="pub-year">{p.data.year}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-bottom: 24px;
+  }
+
+  .pub-detail {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .pub-cover {
+    max-width: 300px;
+    aspect-ratio: 3 / 4;
+    background: var(--color-light);
+    margin-bottom: 24px;
+  }
+
+  .pub-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pub-meta {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin-bottom: 8px;
+  }
+
+  .pub-type {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-muted);
+    margin-bottom: 16px;
+  }
+
+  .pub-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+  }
+
+  .pub-card {
+    transition: transform 0.3s;
+  }
+
+  .pub-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .pub-cover {
+    aspect-ratio: 3 / 4;
+    background: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .pub-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .pub-placeholder {
+    font-family: var(--font-serif);
+    color: var(--color-muted);
+    text-align: center;
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .pub-info {
+    text-align: center;
+  }
+
+  .pub-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .pub-author {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+
+  .pub-year {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+  }
+</style>

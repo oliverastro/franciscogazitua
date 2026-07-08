@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const obras = await getCollection("obras");
+  const categories = [...new Set(obras.map((o) => o.data.category))];
+  const paths = [{ params: { slug: undefined } }];
+  for (const cat of categories) paths.push({ params: { slug: cat } });
+  for (const o of obras) paths.push({ params: { slug: `${o.data.category}/${o.id}` } });
+  return paths;
+}
+
+const { slug } = Astro.params;
+const lang = "en";
+const allObras = await getCollection("obras");
+const categories = [...new Set(allObras.map((o) => o.data.category))];
+const category = slug && categories.includes(slug) ? slug : null;
+const obras = category ? allObras.filter((o) => o.data.category === category) : allObras;
+const pageTitle = category ? category.charAt(0).toUpperCase() + category.slice(1) : "All Works";
+const basePath = "/en";
+---
+
+<BaseLayout title={pageTitle} lang={lang}>
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">{pageTitle}</h1>
+      <p class="section-subtitle">Explore the artist's works</p>
+      <div class="category-tabs">
+        <a href={`${basePath}/obras/`} class={`tab ${!category ? "active" : ""}`}>All</a>
+        {categories.map((cat) => (
+          <a href={`${basePath}/obras/${cat}/`} class={`tab ${category === cat ? "active" : ""}`}>
+            {cat.charAt(0).toUpperCase() + cat.slice(1)}
+          </a>
+        ))}
+      </div>
+      <div class="card-grid">
+        {obras.map((obra) => (
+          <a href={`${basePath}/obras/${obra.data.category}/${obra.id}/`} class="obra-card">
+            <div class="obra-image">
+              {obra.data.image ? (
+                <img src={obra.data.image} alt={obra.data.title} />
+              ) : (
+                <span class="obra-placeholder">{obra.data.category}</span>
+              )}
+            </div>
+            <div class="obra-info">
+              <h3 class="obra-title">{obra.data.title}</h3>
+              {obra.data.year && <span class="obra-year">{obra.data.year}</span>}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .category-tabs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 40px; }
+  .tab { padding: 8px 20px; border: 1px solid var(--color-border); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s; }
+  .tab:hover, .tab.active { border-color: var(--color-text); background: var(--color-text); color: white; }
+  .obra-card { transition: transform 0.3s; }
+  .obra-card:hover { transform: translateY(-4px); }
+  .obra-image { aspect-ratio: 4 / 3; background: var(--color-light); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; overflow: hidden; }
+  .obra-image img { width: 100%; height: 100%; object-fit: cover; }
+  .obra-placeholder { font-family: var(--font-serif); color: var(--color-muted); text-transform: uppercase; }
+  .obra-info { text-align: center; }
+  .obra-title { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+  .obra-year { font-size: 0.8rem; color: var(--color-muted); }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+</style>

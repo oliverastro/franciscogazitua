@@ -1,5 +1,6 @@
 ---
 import t from "../i18n/translations";
+import { getCollection } from "astro:content";
 
 export interface Props {
   lang: "es" | "en";
@@ -8,8 +9,8 @@ export interface Props {
 const { lang } = Astro.props;
 const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-const videos = [1, 2, 3, 4, 5];
+const allVideos = await getCollection("videos");
+const videosList = allVideos.slice(0, 5);
 ---
 
 <section class="section" id="videos">
@@ -18,15 +19,19 @@ const videos = [1, 2, 3, 4, 5];
     <p class="section-subtitle">{txt.videos.subtitulo}</p>
 
     <div class="card-grid">
-      {videos.map((num) => (
-        <div class="video-card">
+      {videosList.map((v) => (
+        <a href={`${base}${lang === "es" ? "" : "/en"}/videos/${v.id}/`} class="video-card">
           <div class="video-thumb">
-            <span class="video-placeholder">VIDEO {num}</span>
+            {v.data.thumbnail ? (
+              <img src={v.data.thumbnail} alt={v.data.title} />
+            ) : (
+              <span class="video-placeholder">{v.data.title}</span>
+            )}
           </div>
           <div class="video-info">
-            <h3 class="video-title">Video {num}</h3>
+            <h3 class="video-title">{v.data.title}</h3>
           </div>
-        </div>
+        </a>
       ))}
     </div>
 
