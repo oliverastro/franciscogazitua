@@ -1,86 +1,72 @@
 ---
-import t from "../i18n/translations";
-import { getCollection } from "astro:content";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
 const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const categories = Object.keys(txt.obras.categorias) as string[];
 
-const allObras = await getCollection("obras");
-const categories = [...new Set(allObras.map((o) => o.data.category))];
+const slugMap: Record<string, string> = {
+  esculturasPiedra: "esculturas-piedra",
+  esculturasAcero: "esculturas-acero",
+  arteEspacio: "arte-espacio",
+  puentes: "puentes",
+  piedras: "piedras",
+  buques: "buques",
+  caballos: "caballos",
+  toros: "toros",
+  naturaleza: "naturaleza",
+  cabezas: "cabezas",
+  grabados: "grabados",
+  figuraHumana: "figura-humana",
+  mobiliario: "mobiliario",
+  instrumentos: "instrumentos",
+  piedraYAcero: "piedra-y-acero",
+  mokomiros: "mokomiros",
+  mesas: "mesas",
+  avesPlumas: "aves-plumas",
+  instrumentosPrimordiales: "instrumentos-primordiales",
+  seriesLanzaderas: "series-lanzaderas",
+  seriesSauces: "series-sauces",
+  seriesLengas: "series-lengas",
+  seriesCaballos: "series-caballos",
+  caupolican: "caupolican",
+  antartica: "antartica",
+};
 ---
 
-<section class="section" id="obras">
-  <div class="container">
-    <h2 class="section-title">{txt.obras.titulo}</h2>
-    <p class="section-subtitle">{txt.obras.subtitulo}</p>
+<section class="section-card">
+  <div class="section-card-inner">
+    <div class="section-header">
+      <h2 class="section-title">{txt.obras.titulo}</h2>
+      <p class="section-subtitle">{txt.obras.subtitulo}</p>
+    </div>
 
-    <div class="category-grid">
-      {categories.map((cat) => {
-        const obra = allObras.find((o) => o.data.category === cat);
-        return (
-          <a href={`${base}${lang === "es" ? "" : "/en"}/obras/${cat}/`} class="category-card">
-            <div class="category-image">
-              {obra?.data.image ? (
-                <img src={obra.data.image} alt={obra.data.title} />
-              ) : (
-                <span class="category-placeholder">{cat}</span>
-              )}
-            </div>
-            <span class="category-label">{txt.obras.categorias[cat]}</span>
-          </a>
-        );
-      })}
+    <div class="card-grid-4">
+      {categories.map((cat) => (
+        <a
+          href={`${base}${lang === "es" ? "" : "/en"}/obras/${slugMap[cat] || cat}/`}
+          class="card"
+        >
+          <div class="card-image">
+            <img
+              src={(txt.obras.images as any)[cat] || ""}
+              alt={(txt.obras.categorias as any)[cat]}
+              loading="lazy"
+            />
+          </div>
+          <div class="card-label">{(txt.obras.categorias as any)[cat]}</div>
+        </a>
+      ))}
     </div>
 
     <div class="section-action">
-      <a href={`${base}${lang === "es" ? "" : "/en"}/obras/`} class="btn">{txt.obras.verTodas}</a>
+      <a href={`${base}${lang === "es" ? "/obras/" : "/en/obras/"}`} class="btn-pill">{txt.obras.verTodas}</a>
     </div>
   </div>
 </section>
-
-<style>
-  .category-card {
-    display: block;
-    text-align: center;
-    transition: transform 0.3s;
-  }
-
-  .category-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .category-image {
-    aspect-ratio: 4 / 3;
-    background: var(--color-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-    overflow: hidden;
-  }
-
-  .category-placeholder {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    color: var(--color-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .category-label {
-    font-size: 0.85rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .section-action {
-    text-align: center;
-    margin-top: 48px;
-  }
-</style>

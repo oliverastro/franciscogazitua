@@ -1,108 +1,223 @@
 ---
-import t from "../i18n/translations";
-import { getCollection } from "astro:content";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
 const txt = t(lang);
-const obras = await getCollection("obras");
-const featured = obras.filter((o) => o.data.featured);
-const heroObra = featured.length > 0 ? featured[0] : obras[0];
+const slides = txt.hero.slides;
 ---
 
-<section class="hero">
-  <div class="hero-overlay">
-    <span class="hero-featured-label">{txt.hero.obraDestacada}</span>
-    <h1 class="hero-title">{heroObra?.data.title || txt.hero.buquesAcero}</h1>
-    <p class="hero-description">{heroObra?.data.description || txt.hero.description}</p>
-    <a href="#obras" class="btn">{txt.hero.verMas}</a>
-  </div>
-  <div class="hero-nav">
-    <button class="hero-arrow" aria-label="Previous">←</button>
-    <button class="hero-arrow" aria-label="Next">→</button>
+<section class="hero-section">
+  <div class="container">
+    <div class="hero" id="hero-carousel">
+      {slides.map((slide: any, i: number) => (
+        <div class={`hero-slide ${i === 0 ? "active" : ""}`} data-index={i}>
+          <div
+            class="hero-slide-bg"
+            style={`background-image: url(${slide.image}); background-position: ${slide.bgPosition || "center"};`}
+          ></div>
+          <div class="hero-slide-gradient"></div>
+          <div class="hero-slide-content">
+            <div class="hero-badge">{txt.hero.badge}</div>
+            <h1 class="hero-title">{slide.title}</h1>
+            <p class="hero-desc">{slide.desc}</p>
+          </div>
+        </div>
+      ))}
+
+      <button class="hero-arrow hero-arrow--prev" id="hero-prev" aria-label="Anterior">←</button>
+      <button class="hero-arrow hero-arrow--next" id="hero-next" aria-label="Siguiente">→</button>
+
+      <div class="hero-dots" id="hero-dots">
+        {slides.map((_: any, i: number) => (
+          <button
+            class={`hero-dot ${i === 0 ? "active" : ""}`}
+            data-index={i}
+            aria-label="Ir a slide"
+          ></button>
+        ))}
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
+  .hero-section {
+    margin-top: 8px;
+    margin-bottom: 64px;
+  }
+
   .hero {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
-    max-height: 900px;
+    border-radius: var(--radius-section);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    background: var(--color-surface);
+    min-height: 460px;
+  }
+
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    min-height: 460px;
     display: flex;
     align-items: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+  }
+
+  .hero-slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-bg);
+  }
+
+  .hero-slide-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(20, 32, 43, 0.72) 0%, rgba(20, 32, 43, 0.45) 45%, rgba(20, 32, 43, 0.05) 75%);
+  }
+
+  .hero-slide-content {
+    position: relative;
+    padding: 64px 140px 64px 100px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    background: var(--color-light);
-    margin-top: var(--header-height);
-    overflow: hidden;
+    gap: 22px;
+    max-width: 560px;
   }
 
-  .hero-overlay {
-    text-align: center;
-    max-width: 700px;
-    padding: 40px 20px;
-    z-index: 1;
-  }
-
-  .hero-featured-label {
-    display: inline-block;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    color: var(--color-muted);
-    margin-bottom: 1.5rem;
+  .hero-badge {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--color-bg);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: var(--color-secondary);
+    white-space: nowrap;
   }
 
   .hero-title {
-    font-family: var(--font-serif);
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.05em;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.15;
+    color: var(--color-surface);
+    max-width: 420px;
   }
 
-  .hero-description {
-    font-size: 1rem;
-    color: var(--color-muted);
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-    max-width: 550px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-nav {
-    position: absolute;
-    bottom: 40px;
-    display: flex;
-    gap: 16px;
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-bg);
+    max-width: 420px;
+    margin: 0;
   }
 
   .hero-arrow {
-    background: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-surface);
     border: 1px solid var(--color-border);
-    width: 48px;
-    height: 48px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--color-text);
+    z-index: 2;
   }
 
-  .hero-arrow:hover {
-    border-color: var(--color-text);
+  .hero-arrow--prev { left: 20px; }
+  .hero-arrow--next { right: 20px; }
+
+  .hero-dots {
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  .hero-dot {
+    height: 8px;
+    width: 8px;
+    border-radius: var(--radius-pill);
+    border: none;
+    background: var(--color-muted);
+    cursor: pointer;
+    padding: 0;
+    transition: width 0.2s, background 0.2s;
+  }
+
+  .hero-dot.active {
+    width: 22px;
     background: var(--color-text);
-    color: var(--color-bg);
   }
 
   @media (max-width: 768px) {
+    .hero-slide-content {
+      padding: 40px 24px;
+    }
+
     .hero-title {
-      font-size: 2.2rem;
+      font-size: 28px;
     }
   }
 </style>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".hero-dot");
+  const total = slides.length;
+
+  function goToSlide(index: number) {
+    slides[currentSlide]?.classList.remove("active");
+    dots[currentSlide]?.classList.remove("active");
+    currentSlide = (index + total) % total;
+    slides[currentSlide]?.classList.add("active");
+    dots[currentSlide]?.classList.add("active");
+  }
+
+  document.getElementById("hero-prev")?.addEventListener("click", () => goToSlide(currentSlide - 1));
+  document.getElementById("hero-next")?.addEventListener("click", () => goToSlide(currentSlide + 1));
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const idx = parseInt(dot.getAttribute("data-index") || "0");
+      goToSlide(idx);
+    });
+  });
+
+  // Auto-advance every 5s
+  setInterval(() => goToSlide(currentSlide + 1), 5000);
+</script>

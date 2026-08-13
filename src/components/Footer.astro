@@ -1,8 +1,9 @@
 ---
-import t from "../i18n/translations";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
@@ -10,20 +11,7 @@ const txt = t(lang);
 ---
 
 <footer class="footer">
-  <div class="container">
-    <p class="copyright">{txt.footer.copyright}</p>
-  </div>
+  <span>{txt.footer.rights}</span>
+  <span class="footer-dot">·</span>
+  <span>{txt.footer.dev}</span>
 </footer>
-
-<style>
-  .footer {
-    border-top: 1px solid var(--color-border);
-    padding: 32px 0;
-    text-align: center;
-  }
-
-  .copyright {
-    font-size: 0.85rem;
-    color: var(--color-muted);
-  }
-</style>

@@ -1,96 +1,46 @@
 ---
-import t from "../i18n/translations";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 import { getCollection } from "astro:content";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
 const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const allPub = await getCollection("publicaciones");
-const pubList = allPub.slice(0, 5);
+const pubList = allPub.filter((p) => p.data.image).slice(0, 4);
 ---
 
-<section class="section" id="publicaciones">
-  <div class="container">
-    <h2 class="section-title">{txt.publicaciones.titulo}</h2>
-    <p class="section-subtitle">{txt.publicaciones.subtitulo}</p>
+<section class="section-card">
+  <div class="section-card-inner">
+    <div class="section-header">
+      <h2 class="section-title">{txt.publicaciones.titulo}</h2>
+      <p class="section-subtitle">{txt.publicaciones.desc}</p>
+    </div>
 
-    <div class="card-grid">
+    <div class="card-grid-4">
       {pubList.map((p) => (
-        <a href={`${base}${lang === "es" ? "" : "/en"}/publicaciones/${p.id}/`} class="pub-card">
-          <div class="pub-cover">
-            {p.data.image ? (
-              <img src={p.data.image} alt={p.data.title} />
-            ) : (
-              <span class="pub-placeholder">{p.data.title}</span>
-            )}
+        <div class="card">
+          <div style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg);">
+            <img
+              src={p.data.image}
+              alt={p.data.title}
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="lazy"
+            />
           </div>
-          <div class="pub-info">
-            <h3 class="pub-title">{p.data.title}</h3>
-            <p class="pub-meta">{p.data.author}</p>
-            <span class="pub-year">{p.data.year}</span>
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <div style="font-size: 13px; font-weight: 600; line-height: 1.35;">{p.data.title}</div>
           </div>
-        </a>
+        </div>
       ))}
     </div>
 
     <div class="section-action">
-      <a href={`${base}${lang === "es" ? "" : "/en"}/publicaciones/`} class="btn">{txt.publicaciones.verTodas}</a>
+      <a href={`${base}${lang === "es" ? "/publicaciones/" : "/en/publicaciones/"}`} class="btn-pill">{txt.publicaciones.verTodas}</a>
     </div>
   </div>
 </section>
-
-<style>
-  .pub-card {
-    transition: transform 0.3s;
-  }
-
-  .pub-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .pub-cover {
-    aspect-ratio: 3 / 4;
-    background: var(--color-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-
-  .pub-placeholder {
-    font-family: var(--font-serif);
-    color: var(--color-muted);
-    font-size: 0.85rem;
-    text-align: center;
-  }
-
-  .pub-info {
-    text-align: center;
-  }
-
-  .pub-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .pub-meta {
-    font-size: 0.8rem;
-    color: var(--color-muted);
-    margin-bottom: 2px;
-  }
-
-  .pub-year {
-    font-size: 0.75rem;
-    color: var(--color-muted);
-  }
-
-  .section-action {
-    text-align: center;
-    margin-top: 48px;
-  }
-</style>

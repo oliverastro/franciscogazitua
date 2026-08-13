@@ -1,0 +1,77 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ContactSection from "@/components/ContactSection.astro";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
+import { getCollection } from "astro:content";
+
+const lang: Lang = "es";
+const txt = t(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const allObras = await getCollection("obras");
+const categories = [...new Set(allObras.map((o) => o.data.category))];
+---
+
+<BaseLayout lang={lang} title="Biografía">
+  <section class="section-card" style="margin-top: 8px;">
+    <div class="section-card-inner">
+      <div class="bio-grid">
+        <div class="bio-image">
+          <img src={`${base}/images/Perfil_FranciscoGazitua_003.webp`} alt="Francisco Gazitúa" />
+        </div>
+        <div class="bio-text-block">
+          <h1 style="font-size: 32px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; color: var(--color-text);">
+            {txt.biografia.titulo}
+          </h1>
+          <p style="font-size: 16px; line-height: 1.8; color: var(--color-text); margin: 0; max-width: 520px;">
+            {txt.biografia.texto}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="section-card-inner">
+      <h2 class="section-title" style="margin-bottom: 40px; text-align: center;">{txt.biografia.cvTitle}</h2>
+      <div class="cv-grid">
+        <a href={txt.biografia.cvEsPdf} target="_blank" rel="noopener noreferrer" class="cv-card">
+          <div class="cv-icon">
+            <div style="width: 22px; height: 26px; border: 2px solid var(--color-text); border-radius: 2px; position: relative;">
+              <div style="position: absolute; top: 5px; left: 3px; right: 3px; height: 2px; background: var(--color-text);"></div>
+              <div style="position: absolute; top: 11px; left: 3px; right: 3px; height: 2px; background: var(--color-text);"></div>
+              <div style="position: absolute; top: 17px; left: 3px; right: 7px; height: 2px; background: var(--color-text);"></div>
+            </div>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text);">{txt.biografia.cvEsLabel}</div>
+          <div style="font-size: 12px; color: var(--color-secondary);">{txt.biografia.cvEsSub}</div>
+        </a>
+        <a href={txt.biografia.cvEnPdf} target="_blank" rel="noopener noreferrer" class="cv-card">
+          <div class="cv-icon">
+            <div style="width: 22px; height: 26px; border: 2px solid var(--color-text); border-radius: 2px; position: relative;">
+              <div style="position: absolute; top: 5px; left: 3px; right: 3px; height: 2px; background: var(--color-text);"></div>
+              <div style="position: absolute; top: 11px; left: 3px; right: 3px; height: 2px; background: var(--color-text);"></div>
+              <div style="position: absolute; top: 17px; left: 3px; right: 7px; height: 2px; background: var(--color-text);"></div>
+            </div>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text);">{txt.biografia.cvEnLabel}</div>
+          <div style="font-size: 12px; color: var(--color-secondary);">{txt.biografia.cvEnSub}</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="section-card-inner">
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 20px; aspect-ratio: 4 / 3;">
+        {txt.biografia.gallery.map((g: any) => (
+          <div style={`grid-column: ${g.colSpan}; grid-row: ${g.rowSpan}; border-radius: 16px; overflow: hidden; background: #D9DEE3;`}>
+            <img src={g.src} alt="" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactSection lang={lang} />
+</BaseLayout>

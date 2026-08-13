@@ -1,9 +1,10 @@
 ---
-import t from "../i18n/translations";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 import { getCollection } from "astro:content";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
@@ -13,70 +14,35 @@ const allVideos = await getCollection("videos");
 const videosList = allVideos.slice(0, 5);
 ---
 
-<section class="section" id="videos">
-  <div class="container">
-    <h2 class="section-title">{txt.videos.titulo}</h2>
-    <p class="section-subtitle">{txt.videos.subtitulo}</p>
+<section class="section-card">
+  <div class="section-card-inner">
+    <div class="section-header">
+      <h2 class="section-title">{txt.videos.titulo}</h2>
+      <p class="section-subtitle">{txt.videos.desc}</p>
+    </div>
 
-    <div class="card-grid">
+    <div class="videos-grid">
       {videosList.map((v) => (
-        <a href={`${base}${lang === "es" ? "" : "/en"}/videos/${v.id}/`} class="video-card">
-          <div class="video-thumb">
+        <div class="card">
+          <a
+            href={`${base}${lang === "es" ? "" : "/en"}/videos/`}
+            class="video-thumb"
+          >
             {v.data.thumbnail ? (
-              <img src={v.data.thumbnail} alt={v.data.title} />
-            ) : (
-              <span class="video-placeholder">{v.data.title}</span>
-            )}
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">{v.data.title}</h3>
-          </div>
-        </a>
+              <img src={v.data.thumbnail} alt={v.data.title} loading="lazy" />
+            ) : null}
+            <div class="video-thumb-overlay"></div>
+            <div class="video-play-btn">
+              <div class="video-play-triangle"></div>
+            </div>
+          </a>
+          <div class="card-label card-label--sm">{v.data.title}</div>
+        </div>
       ))}
     </div>
 
     <div class="section-action">
-      <a href={`${base}${lang === "es" ? "" : "/en"}/videos/`} class="btn">{txt.videos.verTodos}</a>
+      <a href={`${base}${lang === "es" ? "/videos/" : "/en/videos/"}`} class="btn-pill">{txt.videos.verTodos}</a>
     </div>
   </div>
 </section>
-
-<style>
-  .video-card {
-    transition: transform 0.3s;
-  }
-
-  .video-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .video-thumb {
-    aspect-ratio: 16 / 9;
-    background: var(--color-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-  }
-
-  .video-placeholder {
-    font-family: var(--font-serif);
-    color: var(--color-muted);
-    font-size: 0.9rem;
-  }
-
-  .video-info {
-    text-align: center;
-  }
-
-  .video-title {
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-  }
-
-  .section-action {
-    text-align: center;
-    margin-top: 48px;
-  }
-</style>

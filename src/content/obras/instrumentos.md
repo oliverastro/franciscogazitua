@@ -1,0 +1,20 @@
+---
+title: "Instrumentos de Viento"
+category: "instrumentos"
+description: ""
+works:
+  - name: "Instrumento 1"
+    image: "/images/InstrumentosDeViento1.webp"
+  - name: "Instrumento de Viento de Madera"
+    image: "/images/Instrumento-de-Viento-de-Madera.webp"
+  - name: "Instrumento de Viento de Piedra"
+    image: "/images/Instrumento-de-Viento-de-Piedra.webp"
+  - name: "Instrumento de Viento en Acero Forjado Capacho"
+    image: "/images/Instrumento-de-Viento-en-Acero-Forjado-Capacho.webp"
+  - name: "Instrumento de Viento en Acero Forjado I"
+    image: "/images/Instrumento-de-Viento-en-Acero-Forjado-I.webp"
+  - name: "Instrumento de Viento en Acero Forjado II"
+    image: "/images/Instrumento-de-Viento-en-Acero-Forjado-II.webp"
+  - name: "Instrumento de Viento en Acero Forjado III"
+    image: "/images/Instrumento-de-Viento-en-Acero-Forjado-III.webp"
+---

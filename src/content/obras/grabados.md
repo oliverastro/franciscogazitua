@@ -1,0 +1,22 @@
+---
+title: "Grabados Escultóricos"
+category: "grabados"
+description: ""
+works:
+  - name: "Grabado 1"
+    image: "/images/Grabados-Escultoricos-1-400x400-fondo-gris.webp"
+  - name: "Grabado 2"
+    image: "/images/Grabados-Escultoricos-2-400x422.webp"
+  - name: "Grabado 3"
+    image: "/images/Grabados-Escultoricos-3-400x422.webp"
+  - name: "Grabado 4"
+    image: "/images/Grabados-Escultoricos-4-400x422.webp"
+  - name: "Grabado 5"
+    image: "/images/Grabados-Escultoricos-5-400x422.webp"
+  - name: "Grabado 6"
+    image: "/images/Grabados-Escultoricos-6-400x422.webp"
+  - name: "Grabado 7"
+    image: "/images/Grabados-Escultoricos-7-400x422.webp"
+  - name: "Grabado 8"
+    image: "/images/Grabados-Escultoricos-8-400x422.webp"
+---

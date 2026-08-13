@@ -1,0 +1,20 @@
+---
+title: "Cabezas"
+category: "cabezas"
+description: ""
+works:
+  - name: "Cabeza 1985"
+    image: "/images/Cabeza1985.webp"
+  - name: "Cabeza 2002"
+    image: "/images/Cabeza2002.webp"
+  - name: "Cabeza 1-1985"
+    image: "/images/Cabeza-1-1985.webp"
+  - name: "Cabeza 2-1985"
+    image: "/images/Cabeza-2-1985.webp"
+  - name: "Cabeza 1-1986"
+    image: "/images/Cabeza-1-1986.webp"
+  - name: "Cabeza 2-1986"
+    image: "/images/Cabeza-2-1986.webp"
+  - name: "Cabeza 6-1986"
+    image: "/images/Cabeza-6-1986.webp"
+---

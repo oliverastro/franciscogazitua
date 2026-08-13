@@ -1,0 +1,20 @@
+---
+title: "Series · Sauces"
+category: "seriesSauces"
+description: ""
+works:
+  - name: "Serie Sauces 1"
+    image: "/images/Serie-Sauces-1.webp"
+  - name: "Serie Sauces 2"
+    image: "/images/Serie-Sauces-2.webp"
+  - name: "Serie Sauces 3"
+    image: "/images/Serie-Sauces-3.webp"
+  - name: "Serie Sauces 4"
+    image: "/images/Serie-Sauces-4.webp"
+  - name: "Serie Sauces 5"
+    image: "/images/Serie-Sauces-5.webp"
+  - name: "Serie Sauces 6"
+    image: "/images/Serie-Sauces-6.webp"
+  - name: "Serie Sauces 7"
+    image: "/images/Serie-Sauces-7.webp"
+---

@@ -1,0 +1,22 @@
+---
+title: "Esculturas Monumentales en Acero"
+category: "esculturasAcero"
+description: ""
+works:
+  - name: "Esculturas Acero 1"
+    image: "/images/EsculturasAcero-Nueva-1.webp"
+  - name: "Esculturas Acero 2"
+    image: "/images/EsculturasAcero-Nueva-2.webp"
+  - name: "Esculturas Acero 3"
+    image: "/images/EsculturasAcero-Nueva-3.webp"
+  - name: "Esculturas Acero 4"
+    image: "/images/EsculturasAcero-Nueva-4.webp"
+  - name: "Esculturas Acero 5"
+    image: "/images/EsculturasAcero-Nueva-5.webp"
+  - name: "Esculturas Acero 6"
+    image: "/images/EsculturasAcero-Nueva-6.webp"
+  - name: "Esculturas Acero 7"
+    image: "/images/EsculturasAcero-Nueva-7.webp"
+  - name: "Esculturas Acero 8"
+    image: "/images/EsculturasAcero-Nueva-8.webp"
+---

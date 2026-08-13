@@ -1,0 +1,251 @@
+Base de consulta para Claude Design — Sitio Francisco
+Gazitúa
+(v2 — actualizada según wireframe de arquitectura del cliente)
+Esta versión reemplaza la anterior (que se basaba en la arquitectura del sitio actual en
+vivo). Ahora se usa la arquitectura definitiva que definieron con el cliente, con 8 páginas.
+1. Arquitectura del sitio (8 páginas)
+Navegación superior, en este orden:
+1. Inicio
+2. Obras
+3. Series
+4. Publicaciones y Libros
+5. Videos
+6. Biografía
+7. Arte en Espacio Público
+8. Contacto
+Diferencia Obras vs. Series (confirmada con el cliente):
+Obras = catálogo completo de piezas individuales, clasificadas por las 12
+categorías temáticas (Caballos, Buques, Sauces, Figura Humana, etc.). Es la
+taxonomía general del sitio.
+Series = un tipo especial de contenido dentro de ciertas categorías: documenta
+el proceso evolutivo de un mismo modelo/estudio. Ej: en la serie "Desnudo", se
+fotografía un modelo (mujer desnuda) y el artista va esculpiendo variaciones
+
+-- 1 of 10 --
+
+sucesivas de esa figura —a veces 8, 9 o 15 versiones— hasta llegar a la pieza
+final. La serie muestra esa progresión completa, no solo el resultado.
+No todas las 12 categorías tienen una serie asociada. Algunas obras son piezas
+únicas (ej. un puente por encargo público), mientras que otras nacen de un
+proceso iterativo documentado como serie (ej. Figura Humana/Desnudo).
+Implicación de carpetas: dentro de 02-Obras/[categoría]/ , si esa categoría
+tiene una serie, se necesita una subcarpeta serie/ con las fotos numeradas en
+orden de evolución (v1, v2, v3... versión final), además de la ficha de la obra final
+individual.
+2. Página de Inicio — bloques confirmados (según wireframe)
+Bloque 	Contenido 	Enlace "ver más"
+Carrusel hero 	Obra destacada: etiqueta "OBRA DESTACADA", título
+de la obra, descripción breve (2-3 líneas), botón "Ver
+más". 5 slides (dots indican 5 obras destacadas rotando).
+→ ficha de la obra
+en Obras
+Biografía y
+Perfil
+Reseña biográfica corta + foto de Francisco Gazitúa,
+botón "Ver más"
+→ página Biografía
+Series 	Texto "Explora las principales series de obras del
+artista" + 5 tarjetas de serie (ej: Caballos, Buques,
+Sauces, Lengas, Figura Humana), botón "Ver todas las
+series"
+→ página Series
+Publicaciones y
+Libros
+5 tarjetas: título del libro/publicación, autor/editorial,
+año, botón "Ver todas las publicaciones"
+→ página
+Publicaciones y
+Libros
+Contacto 	Bloque final con 4 accesos: Ubicación (mapa), Correo,
+Teléfono, Redes sociales
+→ página Contacto
+
+-- 2 of 10 --
+
+Nota: el wireframe muestra 5 series destacadas en Inicio, pero según lo que ya
+conversamos, la lista completa de series del sitio actual tiene ~12 categorías (Puentes,
+Piedra, Buques, Caballos, Toros, Mobiliario Urbano, Árboles, Naturaleza, Figura
+Humana, Instrumentos de Viento, Cabezas, Grabados). Hay que confirmar cuáles 5 van
+destacadas en Inicio y cuál es el listado completo en la página Series (parece que
+cambiaron Puentes/Toros por Sauces/Lengas — confirmar con el cliente si son series
+nuevas o nomenclatura distinta).
+3. Cómo organizar tu carpeta de contenido (para que calce con las 8 páginas)
+Sugerencia de estructura de carpetas en tu escritorio, espejando la arquitectura:
+
+-- 3 of 10 --
+
+Cada carpeta corresponde 1:1 a lo que le vas subiendo a Claude Design cuando
+construyas esa página.
+4. Estilo visual (confirmado por wireframe, coincide con lo ya definido)
+Fondo blanco/beige muy claro, secciones separadas por bloques con bordes sutiles
+redondeados.
+Gazitua-Sitio/
+├── 01-Inicio/
+│ └── obras-destacadas/ (las 5 del carrusel: imagen + título +
+descripción corta)
+├── 02-Obras/
+│ └── [categoría, ej. Caballos, Buques, Figura-Humana]/
+│ 	├── [nombre-obra]/ (foto detalle, foto contexto, ficha técnica:
+título, año, material, dimensiones, ubicación)
+│ 	└── serie/ (solo si esta categoría tiene serie: fotos numeradas v1,
+v2, v3...versión final)
+├── 03-Series/
+│ └── [nombre-serie, ej. Desnudo]/ (referencia cruzada a la carpeta
+serie/ dentro de Obras, + texto explicando el proceso evolutivo)
+├── 04-Publicaciones-y-Libros/
+│ └── (imagen portada + título + autor/editorial + año, por libro)
+├── 05-Videos/
+│ └── links-youtube.txt (solo lista de URLs, con título/descripción de
+cada video)
+├── 06-Biografia/
+│ └── texto-biografia-larga.docx + foto perfil
+├── 07-Arte-Espacio-Publico/
+│ └── [nombre-obra]/ (fotos in situ, ubicación, institución/mandante)
+└── 08-Contacto/
+└── datos-contacto.txt (ubicación, correo, teléfono, redes)
+
+-- 4 of 10 --
+
+Tipografía sans-serif geométrica para navegación y títulos en mayúscula con
+tracking amplio.
+Acento de color: beige/arena (botones "Ver más", "Ver todas las series", etc.) — no
+negro ni color saturado.
+Placeholders con borde punteado para fotos (mientras no hay imagen final) —
+mantener ese lenguaje visual en el prompt para que Claude Design genere estados
+vacíos consistentes.
+Carrusel con flechas circulares laterales y dots de paginación abajo.
+Tarjetas de Series y Publicaciones: bordes finos, mucho espacio en blanco interior,
+sin sombras marcadas.
+Footer oscuro (negro/carbón) de una sola línea con copyright.
+5. Funcionalidades técnicas a especificar
+Carrusel automático/manual en Inicio (5 slides).
+Navegación por página completa para Obras, Series, Publicaciones, Videos,
+Biografía, Arte en Espacio Público, Contacto.
+Filtro por serie dentro de la página Series y/o Obras.
+Reproducción de videos vía embed de YouTube en página Videos.
+Mapa embebido o link a Google Maps en Contacto.
+Responsive mobile-first.
+Bilingüe ES/EN: pendiente de confirmar (no aparece selector de idioma en el
+wireframe de Inicio — confirmar si va en página o si el sitio será solo en español).
+6. Preguntas pendientes para el cliente
+¿Cuáles de las 12 categorías de Obras tienen serie asociada, y cuáles son piezas
+únicas sin proceso iterativo? (por ahora se confirmaron 5: Caballos, Buques, Sauces,
+Lengas, Figura Humana — pero podrían aparecer más).
+
+-- 5 of 10 --
+
+Para cada serie confirmada: ¿cuántas variaciones tiene (8, 9, 15...) y existe registro
+fotográfico de todo el proceso o solo de algunas etapas?
+¿Bilingüe sí/no, y si es sí, en qué fase?
+¿"Arte en Espacio Público" es una categoría más de Obras/Series o una página con
+lógica propia (obra pública/institucional, distinta de la venta o exhibición en
+galería)?
+¿Videos: son solo links de YouTube embebidos, o también hay texto/curatoría por
+video?
+7. Detalle de las demás páginas (para ir sumando al prompt página por
+página)
+7.1 Obras
+Vista general: grilla de todas las piezas, filtrable por las 12 categorías (Caballos,
+Buques, Sauces, Lengas, Figura Humana, Puentes, Piedra, Toros, Mobiliario
+Urbano, Árboles, Naturaleza, Instrumentos de Viento, Cabezas, Grabados — ajustar
+lista final).
+Tarjeta de obra en la grilla: foto principal, título, categoría, año.
+Ficha individual de obra (al hacer clic): galería de 2-3 fotos (detalle +
+contexto/escala), título, año, material, dimensiones, ubicación/institución,
+categoría, y si pertenece a una serie, link a "Ver proceso completo" → página Series.
+Filtro: por categoría (dropdown o chips), posible orden cronológico.
+7.2 Series
+Vista general: listado de todas las series existentes (no todas las categorías tienen
+una).
+Ficha de serie individual: título de la serie (ej. "Desnudo"), texto explicando el
+proceso creativo, y luego las variaciones en orden cronológico (v1 → v2 → ... →
+versión final), cada una con foto y breve nota de qué cambió respecto a la anterior.
+
+-- 6 of 10 --
+
+Formato sugerido: scroll horizontal o timeline vertical mostrando la evolución paso
+a paso — refuerza visualmente el concepto de "proceso" que describiste.
+7.3 Publicaciones y Libros
+Vista general: grilla de todas las publicaciones (la portada de Inicio muestra 5, acá
+va el listado completo).
+Tarjeta: portada/imagen del libro, título, autor/editorial, año.
+Ficha individual (opcional): sinopsis breve, dónde conseguirlo o link de
+descarga/PDF si aplica.
+7.4 Videos
+Formato: grilla de miniaturas (thumbnail de YouTube automático) con título y
+breve descripción de cada video.
+Al hacer clic, embed del video de YouTube reproducible dentro del sitio (no redirige
+a YouTube).
+Contenido a entregar: solo el link de cada video + título + 1-2 líneas de contexto (no
+hace falta subir archivo de video).
+7.5 Biografía
+Estructura: foto de perfil grande, texto biográfico extendido (trayectoria,
+formación, enfoque artístico), y cronología de hitos/premios/exposiciones (formato
+línea de tiempo o lista por año).
+Tono editorial, más texto que el resto del sitio — es la página con más lectura
+corrida.
+7.6 Arte en Espacio Público
+Diferencia con Obras: esta página agrupa específicamente las piezas instaladas en
+espacio público/institucional (puentes, mobiliario urbano, esculturas
+
+-- 7 of 10 --
+
+monumentales por encargo), con foco en el contexto urbano y el mandante.
+Ficha por pieza: foto in situ (obra + entorno/ciudad), ubicación exacta (mapa
+opcional), institución/mandante que la encargó, año de instalación, breve reseña
+del contexto/encargo.
+Confirmar si estas piezas también aparecen duplicadas en Obras por categoría, o si
+viven solo acá.
+7.7 Contacto
+Estructura: los 4 bloques ya vistos en Inicio (Ubicación con mapa, Correo,
+Teléfono, Redes sociales), más un formulario de contacto (nombre, email, mensaje)
+para consultas de curadores/instituciones.
+Sin carrito ni proceso de venta — es solo generación de consulta/contacto.
+
+-- 8 of 10 --
+
+Contexto: Sitio web portfolio del escultor chileno Francisco Gazitúa.
+Arquitectura de
+8 páginas: Inicio, Obras, Series, Publicaciones y Libros, Videos,
+Biografía, Arte en
+Espacio Público, Contacto.
+Estilo visual: minimalista tipo galería, fondo blanco/beige muy claro,
+secciones en
+bloques con bordes sutiles redondeados y mucho espacio en blanco.
+Tipografía sans-serif
+geométrica, títulos en mayúscula con tracking amplio. Acento en tono
+beige/arena para
+botones (no colores saturados). Footer oscuro de una línea con copyright.
+Carrusel con
+flechas circulares y dots de paginación.
+Página de Inicio (bloques en este orden):
+1. Header con logo "FRANCISCO GAZITÚA" y navegación de las 8 páginas.
+2. Carrusel hero de 5 obras destacadas: etiqueta "OBRA DESTACADA", título,
+descripción
+breve, botón "Ver más" → ficha de obra.
+3. Bloque "Biografía y Perfil": reseña corta + foto, botón "Ver más" →
+página Biografía.
+4. Bloque "Series": 5 tarjetas de series destacadas [nombrar cuáles], botón
+"Ver todas las series" → página Series.
+5. Bloque "Publicaciones y Libros": 5 tarjetas (título, autor/editorial,
+año), botón
+"Ver todas las publicaciones" → página Publicaciones y Libros.
+6. Bloque "Contacto": 4 accesos (Ubicación/mapa, Correo, Teléfono, Redes
+sociales).
+[Continuar con el detalle de cada una de las otras 7 páginas una vez que
+Inicio esté
+
+-- 9 of 10 --
+
+aprobado, en mensajes separados, para no saturar el primer prompt.]
+Contenido que voy a ir subiendo por página: fotografías de obra en alta
+resolución,
+fichas técnicas, textos de biografía, links de YouTube para Videos, listado
+de
+publicaciones y datos de contacto reales.
+Genera primero el wireframe/estructura de la página de Inicio siguiendo
+exactamente
+el orden de bloques descrito arriba antes de avanzar a las demás páginas.
+
+-- 10 of 10 --
+

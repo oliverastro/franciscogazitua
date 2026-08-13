@@ -1,0 +1,137 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ContactSection from "@/components/ContactSection.astro";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const obras = await getCollection("obras");
+  return obras.map((entry) => ({
+    params: { category: entry.id },
+  }));
+}
+
+const lang: Lang = "en";
+const txt = t(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const { category } = Astro.params;
+
+const entry = await getEntry("obras", category!);
+if (!entry) {
+  return Astro.redirect(`${base}/en/obras/`);
+}
+
+const catTitle = (txt.obras.categorias as any)[entry.data.category] || entry.data.title;
+const catText = (txt.catTexts as any)[entry.data.category] || "";
+const works = entry.data.works || [];
+---
+
+<BaseLayout lang={lang} title={catTitle}>
+  <section class="section-card" style="margin-bottom: 0;">
+    <div class="breadcrumb">
+      <a href={`${base}/en/obras/`}>{txt.common.volverObras}</a>
+    </div>
+  </section>
+
+  <section class="section-card">
+    <div class="section-card-inner">
+      <div class="section-header">
+        <h1 class="section-title section-title--page">{catTitle}</h1>
+      </div>
+
+      {catText && (
+        <div style="columns: 2; column-gap: 40px; text-align: left; max-width: 1000px; margin: 0 auto 40px;">
+          <p class="section-text" style="white-space: pre-line;">{catText}</p>
+        </div>
+      )}
+
+      <div class="gallery-grid" id="gallery">
+        {works.map((w: any, i: number) => (
+          <div class="gallery-item" data-index={i}>
+            <div
+              class="gallery-item-image"
+              style={`background-image: url("${encodeURI(w.image)}");`}
+            ></div>
+            <div class="gallery-item-name">{w.name}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div id="lightbox" style="display: none;">
+    <div class="lightbox-overlay" id="lightbox-overlay">
+      <div class="lightbox-content">
+        <div class="lightbox-image" id="lightbox-image"></div>
+        <div class="lightbox-info">
+          <span id="lightbox-name"></span>
+          <span id="lightbox-counter"></span>
+        </div>
+      </div>
+      <button class="lightbox-nav lightbox-nav--prev" id="lightbox-prev">←</button>
+      <button class="lightbox-nav lightbox-nav--next" id="lightbox-next">→</button>
+      <button class="lightbox-close" id="lightbox-close">×</button>
+    </div>
+  </div>
+
+  <ContactSection lang={lang} />
+</BaseLayout>
+
+<script define:vars={{ works }}>
+  const worksData = works;
+  let currentIndex = null;
+
+  function openLightbox(i) {
+    currentIndex = i;
+    updateLightbox();
+    document.getElementById("lightbox").style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    currentIndex = null;
+    document.getElementById("lightbox").style.display = "none";
+    document.body.style.overflow = "";
+  }
+
+  function updateLightbox() {
+    if (currentIndex === null) return;
+    const w = worksData[currentIndex];
+    document.getElementById("lightbox-image").style.backgroundImage = `url("${encodeURI(w.image)}")`;
+    document.getElementById("lightbox-name").textContent = w.name;
+    document.getElementById("lightbox-counter").textContent = `${currentIndex + 1}/${worksData.length}`;
+  }
+
+  function prevImage() {
+    if (currentIndex === null) return;
+    currentIndex = (currentIndex - 1 + worksData.length) % worksData.length;
+    updateLightbox();
+  }
+
+  function nextImage() {
+    if (currentIndex === null) return;
+    currentIndex = (currentIndex + 1) % worksData.length;
+    updateLightbox();
+  }
+
+  document.querySelectorAll(".gallery-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      openLightbox(parseInt(item.dataset.index));
+    });
+  });
+
+  document.getElementById("lightbox-close")?.addEventListener("click", closeLightbox);
+  document.getElementById("lightbox-overlay")?.addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) closeLightbox();
+  });
+  document.getElementById("lightbox-prev")?.addEventListener("click", (e) => { e.stopPropagation(); prevImage(); });
+  document.getElementById("lightbox-next")?.addEventListener("click", (e) => { e.stopPropagation(); nextImage(); });
+
+  document.addEventListener("keydown", (e) => {
+    if (currentIndex === null) return;
+    if (e.key === "ArrowRight") nextImage();
+    else if (e.key === "ArrowLeft") prevImage();
+    else if (e.key === "Escape") closeLightbox();
+  });
+</script>

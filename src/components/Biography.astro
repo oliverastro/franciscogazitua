@@ -1,8 +1,9 @@
 ---
-import t from "../i18n/translations";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
@@ -10,32 +11,23 @@ const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<section class="section" id="biografia">
-  <div class="container">
-    <h2 class="section-title">{txt.biografia.titulo}</h2>
-    <div class="bio-content">
-      <p class="bio-text">{txt.biografia.texto}</p>
-      <div class="bio-action">
-        <a href={`${base}${lang === "es" ? "/biografia" : "/en/biografia"}`} class="btn">{txt.biografia.verMas}</a>
+<section class="section-card">
+  <div class="section-card-inner">
+    <div class="bio-grid">
+      <div class="bio-image">
+        <img src="/images/Perfil_FranciscoGazitua_003.webp" alt="Francisco Gazitúa" />
+      </div>
+      <div class="bio-text-block">
+        <h2 style="font-size: 28px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); margin: 0;">
+          {txt.biografia.titulo}
+        </h2>
+        <p style="font-size: 16px; line-height: 1.8; color: var(--color-text); margin: 0; max-width: 520px;">
+          {txt.biografia.texto}
+        </p>
+        <a href={`${base}${lang === "es" ? "/biografia/" : "/en/biografia/"}`} class="btn-pill" style="align-self: flex-start; margin-top: 8px;">
+          {txt.biografia.verMas}
+        </a>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .bio-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .bio-text {
-    font-size: 1.05rem;
-    line-height: 1.9;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .bio-action {
-    text-align: center;
-  }
-</style>

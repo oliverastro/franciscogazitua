@@ -3,7 +3,6 @@
     "inicio": "Home",
     "obras": "Works",
     "series": "Series",
-    "libros": "Books",
     "videos": "Videos",
     "publicaciones": "Publications",
     "biografia": "Biography",
@@ -11,73 +10,178 @@
     "contacto": "Contact"
   },
   "hero": {
-    "obraDestacada": "FEATURED WORK",
-    "buquesAcero": "STEEL SHIPS",
-    "description": "Sculptures of the South Pacific and Cape Horn, inspired by the epic of great ships, navigators and writers under the Southern Cross.",
-    "verMas": "SEE MORE"
+    "badge": "Featured Work",
+    "slides": [
+      {
+        "title": "Rueda de Larmahue",
+        "desc": "Museo Interactivo Mirador (MIM)",
+        "image": "/images/RuedaDeLarmahueHero.webp"
+      },
+      {
+        "title": "Bridge of Light",
+        "desc": "Toronto, Canada",
+        "image": "/images/esmeralda_blanca_puente_1920x720.webp"
+      },
+      {
+        "title": "Circumnavigation",
+        "desc": "Punta Arenas, Chile",
+        "image": "/images/Circunnavegacion-PuntaArenas.webp",
+        "bgPosition": "68% center"
+      },
+      {
+        "title": "Esmeralda II",
+        "desc": "A steel sailboat suspended in the heart of the city, a tribute to maritime spirit amid the urban landscape.",
+        "image": "/images/esmeralda_blanca_hero.webp"
+      }
+    ]
+  },
+  "common": {
+    "volverObras": "← Back to Home",
+    "volverSeries": "← Back to Series"
   },
   "biografia": {
-    "titulo": "BIOGRAPHY",
-    "texto": "Chilean sculptor and National Prize of Plastic Arts, recognized for a career that unites the Andean tradition with monumental public sculpture. Trained in Chile and England, he has placed more than 50 works in urban spaces around the world, forging in stone, steel and wood a profound poetic reflection on matter and territory.",
-    "verMas": "SEE MORE"
+    "titulo": "Biography",
+    "texto": "Chilean sculptor and National Prize for Visual Arts laureate, recognized for a body of work that bridges Andean tradition and monumental public sculpture. Trained in Chile and England, he has installed more than 50 works in urban spaces around the world, forging in stone, steel, and wood a profound poetic reflection on matter and territory.",
+    "verMas": "Learn more",
+    "cvTitle": "Curriculum",
+    "cvEsLabel": "Currículum (Español)",
+    "cvEsSub": "Descargar PDF",
+    "cvEnLabel": "Resume (English)",
+    "cvEnSub": "Download PDF",
+    "cvEsPdf": "/images/CV-ESP-FranciscoGazitua2026_compressed.pdf",
+    "cvEnPdf": "/images/CV-ENG-FranciscoGazitua2026_compressed.pdf",
+    "photoPlaceholder": "Photo of Francisco",
+    "gallery": [
+      { "id": "bio-gallery-1", "src": "/images/escultura_mecanica_en_taller_industrial.webp", "colSpan": "span 2", "rowSpan": "span 2" },
+      { "id": "bio-gallery-2", "src": "/images/a_close_up_outdoor_portrait_scene_in_natural_light.webp", "colSpan": "span 1", "rowSpan": "span 1" },
+      { "id": "bio-gallery-3", "src": "/images/ChatGPT-Image-27-jul-2026-09-38-45-pm.webp", "colSpan": "span 1", "rowSpan": "span 1" },
+      { "id": "bio-gallery-4", "src": "/images/a_close_well_lit_outdoor_woodland_workshop_scene.webp", "colSpan": "span 1", "rowSpan": "span 1" },
+      { "id": "bio-gallery-5", "src": "/images/trabajo_de_taller_en_detalle.webp", "colSpan": "span 1", "rowSpan": "span 1" }
+    ]
   },
   "obras": {
-    "titulo": "WORKS",
+    "titulo": "Works",
+    "desc": "On this page you can explore the diversity of the artist's works, organized by category.",
     "subtitulo": "Explore the artist's works by category",
+    "verTodas": "View all works",
     "categorias": {
-      "puentes": "BRIDGES",
-      "piedra": "STONE",
-      "buques": "SHIPS",
-      "caballos": "HORSES",
-      "toros": "BULLS"
+      "esculturasPiedra": "Monumental Stone Sculptures",
+      "esculturasAcero": "Monumental Steel Sculptures",
+      "arteEspacio": "Public Art",
+      "puentes": "Bridges",
+      "piedras": "Stones",
+      "buques": "Ships",
+      "caballos": "Horses",
+      "toros": "Bulls",
+      "naturaleza": "Nature",
+      "cabezas": "Heads",
+      "grabados": "Sculptural Engravings",
+      "figuraHumana": "Human Figure",
+      "mobiliario": "Urban Furniture",
+      "instrumentos": "Wind Instruments",
+      "piedraYAcero": "Stone and Steel",
+      "mokomiros": "Mokomiros",
+      "mesas": "Tables",
+      "avesPlumas": "Birds and Feathers",
+      "instrumentosPrimordiales": "Primordial Instruments",
+      "seriesLanzaderas": "Series · Shuttles",
+      "seriesSauces": "Series · Willows",
+      "seriesLengas": "Series · Lengas",
+      "caupolican": "Caupolicán",
+      "antartica": "Antarctica"
     },
-    "verTodas": "SEE ALL WORKS"
+    "images": {
+      "esculturasPiedra": "/images/CordilleraDeLosAndesAnderna.webp",
+      "esculturasAcero": "/images/EsculturasAcero-Nueva-1.webp",
+      "arteEspacio": "/images/RuedaDeLarmahue.webp",
+      "puentes": "/images/puente-de-luz-toronto-3.webp",
+      "piedras": "/images/Piedras-Nueva-2.webp",
+      "buques": "/images/Buques-Nueva-2.webp",
+      "caballos": "/images/Caballos-Nueva-1.webp",
+      "toros": "/images/Toro-3.webp",
+      "naturaleza": "/images/Naturaleza-Nueva-2.webp",
+      "cabezas": "/images/Cabezas1.webp",
+      "grabados": "/images/Grabados1.webp",
+      "figuraHumana": "/images/FiguraHumana1.webp",
+      "mobiliario": "/images/MobiliarioUrbano1.webp",
+      "instrumentos": "/images/InstrumentosDeViento1.webp",
+      "piedraYAcero": "/images/PiedraYAcero-1.webp",
+      "mokomiros": "/images/Mokomiros-1.webp",
+      "mesas": "/images/Mesas-1.webp",
+      "avesPlumas": "/images/AvesYPlumas-6.webp",
+      "instrumentosPrimordiales": "/images/IMG_5633.webp",
+      "seriesLanzaderas": "/images/Serie-Lanzaderas-1.webp",
+      "seriesSauces": "/images/Serie-Sauces-1.webp",
+      "seriesLengas": "/images/Lenga-de-Selknam.webp",
+      "caupolican": "/images/Caupolican9.webp",
+      "antartica": "/images/Antartica-1.webp"
+    }
   },
   "series": {
-    "titulo": "SERIES",
+    "titulo": "Series",
     "subtitulo": "Explore the artist's main series of works",
-    "items": ["Horses", "Ships", "Willows", "Lengas", "Human Figure"],
-    "verTodas": "SEE ALL SERIES"
-  },
-  "libros": {
-    "titulo": "BOOKS",
-    "subtitulo": "Books published about the artist's career and work",
-    "lista": [
-      { "titulo": "Gazitúa: Complete Works", "autor": "Ediciones Origo", "anio": "2019" },
-      { "titulo": "The Weight of Matter", "autor": "A. Rojas / Hueders", "anio": "2015" },
-      { "titulo": "Sculpture and Territory", "autor": "M. Fernández / RIL Editores", "anio": "2011" },
-      { "titulo": "Horses and Ships", "autor": "Ediciones Origo", "anio": "2007" },
-      { "titulo": "30 Year Retrospective", "autor": "Museum of Fine Arts", "anio": "2001" }
-    ],
-    "verTodos": "SEE ALL BOOKS"
+    "verTodas": "View all series",
+    "items": [
+      { "key": "seriesCaballos", "name": "Horses", "image": "/images/Serie-Caballos-de-Acero-1.webp" },
+      { "key": "seriesLanzaderas", "name": "Shuttles", "image": "/images/Serie-Lanzaderas-1.webp" },
+      { "key": "seriesSauces", "name": "Willows", "image": "/images/Serie-Sauces-1.webp" },
+      { "key": "seriesLengas", "name": "Lengas", "image": "/images/Lenga-de-Selknam.webp" }
+    ]
   },
   "videos": {
-    "titulo": "VIDEOS",
-    "subtitulo": "Videos about the artist and his work",
-    "verTodos": "SEE ALL VIDEOS"
+    "titulo": "Videos",
+    "desc": "Videos of the artist and his work.",
+    "verTodos": "View all videos"
   },
   "publicaciones": {
-    "titulo": "PUBLICATIONS",
-    "subtitulo": "Articles, catalogs and publications about the artist's work",
-    "verTodas": "SEE ALL PUBLICATIONS"
+    "titulo": "Publications",
+    "desc": "Articles, catalogs, and publications about the artist's work.",
+    "download": "Download PDF",
+    "verTodas": "View all publications"
   },
-  "artePublico": {
-    "titulo": "PUBLIC ART",
-    "subtitulo": "Interventions and works by the artist in public spaces",
-    "verMas": "SEE MORE"
+  "libros": {
+    "titulo": "Books",
+    "desc": "Books about the artist's career and work."
   },
   "contacto": {
-    "titulo": "CONTACT",
+    "titulo": "Contact",
     "ubicacion": "Location",
+    "ubicacionSub": "P.O. Box: 370, Pirque, Metropolitan Region, Chile",
     "correo": "Email",
+    "correoSub": "gazituafrancisco@gmail.com",
     "telefono": "Phone",
+    "telefonoSub": "+56 99 323 4090",
     "redes": "Social Media",
-    "verMapa": "View map",
-    "email": "contacto@gazitua.cl",
-    "phone": "+56 9 0000 0000",
-    "social": "@franciscogazitua"
+    "redesSub": "https://www.instagram.com/francisco_gazitua_mrss"
   },
   "footer": {
-    "copyright": "© 2026 Francisco Gazitúa. All rights reserved."
+    "rights": "© 2026 Francisco Gazitúa. All rights reserved.",
+    "dev": "Developed by OmniWeb"
+  },
+  "catTexts": {
+    "esculturasPiedra": "To be defined.",
+    "esculturasAcero": "To be defined.",
+    "arteEspacio": "ART IN PUBLIC SPACE\nAll of my small-format sculpture, all of my sculptural research, is preparation for my large-format sculptures.\nSculptural language only works in contact with people, in the streets or parks of cities or in the landscape; it is born and ages with cities, slowly taking hold in the consciousness of ordinary people.\nMy sculpture is made for them. Sculpture is in the street, or it is nowhere.",
+    "puentes": "BRIDGES FROM SCULPTURE\nIn the project's generative stage I worked as a sculptor, studying in depth the internal structures, the skeletons of well-known references, for example:\nA horse is a bridge that walks on four supports on the earth. A ship is a bridge face up that moves over the water. A scale is a bridge in balance. An arch of stones is a bridge that exists by its own weight.\nA swing bridge has a thousand entrances and a thousand exits and moves on a central axis. A fish is a bridge of elastic structure whose supporting pillars in the water change constantly. A drawbridge is a door that closes by rising.\nA feather is a bridge between the wind and flight. An oar is a bridge between the arm and the water. The rainbow is a bridge of light.",
+    "piedras": "STONES This collection of granite sculptures, whose original stones were all quarried from my quarry in Pirque, takes as its content its place of origin, the Andes mountain range.\nLike the Cordillera, I show a great stone wall on the outside, but I carve its ravines, rivers, and inner valleys within.",
+    "buques": "SHIPS\nThe steel sculptural ships in this collection relate to Chile's maritime territory, Valparaíso and the South Pacific, Cape Horn, Antarctica; they also connect to Lord Cochrane (Southern Cross), Shackleton (Endurance and the James Caird), Arturo Prat (La Esmeralda), and to Verne, Salgari, Gabriela Mistral, Pablo Neruda, D. H. Lawrence, and Melville: the Nautilus, El Rayo, \"Daughter of the Will of the Sea,\" the Pequod, \"The Ship of Death,\" and, with Ferdinand Magellan, the Nao Victoria. All of these ships sailed by night beneath the Southern Cross.",
+    "caballos": "The Horses in this collection, made of forged steel, take as their reference the Chilean Andean horse breed: criollo-andino, adapted to the trails and altitude of the Cordillera over 500 years. These sculptures are conceived as wind instruments, meant to sound in the mountain heights and interior valleys.",
+    "toros": "BULLS\nThe Bulls in this collection show four perspectives on a common theme, with forging, modeling, casting and welding techniques.",
+    "naturaleza": "SCULPTURES IN NATURE\nThese sculptural constructions in nature are small, ephemeral marks on the land, in the mountains, or on the frozen sea of Antarctica, that will last only as long as my passing footprints on earth.",
+    "cabezas": "HEADS\nMy first sculpture was a head, a portrait. I have developed this theme for nearly 40 years and always return to it as the first source, the origin. I also return to modeling, the final essence of sculpture.",
+    "grabados": "SCULPTURAL ENGRAVINGS\nA technique for fabricating dies in special steel, later stamped with a drop hammer onto a red steel support.",
+    "figuraHumana": "HUMAN FIGURE\nA comparative study of image and sculptural materiality, using the human figure as its subject matter.\nReference text, Publications «Image and Materiality».",
+    "mobiliario": "URBAN FURNITURE\nTables, stairways, doors, planters, lamps — since ancient times these have been elements crafted by sculptors as an integral complement to architecture. To this long history I add my work in stone and steel, seeking to humanize public space.",
+    "instrumentos": "WIND INSTRUMENTS\nIn these sculptures I seek the sculptural equivalent of music. Their reference points are the great rocks of the Andes and the mountain wind that makes them sound constantly.",
+    "piedraYAcero": "This collection explores the dialogue between stone and forged steel, two materials of opposite character —one unchanging, the other flexible— joined in a single work.",
+    "mokomiros": "To be defined.",
+    "mesas": "To be defined.",
+    "avesPlumas": "BIRDS AND FEATHERS\nInspired by a classic passage of English literature, Bulwer-Lytton's \"The pen is mightier than the sword\"\nA poetic reminder of the transformative power of flight\nIts power to inspire and persuade, transforming societies toward truth, goodness and beauty",
+    "instrumentosPrimordiales": "PRIMORDIAL INSTRUMENTS: Needle, comb, table, sculpture, pencil, tongs, ladder….\nObjects, the poetic marrow of language, beings created in a dialectical association between matter and human need, until they are made to appear, with all our intelligence and the lightness of our hands, and at last left «charged» with ourselves, like sacred letters.",
+    "seriesLanzaderas": "The Shuttles series explores lightweight structures in wood and steel, drawn from the gesture of the loom and of flight.",
+    "seriesSauces": "WILLOWS.\nThe sculptures in this collection are the fruit of research into the qualities and elasticity of steel, based on the real flexibility and ductility of eight willows on the canals of Pirque (Chile).",
+    "seriesLengas": "LENGAS\nThe content of this sculpture series is the «Flag Lengas» of southern Patagonia. They grow horizontally, almost pressed to the ground, a functional shape for withstanding a relentless wind.",
+    "caupolican": "CAUPOLICÁN\nIn this series I worked as the interpreter of a score written by the sculptor Nicanor Plaza.\n«At the bottom of the well of history, like a more sonorous and brilliant water, shine the eyes of dead poets». «The thread of sculpture is never cut», and celebrating the contributions of the post-statuary period I affirm that today's sculpture, a hundred years later, would not exist without the work and teaching of the academic masters. It was a journey into the «well of history» in search of the specific wisdom, manual and intellectual, of sculptural language.",
+    "antartica": "To be defined."
   }
 }

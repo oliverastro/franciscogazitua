@@ -1,19 +1,18 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
+const worksSchema = z.object({
+  name: z.string(),
+  image: z.string(),
+});
+
 const obras = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/obras" }),
   schema: z.object({
     title: z.string(),
-    category: z.enum(["puentes", "piedra", "buques", "caballos", "toros"]),
-    year: z.number().optional(),
-    materials: z.string().optional(),
-    location: z.string().optional(),
-    dimensions: z.string().optional(),
-    description: z.string(),
-    image: z.string().optional(),
-    gallery: z.array(z.string()).optional(),
-    featured: z.boolean().optional().default(false),
+    category: z.string(),
+    description: z.string().optional().default(""),
+    works: z.array(worksSchema).optional().default([]),
   }),
 });
 
@@ -46,9 +45,9 @@ const videos = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/videos" }),
   schema: z.object({
     title: z.string(),
-    url: z.string(),
-    description: z.string().optional(),
-    thumbnail: z.string().optional(),
+    url: z.string().optional().default(""),
+    description: z.string().optional().default(""),
+    thumbnail: z.string().optional().default(""),
     duration: z.string().optional(),
     date: z.string().optional(),
   }),
@@ -58,9 +57,9 @@ const publicaciones = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/publicaciones" }),
   schema: z.object({
     title: z.string(),
-    author: z.string(),
-    year: z.number(),
-    publication_type: z.enum(["articulo", "catalogo", "critica", "otro"]),
+    author: z.string().optional().default("Libro"),
+    year: z.number().optional().default(0),
+    publication_type: z.enum(["articulo", "catalogo", "critica", "otro"]).optional().default("catalogo"),
     publisher: z.string().optional(),
     description: z.string().optional(),
     image: z.string().optional(),

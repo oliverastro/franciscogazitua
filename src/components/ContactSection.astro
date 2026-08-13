@@ -1,114 +1,63 @@
 ---
-import t from "../i18n/translations";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
 const txt = t(lang);
 ---
 
-<section class="section" id="contacto">
-  <div class="container">
-    <h2 class="section-title">{txt.contacto.titulo}</h2>
+<section class="section-card">
+  <div class="section-card-inner">
+    <h2 class="section-title" style="margin-bottom: 40px; text-align: center;">{txt.contacto.titulo}</h2>
 
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-item">
-          <h3 class="contact-label">{txt.contacto.ubicacion}</h3>
-          <p class="contact-value">
-            <a href="https://maps.google.com" target="_blank" rel="noopener">
-              {txt.contacto.verMapa}
-            </a>
-          </p>
+    <div class="card-grid-4">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3F5A73" stroke-width="1.8">
+            <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path>
+            <circle cx="12" cy="10" r="2.5"></circle>
+          </svg>
         </div>
-
-        <div class="contact-item">
-          <h3 class="contact-label">{txt.contacto.correo}</h3>
-          <p class="contact-value">
-            <a href="mailto:{txt.contacto.email}">{txt.contacto.email}</a>
-          </p>
-        </div>
-
-        <div class="contact-item">
-          <h3 class="contact-label">{txt.contacto.telefono}</h3>
-          <p class="contact-value">
-            <a href="tel:{txt.contacto.phone.replace(/[^0-9+]/g, '')}">{txt.contacto.phone}</a>
-          </p>
-        </div>
-
-        <div class="contact-item">
-          <h3 class="contact-label">{txt.contacto.redes}</h3>
-          <p class="contact-value">{txt.contacto.social}</p>
-        </div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;">{txt.contacto.ubicacion}</div>
+        <div style="font-size: 11.5px; color: var(--color-secondary); overflow-wrap: anywhere;">{txt.contacto.ubicacionSub}</div>
       </div>
 
-      <div class="contact-map">
-        <div class="map-placeholder">
-          <span>Mapa</span>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3F5A73" stroke-width="1.8">
+            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+            <path d="M3 6l9 7 9-7"></path>
+          </svg>
         </div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;">{txt.contacto.correo}</div>
+        <a href={`mailto:${txt.contacto.correoSub}`} style="font-size: 11.5px; color: var(--color-secondary); overflow-wrap: anywhere;">{txt.contacto.correoSub}</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3F5A73" stroke-width="1.8">
+            <path d="M6.6 10.8a15.9 15.9 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.4c1.2.4 2.6.6 4 .6a1.5 1.5 0 0 1 1.5 1.5v3.4a1.5 1.5 0 0 1-1.6 1.5A17.9 17.9 0 0 1 3.4 4.6 1.5 1.5 0 0 1 4.9 3h3.4A1.5 1.5 0 0 1 9.8 4.5c0 1.4.2 2.8.6 4a1.5 1.5 0 0 1-.4 1.5z"></path>
+          </svg>
+        </div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;">{txt.contacto.telefono}</div>
+        <a href={`tel:${txt.contacto.telefonoSub.replace(/\s/g, "")}`} style="font-size: 11.5px; color: var(--color-secondary); overflow-wrap: anywhere;">{txt.contacto.telefonoSub}</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3F5A73" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.2" cy="6.8" r="1" fill="#3F5A73" stroke="none"></circle>
+          </svg>
+        </div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;">{txt.contacto.redes}</div>
+        <a href={txt.contacto.redesSub} target="_blank" rel="noopener noreferrer" style="font-size: 11.5px; color: var(--color-secondary); overflow-wrap: anywhere;">{txt.contacto.redesSub}</a>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: start;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .contact-label {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--color-muted);
-    margin-bottom: 4px;
-  }
-
-  .contact-value {
-    font-size: 1rem;
-  }
-
-  .contact-value a {
-    transition: color 0.2s;
-  }
-
-  .contact-value a:hover {
-    color: var(--color-accent);
-  }
-
-  .contact-map {
-    min-height: 300px;
-  }
-
-  .map-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-    background: var(--color-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-muted);
-    font-family: var(--font-serif);
-  }
-
-  @media (max-width: 768px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
-  }
-</style>

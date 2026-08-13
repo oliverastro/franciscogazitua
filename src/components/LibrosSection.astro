@@ -1,9 +1,10 @@
 ---
-import t from "../i18n/translations";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 import { getCollection } from "astro:content";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
@@ -13,85 +14,30 @@ const allLibros = await getCollection("libros");
 const librosList = allLibros.slice(0, 5);
 ---
 
-<section class="section" id="libros">
-  <div class="container">
-    <h2 class="section-title">{txt.libros.titulo}</h2>
-    <p class="section-subtitle">{txt.libros.subtitulo}</p>
-
-    <div class="card-grid">
-      {librosList.map((l) => (
-        <a href={`${base}${lang === "es" ? "" : "/en"}/libros/${l.id}/`} class="book-card">
-          <div class="book-cover">
-            {l.data.image ? (
-              <img src={l.data.image} alt={l.data.title} />
-            ) : (
-              <span class="book-placeholder">{l.data.title}</span>
-            )}
-          </div>
-          <div class="book-info">
-            <h3 class="book-title">{l.data.title}</h3>
-            <p class="book-author">{l.data.author}</p>
-            <span class="book-year">{l.data.year}</span>
-          </div>
-        </a>
-      ))}
+<section class="section-card">
+  <div class="section-card-inner">
+    <div class="section-header">
+      <h2 class="section-title">{txt.libros.titulo}</h2>
+      <p class="section-subtitle">{txt.libros.desc}</p>
     </div>
 
-    <div class="section-action">
-      <a href={`${base}${lang === "es" ? "" : "/en"}/libros/`} class="btn">{txt.libros.verTodos}</a>
+    <div class="card-grid-4">
+      {librosList.map((l) => (
+        <div class="card">
+          <div style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); background: var(--color-bg); display: flex; align-items: center; justify-content: center;">
+            {l.data.image ? (
+              <img src={l.data.image} alt={l.data.title} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
+            ) : (
+              <span style="font-size: 0.85rem; color: var(--color-muted); text-align: center; padding: 16px;">{l.data.title}</span>
+            )}
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 0.95rem; font-weight: 600; margin-bottom: 4px;">{l.data.title}</div>
+            <div style="font-size: 0.8rem; color: var(--color-muted); margin-bottom: 2px;">{l.data.author}</div>
+            <span style="font-size: 0.75rem; color: var(--color-muted);">{l.data.year}</span>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
-
-<style>
-  .book-card {
-    transition: transform 0.3s;
-  }
-
-  .book-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .book-cover {
-    aspect-ratio: 3 / 4;
-    background: var(--color-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-  }
-
-  .book-placeholder {
-    font-family: var(--font-serif);
-    color: var(--color-muted);
-    font-size: 0.85rem;
-    text-align: center;
-    padding: 16px;
-  }
-
-  .book-info {
-    text-align: center;
-  }
-
-  .book-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .book-author {
-    font-size: 0.8rem;
-    color: var(--color-muted);
-    margin-bottom: 2px;
-  }
-
-  .book-year {
-    font-size: 0.75rem;
-    color: var(--color-muted);
-  }
-
-  .section-action {
-    text-align: center;
-    margin-top: 48px;
-  }
-</style>

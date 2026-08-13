@@ -1,110 +1,137 @@
 ---
-import t from "../i18n/translations";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 
 export interface Props {
-  lang: "es" | "en";
-  altUrl: string;
-  altLang: string;
+  lang: Lang;
 }
 
-const { lang, altUrl, altLang } = Astro.props;
+const { lang } = Astro.props;
 const txt = t(lang);
-
-const navItems = [
-  { key: "inicio", href: lang === "es" ? "/" : "/en/" },
-  { key: "obras", href: `#obras` },
-  { key: "series", href: `#series` },
-  { key: "libros", href: `#libros` },
-  { key: "videos", href: `#videos` },
-  { key: "publicaciones", href: `#publicaciones` },
-  { key: "biografia", href: `#biografia` },
-  { key: "artePublico", href: `#arte-publico` },
-  { key: "contacto", href: `#contacto` },
-];
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const url = Astro.url.pathname;
+const relative = url.startsWith(base) ? url.slice(base.length) || "/" : url;
+const isEn = relative.startsWith("/en");
+const altLang: Lang = isEn ? "es" : "en";
+const altUrl = isEn
+  ? base + (relative.replace(/^\/en/, "") || "/")
+  : base + "/en/";
 ---
 
 <header class="header">
   <div class="header-inner container">
-    <a href={lang === "es" ? "/" : "/en/"} class="logo">
-      Francisco Gazitúa
+    <a href={lang === "es" ? `${base}/` : `${base}/en/`} class="logo-link">
+      <img src={`${base}/images/LogoFranciscoGazitua-500.webp`} alt="Francisco Gazitúa" class="logo-img" />
     </a>
 
-    <nav class="nav">
-      {navItems.map((item) => (
-        <a href={item.href} class="nav-link">{txt.nav[item.key]}</a>
-      ))}
+    <nav class="nav" id="main-nav">
+      <a href={`${base}${lang === "es" ? "/" : "/en/"}`} class="nav-link">{txt.nav.inicio}</a>
+      <a href={`${base}${lang === "es" ? "/obras/" : "/en/obras/"}`} class="nav-link">{txt.nav.obras}</a>
+      <a href={`${base}${lang === "es" ? "/videos/" : "/en/videos/"}`} class="nav-link">{txt.nav.videos}</a>
+      <a href={`${base}${lang === "es" ? "/publicaciones/" : "/en/publicaciones/"}`} class="nav-link">{txt.nav.publicaciones}</a>
+      <a href={`${base}${lang === "es" ? "/biografia/" : "/en/biografia/"}`} class="nav-link">{txt.nav.biografia}</a>
     </nav>
 
-    <a href={altUrl} class="lang-toggle">{altLang === "en" ? "EN" : "ES"}</a>
+    <div class="header-actions">
+      <div class="lang-toggle">
+        <a href={lang === "es" ? `${base}/` : altUrl} class={`lang-option ${lang === "es" ? "active" : ""}`}>ES</a>
+        <span class="lang-sep">/</span>
+        <a href={lang === "en" ? `${base}/en/` : altUrl} class={`lang-option ${lang === "en" ? "active" : ""}`}>EN</a>
+      </div>
 
-    <button class="menu-toggle" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button class="menu-toggle" aria-label="Menu" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 </header>
 
 <style>
   .header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    height: var(--header-height);
-    background: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid var(--color-border);
-    z-index: 1000;
+    z-index: 100;
+    background: var(--color-bg);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
-    height: 100%;
-    gap: 32px;
+    justify-content: space-between;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    gap: 24px;
+    flex-wrap: wrap;
   }
 
-  .logo {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-    flex-shrink: 0;
+  .logo-link {
+    display: inline-flex;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 24px;
+    width: auto;
+    display: block;
   }
 
   .nav {
     display: flex;
-    gap: 20px;
-    flex: 1;
-    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
   }
 
   .nav-link {
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: var(--color-muted);
-    transition: color 0.2s;
+    color: var(--color-secondary);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
     white-space: nowrap;
+    transition: color 0.2s;
   }
 
   .nav-link:hover {
     color: var(--color-text);
   }
 
-  .lang-toggle {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    padding: 6px 14px;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    transition: all 0.2s;
-    flex-shrink: 0;
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
 
-  .lang-toggle:hover {
-    border-color: var(--color-text);
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--color-secondary);
+  }
+
+  .lang-option {
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .lang-option.active {
+    color: var(--color-text);
+    border-bottom-color: var(--color-muted);
+  }
+
+  .lang-sep {
+    opacity: 0.5;
   }
 
   .menu-toggle {
@@ -128,31 +155,29 @@ const navItems = [
   @media (max-width: 900px) {
     .nav {
       display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-bg);
+      padding: 20px var(--gutter);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 99;
+    }
+
+    .nav.open {
+      display: flex;
     }
 
     .menu-toggle {
       display: flex;
     }
-
-    .logo {
-      flex: 1;
-    }
   }
 </style>
 
 <script>
-  document.querySelector(".menu-toggle")?.addEventListener("click", () => {
-    const nav = document.querySelector(".nav");
-    if (nav) {
-      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
-      nav.style.flexDirection = "column";
-      nav.style.position = "absolute";
-      nav.style.top = "var(--header-height)";
-      nav.style.left = "0";
-      nav.style.right = "0";
-      nav.style.background = "white";
-      nav.style.padding = "20px";
-      nav.style.borderBottom = "1px solid var(--color-border)";
-    }
+  document.getElementById("menu-toggle")?.addEventListener("click", () => {
+    document.getElementById("main-nav")?.classList.toggle("open");
   });
 </script>

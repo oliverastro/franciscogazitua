@@ -1,83 +1,23 @@
 ---
-import t from "../i18n/translations";
-import { getCollection } from "astro:content";
+import t from "@/i18n/translations";
+import type { Lang } from "@/i18n/translations";
 
 export interface Props {
-  lang: "es" | "en";
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
 const txt = t(lang);
-const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const allProjects = await getCollection("arte-publico");
-const projectsList = allProjects.slice(0, 5);
 ---
 
-<section class="section" id="arte-publico">
-  <div class="container">
-    <h2 class="section-title">{txt.artePublico.titulo}</h2>
-    <p class="section-subtitle">{txt.artePublico.subtitulo}</p>
-
-    <div class="card-grid">
-      {projectsList.map((p) => (
-        <a href={`${base}${lang === "es" ? "" : "/en"}/arte-publico/${p.id}/`} class="art-card">
-          <div class="art-image">
-            {p.data.images?.[0] ? (
-              <img src={p.data.images[0]} alt={p.data.title} />
-            ) : (
-              <span class="art-placeholder">{p.data.title}</span>
-            )}
-          </div>
-          <div class="art-info">
-            <h3 class="art-title">{p.data.title}</h3>
-            <p class="art-location">{p.data.location}</p>
-          </div>
-        </a>
-      ))}
+<section class="section-card">
+  <div class="section-card-inner">
+    <div class="section-header">
+      <h2 class="section-title">{txt.obras.categorias.arteEspacio}</h2>
     </div>
 
-    <div class="section-action">
-      <a href={`${base}${lang === "es" ? "" : "/en"}/arte-publico/`} class="btn">{txt.artePublico.verMas}</a>
+    <div style="columns: 2; column-gap: 40px; text-align: left; max-width: 1000px; margin: 0 auto;">
+      <p class="section-text" style="white-space: pre-line;">{txt.catTexts.arteEspacio}</p>
     </div>
   </div>
 </section>
-
-<style>
-  .art-card {
-    transition: transform 0.3s;
-  }
-
-  .art-card:hover {
-    transform: translateY(-4px);
-  }
-
-  .art-image {
-    aspect-ratio: 4 / 3;
-    background: var(--color-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-  }
-
-  .art-placeholder {
-    font-family: var(--font-serif);
-    color: var(--color-muted);
-    font-size: 0.85rem;
-  }
-
-  .art-info {
-    text-align: center;
-  }
-
-  .art-title {
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-  }
-
-  .section-action {
-    text-align: center;
-    margin-top: 48px;
-  }
-</style>

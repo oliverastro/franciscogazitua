@@ -1,26 +1,20 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/Hero.astro";
-import Biography from "../components/Biography.astro";
-import ObrasSection from "../components/ObrasSection.astro";
-import SeriesSection from "../components/SeriesSection.astro";
-import LibrosSection from "../components/LibrosSection.astro";
-import VideosSection from "../components/VideosSection.astro";
-import PublicacionesSection from "../components/PublicacionesSection.astro";
-import PublicArtSection from "../components/PublicArtSection.astro";
-import ContactSection from "../components/ContactSection.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Biography from "@/components/Biography.astro";
+import ObrasSection from "@/components/ObrasSection.astro";
+import VideosSection from "@/components/VideosSection.astro";
+import PublicacionesSection from "@/components/PublicacionesSection.astro";
+import ContactSection from "@/components/ContactSection.astro";
 
 const lang = "es";
 ---
 
 <BaseLayout lang={lang}>
   <Hero lang={lang} />
-  <Biography lang={lang} />
   <ObrasSection lang={lang} />
-  <SeriesSection lang={lang} />
-  <LibrosSection lang={lang} />
-  <VideosSection lang={lang} />
   <PublicacionesSection lang={lang} />
-  <PublicArtSection lang={lang} />
+  <VideosSection lang={lang} />
+  <Biography lang={lang} />
   <ContactSection lang={lang} />
 </BaseLayout>

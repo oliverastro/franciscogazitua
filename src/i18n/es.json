@@ -3,7 +3,6 @@
     "inicio": "Inicio",
     "obras": "Obras",
     "series": "Series",
-    "libros": "Libros",
     "videos": "Videos",
     "publicaciones": "Publicaciones",
     "biografia": "Biografía",
@@ -11,73 +10,178 @@
     "contacto": "Contacto"
   },
   "hero": {
-    "obraDestacada": "OBRA DESTACADA",
-    "buquesAcero": "BUQUES DE ACERO",
-    "description": "Esculturas del Pacífico Sur y el Cabo de Hornos, inspiradas en la épica de grandes naves, navegantes y literatos bajo la Cruz del Sur.",
-    "verMas": "VER MÁS"
+    "badge": "Obra Destacada",
+    "slides": [
+      {
+        "title": "Rueda de Larmahue",
+        "desc": "Museo Interactivo Mirador (MIM)",
+        "image": "/images/RuedaDeLarmahueHero.webp"
+      },
+      {
+        "title": "Puente de Luz",
+        "desc": "Toronto, Canadá",
+        "image": "/images/esmeralda_blanca_puente_1920x720.webp"
+      },
+      {
+        "title": "Circunnavegación",
+        "desc": "Punta Arenas, Chile",
+        "image": "/images/Circunnavegacion-PuntaArenas.webp",
+        "bgPosition": "68% center"
+      },
+      {
+        "title": "Esmeralda II",
+        "desc": "Velero de acero suspendido en plena ciudad, homenaje al ímpetu marino en medio del paisaje urbano.",
+        "image": "/images/esmeralda_blanca_hero.webp"
+      }
+    ]
+  },
+  "common": {
+    "volverObras": "← Volver a Inicio",
+    "volverSeries": "← Volver a Series"
   },
   "biografia": {
-    "titulo": "BIOGRAFÍA",
+    "titulo": "Biografía",
     "texto": "Escultor chileno y Premio Nacional de Artes Plásticas, reconocido por una trayectoria que une la tradición andina con la escultura pública monumental. Formado en Chile e Inglaterra, ha emplazado más de 50 obras en espacios urbanos de todo el mundo, forjando en piedra, acero y madera una profunda reflexión poética sobre la materia y el territorio.",
-    "verMas": "VER MÁS"
+    "verMas": "Ver más",
+    "cvTitle": "Currículum",
+    "cvEsLabel": "Currículum (Español)",
+    "cvEsSub": "Descargar PDF",
+    "cvEnLabel": "Resume (English)",
+    "cvEnSub": "Download PDF",
+    "cvEsPdf": "/images/CV-ESP-FranciscoGazitua2026_compressed.pdf",
+    "cvEnPdf": "/images/CV-ENG-FranciscoGazitua2026_compressed.pdf",
+    "photoPlaceholder": "Foto de Francisco",
+    "gallery": [
+      { "id": "bio-gallery-1", "src": "/images/escultura_mecanica_en_taller_industrial.webp", "colSpan": "span 2", "rowSpan": "span 2" },
+      { "id": "bio-gallery-2", "src": "/images/a_close_up_outdoor_portrait_scene_in_natural_light.webp", "colSpan": "span 1", "rowSpan": "span 1" },
+      { "id": "bio-gallery-3", "src": "/images/ChatGPT-Image-27-jul-2026-09-38-45-pm.webp", "colSpan": "span 1", "rowSpan": "span 1" },
+      { "id": "bio-gallery-4", "src": "/images/a_close_well_lit_outdoor_woodland_workshop_scene.webp", "colSpan": "span 1", "rowSpan": "span 1" },
+      { "id": "bio-gallery-5", "src": "/images/trabajo_de_taller_en_detalle.webp", "colSpan": "span 1", "rowSpan": "span 1" }
+    ]
   },
   "obras": {
-    "titulo": "OBRAS",
+    "titulo": "Obras",
+    "desc": "En esta página podrás recorrer la diversidad de obras del artista, organizadas por categorías.",
     "subtitulo": "Explora las obras del artista por categoría",
+    "verTodas": "Ver todas las obras",
     "categorias": {
-      "puentes": "PUENTES",
-      "piedra": "PIEDRA",
-      "buques": "BUQUES",
-      "caballos": "CABALLOS",
-      "toros": "TOROS"
+      "esculturasPiedra": "Esculturas Monumentales en Piedra",
+      "esculturasAcero": "Esculturas Monumentales en Acero",
+      "arteEspacio": "Arte en Espacio Público",
+      "puentes": "Puentes",
+      "piedras": "Piedras",
+      "buques": "Buques",
+      "caballos": "Caballos",
+      "toros": "Toros",
+      "naturaleza": "Naturaleza",
+      "cabezas": "Cabezas",
+      "grabados": "Grabados Escultóricos",
+      "figuraHumana": "Figura Humana",
+      "mobiliario": "Mobiliario Urbano",
+      "instrumentos": "Instrumentos de Viento",
+      "piedraYAcero": "Piedra y Acero",
+      "mokomiros": "Mokomiros",
+      "mesas": "Mesas",
+      "avesPlumas": "Aves y Plumas",
+      "instrumentosPrimordiales": "Instrumentos Primordiales",
+      "seriesLanzaderas": "Series · Lanzaderas",
+      "seriesSauces": "Series · Sauces",
+      "seriesLengas": "Series · Lengas",
+      "caupolican": "Caupolicán",
+      "antartica": "Antártica"
     },
-    "verTodas": "VER TODAS LAS OBRAS"
+    "images": {
+      "esculturasPiedra": "/images/CordilleraDeLosAndesAnderna.webp",
+      "esculturasAcero": "/images/EsculturasAcero-Nueva-1.webp",
+      "arteEspacio": "/images/RuedaDeLarmahue.webp",
+      "puentes": "/images/puente-de-luz-toronto-3.webp",
+      "piedras": "/images/Piedras-Nueva-2.webp",
+      "buques": "/images/Buques-Nueva-2.webp",
+      "caballos": "/images/Caballos-Nueva-1.webp",
+      "toros": "/images/Toro-3.webp",
+      "naturaleza": "/images/Naturaleza-Nueva-2.webp",
+      "cabezas": "/images/Cabezas1.webp",
+      "grabados": "/images/Grabados1.webp",
+      "figuraHumana": "/images/FiguraHumana1.webp",
+      "mobiliario": "/images/MobiliarioUrbano1.webp",
+      "instrumentos": "/images/InstrumentosDeViento1.webp",
+      "piedraYAcero": "/images/PiedraYAcero-1.webp",
+      "mokomiros": "/images/Mokomiros-1.webp",
+      "mesas": "/images/Mesas-1.webp",
+      "avesPlumas": "/images/AvesYPlumas-6.webp",
+      "instrumentosPrimordiales": "/images/IMG_5633.webp",
+      "seriesLanzaderas": "/images/Serie-Lanzaderas-1.webp",
+      "seriesSauces": "/images/Serie-Sauces-1.webp",
+      "seriesLengas": "/images/Lenga-de-Selknam.webp",
+      "caupolican": "/images/Caupolican9.webp",
+      "antartica": "/images/Antartica-1.webp"
+    }
   },
   "series": {
-    "titulo": "SERIES",
+    "titulo": "Series",
     "subtitulo": "Explora las principales series de obras del artista",
-    "items": ["Caballos", "Buques", "Sauces", "Lengas", "Figura Humana"],
-    "verTodas": "VER TODAS LAS SERIES"
-  },
-  "libros": {
-    "titulo": "LIBROS",
-    "subtitulo": "Libros publicados sobre la trayectoria y obra del artista",
-    "lista": [
-      { "titulo": "Gazitúa: Obra Completa", "autor": "Ediciones Origo", "anio": "2019" },
-      { "titulo": "El Peso de la Materia", "autor": "A. Rojas / Hueders", "anio": "2015" },
-      { "titulo": "Escultura y Territorio", "autor": "M. Fernández / RIL Editores", "anio": "2011" },
-      { "titulo": "Caballos y Buques", "autor": "Ediciones Origo", "anio": "2007" },
-      { "titulo": "Retrospectiva 30 años", "autor": "Museo de Bellas Artes", "anio": "2001" }
-    ],
-    "verTodos": "VER TODOS LOS LIBROS"
+    "verTodas": "Ver todas las series",
+    "items": [
+      { "key": "seriesCaballos", "name": "Caballos", "image": "/images/Serie-Caballos-de-Acero-1.webp" },
+      { "key": "seriesLanzaderas", "name": "Lanzaderas", "image": "/images/Serie-Lanzaderas-1.webp" },
+      { "key": "seriesSauces", "name": "Sauces", "image": "/images/Serie-Sauces-1.webp" },
+      { "key": "seriesLengas", "name": "Lengas", "image": "/images/Lenga-de-Selknam.webp" }
+    ]
   },
   "videos": {
-    "titulo": "VIDEOS",
-    "subtitulo": "Videos del artista y su trabajo",
-    "verTodos": "VER TODOS LOS VIDEOS"
+    "titulo": "Videos",
+    "desc": "Videos del artista y su trabajo.",
+    "verTodos": "Ver todos los videos"
   },
   "publicaciones": {
-    "titulo": "PUBLICACIONES",
-    "subtitulo": "Artículos, catálogos y publicaciones sobre la obra del artista",
-    "verTodas": "VER TODAS LAS PUBLICACIONES"
+    "titulo": "Publicaciones",
+    "desc": "Artículos, catálogos y publicaciones sobre la obra del artista.",
+    "download": "Descargar PDF",
+    "verTodas": "Ver todas las publicaciones"
   },
-  "artePublico": {
-    "titulo": "ARTE EN ESPACIO PÚBLICO",
-    "subtitulo": "Intervenciones y obras del artista en espacios públicos",
-    "verMas": "VER MÁS"
+  "libros": {
+    "titulo": "Libros",
+    "desc": "Libros sobre la trayectoria y obra del artista."
   },
   "contacto": {
-    "titulo": "CONTACTO",
+    "titulo": "Contacto",
     "ubicacion": "Ubicación",
+    "ubicacionSub": "Pirque, Región Metropolitana, Chile",
     "correo": "Correo",
+    "correoSub": "gazituafrancisco@gmail.com",
     "telefono": "Teléfono",
-    "redes": "Redes Sociales",
-    "verMapa": "Ver mapa",
-    "email": "contacto@gazitua.cl",
-    "phone": "+56 9 0000 0000",
-    "social": "@franciscogazitua"
+    "telefonoSub": "56 99 323 4090",
+    "redes": "Redes sociales",
+    "redesSub": "https://www.instagram.com/francisco_gazitua_mrss"
   },
   "footer": {
-    "copyright": "© 2026 Francisco Gazitúa. Todos los derechos reservados."
+    "rights": "© 2026 Francisco Gazitúa. Todos los derechos reservados.",
+    "dev": "Desarrollado por OmniWeb"
+  },
+  "catTexts": {
+    "esculturasPiedra": "Por definir.",
+    "esculturasAcero": "Por definir.",
+    "arteEspacio": "ARTE EN ESPACIO PUBLICO\nToda mi escultura en pequeño formato, toda mi investigación escultórica, es una preparación para mis esculturas de gran formato.\nEl lenguaje escultórico sólo funciona, al contacto con la gente, en las calles o parques de las ciudades o en el paisaje, nace y envejece con las ciudades, se fragua lentamente en la conciencia de la gente común.\nMi escultura está hecha para ellos. La escultura está en la calle o no está.",
+    "puentes": "PUENTES DESDE LA ESCULTURA\nEn la etapa de generación del proyecto opere como escultor, eso es estudiando a fondo las estructuras internas, esqueletos de referentes bien conocidos, por ejemplo:\nUn caballo es un puente que camina sobre cuatro apoyos en la tierra. Un buque es un puente boca arriba que se mueve sobre el agua. Una balanza es un puente en equilibrio Un arco de piedras es un puente que existe por su propio peso.\nUn puente giratorio tiene mil entradas y mil salidas y se mueve sobre un eje central Un pez es un puente de estructura elástica cuyos pilares de apoyo en el agua cambian constantemente. Un puente levadizo es una puerta que se cierra levantándose.\nUna pluma es un puente entre al viento y el vuelo, Un remo es un puente entre el brazo y el agua El arcoíris es un puente de luz.",
+    "piedras": "PIEDRAS Esta colección de esculturas en granito, cuyas piedras originales fueron todas extraídas de mi cantera de Pirque, tiene como contenido su lugar de origen, la Cordillera de los Andes.\nAl igual que la Cordillera, muestro por fuera una gran muralla de piedra, pero tallo por dentro sus quebradas; ríos y sus valles interiores.",
+    "buques": "BUQUES\nLos buques escultóricos de acero de esta colección están relacionados con el Territorio Marítimo de Chile, Valparaíso y el Pacífico Sur, Cabo de Hornos, Antártica; están también relacionadas Lord Cochrane (Cruz del Sur), Chakelton, (Endurance y James Caired) Arturo Prat (La Esmeralda), con Verne, Salgari, Gabriela Mistral, Pablo Neruda D. H. Lawrence y Melville: el Nautilius, El Rayo, «Hija de la Voluntad del Mar», el Pequod, «El Barco de la Muerte» y, con Hernando de Magallanes, la Nao VictoriaTodos estos buques navegaron de noche bajo la Cruz del Sur.",
+    "caballos": "Los Caballos de esta colección, hechos en acero forjado, tienen como referente la raza de caballos chilenos de Los Andes: criollo-andino, adaptados a las huellas y a la altura de la Cordillera durante 500 años. Estas esculturas estan concebidas como instrumentos de viento para sonar en las alturas de la montaña y en sus valles interiores.",
+    "toros": "TOROS\nLos Toros de esta colección muestran cuatro miradas en un tema común. Con Técnicas de forja, modelado, fundición y soldadura.",
+    "naturaleza": "ESCULTURAS EN LA NATURALEZA\nEstas construcciones escultóricas en la naturaleza son pequeñas marcas efímeras en la tierra, en las montañas o en el mar congelado de la Antártica, que durarán tanto como mis huellas pasajeras en la tierra.",
+    "cabezas": "CABEZAS\nMi primera escultura fue una cabeza, un retrato. He desarrollado el tema durante casi 40 años y vuelvo siempre a él como a la fuente primera, al origen. Vuelvo también al modelado, la escencia final de la escultura.",
+    "grabados": "GRABADOS ESCULTORICOS\nTécnica de fabricación de matrices en acero especial para luego ser estampada con martinete en soporte de acero rojo.",
+    "figuraHumana": "FIGURA HUMANA\nEstudio comparativo de imagen y materialidad escultórica, usando como sujeto de contenido la figura humana.\nTexto de Referencia, Publicaciones » Imagen y Materialidad».",
+    "mobiliario": "MOBILIARIO URBANO\nMesas, escalinatas, puertas, jardineras, lámparas, son desde muy antiguo, elementos trabajados por escultores como complemento integral de la arquitectura. A esta larga historia agrego mi trabajo en piedra y acero que busca humanizar el espacio público.",
+    "instrumentos": "INSTRUMENTOS DE VIENTO\nEn estas esculturas busco el equivalente escultórico a la música. Su referente son las grandes rocas de Los Andes y el viento de las montañas que las hace sonar constantemente.",
+    "piedraYAcero": "Fue por la piedra blanca, el granito, que llegué a la cantera donde edifiqué mi casa y mi taller; pero fue el fierro de color oscuro el que creó las condiciones: los tecles y los camiones fueron de fierro, mientras que la fragua, los cinceles, las cuñas y los martillos para trabajar la piedra son de acero. Blanco y negro: el blanco de la piedra y el negro del acero. Poco a poco se unieron y, para hacerlo, junté partes de mí mismo que estaban separadas: mis personalidades de tallador y herrero, mi cabeza con mis dos manos, mi mano izquierda con mi mano derecha. Uní la cantera con la fragua, mientras juntaba en mi corazón el centro magnético de la Tierra con estas rocas blancas que pesan sobre él, por la fuerza de gravedad que el fierro genera. Uní dos mitades de mí mismo que necesitaron cuarenta años de viaje para volverse a juntar.",
+    "mokomiros": "Por definir.",
+    "mesas": "Por definir.",
+    "avesPlumas": "AVES Y PLUMAS\nInspirada en  un párrafo clásico de la literatura inglesa  Bulwer -Lytton \"The pen is mightier than the sword\"\n«La pluma es tiene más fuerza que la espada»\nUn recordatorio poético, del poder transformador  del vuelo\nSu poder de inspirar, persuadir , transformando las sociedades, hacia la verdad el bien y la belleza",
+    "instrumentosPrimordiales": "INSTRUMENTOS PRIMORDIALES: Aguja , peineta, mesa , escultura, lápiz, tenaza  escalera….\nObjetos la medula poética del lenguaje,  seres creados en una asociación dialéctica entre materia y necesidad humana ,hasta hacerlos aparecer, con toda nuestra inteligencia y la liviandad de nuestras  manos y al fin dejarlos  \"cargados \" de nosotros mismos ” como cartas sagradas",
+    "seriesLanzaderas": "La serie Lanzaderas explora estructuras livianas en madera y acero, a partir del gesto del telar y del vuelo.",
+    "seriesSauces": "SAUCES.\nLas esculturas de esta colección son el fruto de una investigación sobre las cualidades de dy elasticidad del acero, sobre la base de la flexibilidad y la ductibilidad reales de ocho sauces de los canales de Pirque (Chile).",
+    "seriesLengas": "LENGAS\nEl contenido de esta serie de esculturas son las «Lengas en Bandera» de la Patagonia Sur. Ellas crecen en forma horizontal, casi pegadas al suelo, forma funcional para resistir una ventolera inclemente.",
+    "caupolican": "CAUPOLICÁN\nEn esta serie trabaje  como intérprete de una partitura escrita Por el escultor Nicanor Plaza.\n«En el fondo del pozo de la historia, como un agua más sonora y brillante, brillan los ojos de los poetas muertos» . « El hilo de la escultura, no se corta», y celebrando los aportes del periodo post estatuario afirmo, que la escultura de hoy, cien años después, no existiría sin el trabajo y la enseñanza de los maestros académicos. Fue  viaje al «pozo de la historia» en busca de la especifica sabiduría, manual e intelectual del lenguaje escultórico..",
+    "antartica": "Por definir."
   }
 }
