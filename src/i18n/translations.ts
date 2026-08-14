@@ -11,6 +11,13 @@ export function url(path: string, lang: Lang) {
   return base + prefix + path;
 }
 
+export function img(path: string) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  if (!path) return path;
+  if (path.startsWith("/images/")) return base + path;
+  return path;
+}
+
 export default function t(lang: Lang) {
   return translations[lang] || translations.es;
 }

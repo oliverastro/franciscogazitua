@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ContactSection from "@/components/ContactSection.astro";
 import t from "@/i18n/translations";
+import { img } from "@/i18n/translations";
 import type { Lang } from "@/i18n/translations";
 import { getCollection } from "astro:content";
 
@@ -23,8 +24,8 @@ const publicaciones = allPub.filter((p) => p.data.image && p.data.author !== "Li
       <div class="card-grid-4">
         {librosWithCover.map((p) => (
           <div class="card">
-            <a href={p.data.image} download class="pub-cover" style="position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg); display: block; text-decoration: none;">
-              <img src={p.data.image} alt={p.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
+            <a href={img(p.data.image)} download class="pub-cover" style="position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg); display: block; text-decoration: none;">
+              <img src={img(p.data.image)} alt={p.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
               <div class="pub-overlay">
                 <span class="pub-overlay-label">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
@@ -53,8 +54,8 @@ const publicaciones = allPub.filter((p) => p.data.image && p.data.author !== "Li
         <div class="card-grid-4">
           {publicaciones.map((p) => (
             <div class="card">
-              <a href={p.data.image} download class="pub-cover" style="position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg); display: block; text-decoration: none;">
-                <img src={p.data.image} alt={p.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
+              <a href={img(p.data.image)} download class="pub-cover" style="position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg); display: block; text-decoration: none;">
+                <img src={img(p.data.image)} alt={p.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
                 <div class="pub-overlay">
                   <span class="pub-overlay-label">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>

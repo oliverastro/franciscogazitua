@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ContactSection from "@/components/ContactSection.astro";
 import t from "@/i18n/translations";
+import { img } from "@/i18n/translations";
 import type { Lang } from "@/i18n/translations";
 import { getCollection } from "astro:content";
 
@@ -20,7 +21,7 @@ const allVideos = await getCollection("videos");
 
       <div class="card-grid-4" id="videos-grid">
         {allVideos.map((v, i) => {
-          const thumb = v.data.thumbnail || "";
+          const thumb = v.data.thumbnail ? img(v.data.thumbnail) : "";
           return (
             <div class="card" data-index={i} data-url={v.data.url || ""}>
               <div class="video-thumb" data-video-index={i}>

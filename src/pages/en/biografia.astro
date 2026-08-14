@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ContactSection from "@/components/ContactSection.astro";
 import t from "@/i18n/translations";
+import { img } from "@/i18n/translations";
 import type { Lang } from "@/i18n/translations";
 import { getCollection } from "astro:content";
 
@@ -35,7 +36,7 @@ const categories = [...new Set(allObras.map((o) => o.data.category))];
     <div class="section-card-inner">
       <h2 class="section-title" style="margin-bottom: 40px; text-align: center;">{txt.biografia.cvTitle}</h2>
       <div class="cv-grid">
-        <a href={txt.biografia.cvEsPdf} target="_blank" rel="noopener noreferrer" class="cv-card">
+        <a href={img(txt.biografia.cvEsPdf)} target="_blank" rel="noopener noreferrer" class="cv-card">
           <div class="cv-icon">
             <div style="width: 22px; height: 26px; border: 2px solid var(--color-text); border-radius: 2px; position: relative;">
               <div style="position: absolute; top: 5px; left: 3px; right: 3px; height: 2px; background: var(--color-text);"></div>
@@ -46,7 +47,7 @@ const categories = [...new Set(allObras.map((o) => o.data.category))];
           <div style="font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-text);">{txt.biografia.cvEsLabel}</div>
           <div style="font-size: 12px; color: var(--color-secondary);">{txt.biografia.cvEsSub}</div>
         </a>
-        <a href={txt.biografia.cvEnPdf} target="_blank" rel="noopener noreferrer" class="cv-card">
+        <a href={img(txt.biografia.cvEnPdf)} target="_blank" rel="noopener noreferrer" class="cv-card">
           <div class="cv-icon">
             <div style="width: 22px; height: 26px; border: 2px solid var(--color-text); border-radius: 2px; position: relative;">
               <div style="position: absolute; top: 5px; left: 3px; right: 3px; height: 2px; background: var(--color-text);"></div>
@@ -66,7 +67,7 @@ const categories = [...new Set(allObras.map((o) => o.data.category))];
       <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 20px; aspect-ratio: 4 / 3;">
         {txt.biografia.gallery.map((g: any) => (
           <div style={`grid-column: ${g.colSpan}; grid-row: ${g.rowSpan}; border-radius: 16px; overflow: hidden; background: #D9DEE3;`}>
-            <img src={g.src} alt="" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
+            <img src={img(g.src)} alt="" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
           </div>
         ))}
       </div>

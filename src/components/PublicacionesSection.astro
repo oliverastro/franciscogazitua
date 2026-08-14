@@ -1,5 +1,6 @@
 ---
 import t from "@/i18n/translations";
+import { img } from "@/i18n/translations";
 import type { Lang } from "@/i18n/translations";
 import { getCollection } from "astro:content";
 
@@ -26,7 +27,7 @@ const pubList = allPub.filter((p) => p.data.image).slice(0, 4);
         <div class="card">
           <div style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg);">
             <img
-              src={p.data.image}
+              src={img(p.data.image)}
               alt={p.data.title}
               style="width: 100%; height: 100%; object-fit: cover;"
               loading="lazy"

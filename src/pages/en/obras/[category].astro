@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ContactSection from "@/components/ContactSection.astro";
 import t from "@/i18n/translations";
+import { img } from "@/i18n/translations";
 import type { Lang } from "@/i18n/translations";
 import { getCollection, getEntry } from "astro:content";
 
@@ -24,7 +25,7 @@ if (!entry) {
 
 const catTitle = (txt.obras.categorias as any)[entry.data.category] || entry.data.title;
 const catText = (txt.catTexts as any)[entry.data.category] || "";
-const works = entry.data.works || [];
+const works = (entry.data.works || []).map((w: any) => ({ ...w, image: img(w.image) }));
 ---
 
 <BaseLayout lang={lang} title={catTitle}>
