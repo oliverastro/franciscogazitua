@@ -122,7 +122,6 @@
     "subtitulo": "Explora las principales series de obras del artista",
     "verTodas": "Ver todas las series",
     "items": [
-      { "key": "seriesCaballos", "name": "Caballos", "image": "/images/Serie-Caballos-de-Acero-1.webp" },
       { "key": "seriesLanzaderas", "name": "Lanzaderas", "image": "/images/Serie-Lanzaderas-1.webp" },
       { "key": "seriesSauces", "name": "Sauces", "image": "/images/Serie-Sauces-1.webp" },
       { "key": "seriesLengas", "name": "Lengas", "image": "/images/Lenga-de-Selknam.webp" }
