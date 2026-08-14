@@ -16,6 +16,20 @@ const altLang: Lang = isEn ? "es" : "en";
 const altUrl = isEn
   ? base + (relative.replace(/^\/en/, "") || "/")
   : base + "/en/";
+
+const path = isEn ? relative.replace(/^\/en/, "") : relative;
+let activeKey: string | null = null;
+if (path === "/" || path.startsWith("/index")) activeKey = "inicio";
+else if (path.startsWith("/videos")) activeKey = "videos";
+else if (path.startsWith("/publicaciones")) activeKey = "publicaciones";
+else if (path.startsWith("/biografia")) activeKey = "biografia";
+
+const navItems = [
+  { key: "inicio", href: lang === "es" ? `${base}/` : `${base}/en/` },
+  { key: "videos", href: lang === "es" ? `${base}/videos/` : `${base}/en/videos/` },
+  { key: "publicaciones", href: lang === "es" ? `${base}/publicaciones/` : `${base}/en/publicaciones/` },
+  { key: "biografia", href: lang === "es" ? `${base}/biografia/` : `${base}/en/biografia/` },
+];
 ---
 
 <header class="header">
@@ -24,15 +38,16 @@ const altUrl = isEn
       <img src={`${base}/images/LogoFranciscoGazitua-500.webp`} alt="Francisco Gazitúa" class="logo-img" />
     </a>
 
-    <nav class="nav" id="main-nav">
-      <a href={`${base}${lang === "es" ? "/" : "/en/"}`} class="nav-link">{txt.nav.inicio}</a>
-      <a href={`${base}${lang === "es" ? "/obras/" : "/en/obras/"}`} class="nav-link">{txt.nav.obras}</a>
-      <a href={`${base}${lang === "es" ? "/videos/" : "/en/videos/"}`} class="nav-link">{txt.nav.videos}</a>
-      <a href={`${base}${lang === "es" ? "/publicaciones/" : "/en/publicaciones/"}`} class="nav-link">{txt.nav.publicaciones}</a>
-      <a href={`${base}${lang === "es" ? "/biografia/" : "/en/biografia/"}`} class="nav-link">{txt.nav.biografia}</a>
-    </nav>
+    <div class="header-right">
+      <nav class="nav" id="main-nav">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`nav-link${activeKey === item.key ? " active" : ""}`}
+          >{(txt.nav as any)[item.key]}</a>
+        ))}
+      </nav>
 
-    <div class="header-actions">
       <div class="lang-toggle">
         <a href={lang === "es" ? `${base}/` : altUrl} class={`lang-option ${lang === "es" ? "active" : ""}`}>ES</a>
         <span class="lang-sep">/</span>
@@ -97,11 +112,16 @@ const altUrl = isEn
     transition: color 0.2s;
   }
 
+  .nav-link.active {
+    color: var(--color-text);
+    border-bottom-color: var(--color-muted);
+  }
+
   .nav-link:hover {
     color: var(--color-text);
   }
 
-  .header-actions {
+  .header-right {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -111,6 +131,7 @@ const altUrl = isEn
     display: flex;
     align-items: center;
     gap: 6px;
+    margin-left: 8px;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -177,7 +198,18 @@ const altUrl = isEn
 </style>
 
 <script>
-  document.getElementById("menu-toggle")?.addEventListener("click", () => {
-    document.getElementById("main-nav")?.classList.toggle("open");
+  const menuToggle = document.getElementById("menu-toggle");
+  const mainNav = document.getElementById("main-nav");
+
+  menuToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    mainNav?.classList.toggle("open");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!mainNav?.classList.contains("open")) return;
+    if (!mainNav.contains(e.target) && e.target !== menuToggle) {
+      mainNav.classList.remove("open");
+    }
   });
 </script>
