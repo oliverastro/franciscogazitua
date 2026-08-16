@@ -9,8 +9,49 @@ import { getCollection } from "astro:content";
 const lang: Lang = "es";
 const txt = t(lang);
 const allPub = await getCollection("publicaciones");
-const librosWithCover = allPub.filter((p) => p.data.image && p.data.author === "Libro");
-const publicaciones = allPub.filter((p) => p.data.image && p.data.author !== "Libro");
+
+const orderBySlug = [
+  "libro-francisco-gazitua",
+  "puentes-escultoricos",
+  "art-science",
+  "art-science-vol-ii",
+  "apuquinta",
+  "casa-tres-volcanes",
+  "cuerpo-materia-colectiva",
+  "naturaleza-8-miradas",
+  "andes-wheel-mokomito",
+  "sculpture-home-drawing",
+  "catalogo-caballo-barnechea",
+  "viaje-al-corazon-de-la-piedra",
+  "materia-escultura-poesia",
+  "community-partnerships",
+  "cordillera-andes",
+  "palabra-emplazada",
+  "abstrakte-strahlskulptur",
+  "academie-royale-belgique",
+  "arte-en-su-espacio",
+  "artespacio-cristal-2000",
+  "buques-acero-catalogo",
+  "dialogues-diversity",
+  "en-obra-talleres",
+  "escultura-chilena-contemporanea",
+  "exposicion-familia-artistas",
+  "ferroesculturas",
+  "francisco-gazitua-esculturas",
+  "francisco-gazitua-catalogo",
+  "lo-que-somos",
+  "metal-design-international",
+  "museo-parque-esculturas",
+  "pintura-escultura-hoy",
+  "simposium-neruda",
+  "sculpture-garden",
+  "tierra-del-fuego",
+  "vsimposium-escultores",
+];
+
+const pubList = orderBySlug
+  .map((slug) => allPub.find((p) => p.id === slug))
+  .filter(Boolean);
 ---
 
 <BaseLayout lang={lang} title="Publicaciones">
@@ -22,38 +63,9 @@ const publicaciones = allPub.filter((p) => p.data.image && p.data.author !== "Li
       </div>
 
       <div class="card-grid-4">
-        {librosWithCover.map((p) => (
+        {pubList.map((p) => (
           <div class="card">
-            <a href={img(p.data.image)} download class="pub-cover" style="position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg); display: block; text-decoration: none;">
-              <img src={img(p.data.image)} alt={p.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
-              <div class="pub-overlay">
-                <span class="pub-overlay-label">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>
-                  {txt.publicaciones.download}
-                </span>
-              </div>
-            </a>
-            <div style="display: flex; flex-direction: column; gap: 4px;">
-              <div style="font-size: 13px; font-weight: 600; line-height: 1.35;">{p.data.title}</div>
-              <div style="font-size: 11.5px; color: var(--color-secondary);">{p.data.author}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {publicaciones.length > 0 && (
-    <section class="section-card">
-      <div class="section-card-inner">
-        <div class="section-header">
-          <h1 class="section-title section-title--page">{txt.publicaciones.titulo}</h1>
-          <p class="section-subtitle">{txt.publicaciones.desc}</p>
-        </div>
-
-        <div class="card-grid-4">
-          {publicaciones.map((p) => (
-            <div class="card">
+            {p.data.image ? (
               <a href={img(p.data.image)} download class="pub-cover" style="position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg); display: block; text-decoration: none;">
                 <img src={img(p.data.image)} alt={p.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
                 <div class="pub-overlay">
@@ -63,16 +75,20 @@ const publicaciones = allPub.filter((p) => p.data.image && p.data.author !== "Li
                   </span>
                 </div>
               </a>
-              <div style="display: flex; flex-direction: column; gap: 4px;">
-                <div style="font-size: 13px; font-weight: 600; line-height: 1.35;">{p.data.title}</div>
-                <div style="font-size: 11.5px; color: var(--color-secondary);">{p.data.author}</div>
+            ) : (
+              <div style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); background: var(--color-bg); display: flex; align-items: center; justify-content: center; padding: 16px; text-align: center;">
+                <span style="font-size: 11px; color: var(--color-muted); letter-spacing: 0.04em;">{p.data.title}</span>
               </div>
+            )}
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <div style="font-size: 13px; font-weight: 600; line-height: 1.35;">{p.data.title}</div>
+              <div style="font-size: 11.5px; color: var(--color-secondary);">{p.data.author}</div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </section>
-  )}
+    </div>
+  </section>
 
   <ContactSection lang={lang} />
 </BaseLayout>
