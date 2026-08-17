@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title?: string;
@@ -19,6 +20,7 @@ const { title = "Francisco Gazitúa", lang = "es" } = Astro.props;
     <title>{title} | Francisco Gazitúa</title>
     <meta name="description" content="Francisco Gazitúa - Escultor chileno, Premio Nacional de Artes Plásticas" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <ClientRouter />
   </head>
   <body>
     <Header lang={lang} />
@@ -28,3 +30,44 @@ const { title = "Francisco Gazitúa", lang = "es" } = Astro.props;
     <Footer lang={lang} />
   </body>
 </html>
+
+<script>
+  // Prevent browser restoring scroll position on full page reloads.
+  // Portfolio site should always start at the top so images load eager.
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+
+  function setupReveal() {
+    const vh = window.innerHeight;
+
+    // Only add reveal classes to elements BELOW the fold — never touch ones already visible
+    document.querySelectorAll(".section-header, .bio-grid, .contact-card, .cv-card").forEach((el) => {
+      if (el.getBoundingClientRect().top < vh) return;
+      el.classList.add("reveal");
+    });
+    document.querySelectorAll(".card-grid-4, .videos-grid, .cv-grid").forEach((el) => {
+      if (el.getBoundingClientRect().top < vh) return;
+      el.classList.add("reveal-stagger");
+    });
+    document.querySelectorAll(".gallery-grid").forEach((el) => {
+      if (el.getBoundingClientRect().top < vh) return;
+      el.classList.add("reveal");
+    });
+
+    const elements = document.querySelectorAll(".reveal, .reveal-stagger");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "-40px" });
+    elements.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener("astro:page-load", setupReveal);
+  setupReveal();
+</script>

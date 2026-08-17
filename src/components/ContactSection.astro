@@ -74,15 +74,19 @@ const instagramWeb = `https://www.instagram.com/${instagramUser}`;
 </style>
 
 <script>
-  const instagramLink = document.getElementById("instagram-link");
-  if (instagramLink) {
-    const user = instagramLink.dataset.user;
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (isMobile) {
-      instagramLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.location.href = `instagram://user?username=${user}`;
-      });
+  function setupContact() {
+    const instagramLink = document.getElementById("instagram-link");
+    if (instagramLink) {
+      const user = instagramLink.dataset.user;
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        instagramLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.location.href = `instagram://user?username=${user}`;
+        });
+      }
     }
   }
+
+  document.addEventListener("astro:page-load", setupContact);
 </script>

@@ -26,6 +26,18 @@ if (!entry) {
 const catTitle = (txt.obras.categorias as any)[entry.data.category] || entry.data.title;
 const catText = (txt.catTexts as any)[entry.data.category] || "";
 const works = (entry.data.works || []).map((w: any) => ({ ...w, image: img(w.image) }));
+const galleryItems = works.map((w: any, i: number) => {
+  if (i < 4) {
+    return {
+      ...w,
+      attrs: { style: `background-image: url('${encodeURI(w.image)}')` },
+    };
+  }
+  return {
+    ...w,
+    attrs: { "data-bg": `url("${encodeURI(w.image)}")` },
+  };
+});
 ---
 
 <BaseLayout lang={lang} title={catTitle}>
@@ -47,21 +59,18 @@ const works = (entry.data.works || []).map((w: any) => ({ ...w, image: img(w.ima
         </div>
       )}
 
-      <div class="gallery-grid" id="gallery">
-        {works.map((w: any, i: number) => (
+<div class="gallery-grid" id="gallery">
+        {galleryItems.map((g: any, i: number) => (
           <div class="gallery-item" data-index={i}>
-            <div
-              class="gallery-item-image"
-              style={`background-image: url("${encodeURI(w.image)}");`}
-            ></div>
-            <div class="gallery-item-name">{w.name}</div>
+            <div class="gallery-item-image" {...g.attrs}></div>
+            <div class="gallery-item-name">{g.name}</div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <div id="lightbox" style="display: none;">
+  <div id="lightbox">
     <div class="lightbox-overlay" id="lightbox-overlay">
       <div class="lightbox-content">
         <div class="lightbox-image" id="lightbox-image"></div>
@@ -80,59 +89,100 @@ const works = (entry.data.works || []).map((w: any) => ({ ...w, image: img(w.ima
 </BaseLayout>
 
 <script define:vars={{ works }}>
-  const worksData = works;
-  let currentIndex = null;
+  function setupCategory() {
+    const worksData = works;
+    let currentIndex = null;
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
 
-  function openLightbox(i) {
-    currentIndex = i;
-    updateLightbox();
-    document.getElementById("lightbox").style.display = "block";
-    document.body.style.overflow = "hidden";
-  }
+    function openLightbox(i) {
+      currentIndex = i;
+      updateLightbox();
+      lightbox.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+    }
 
-  function closeLightbox() {
-    currentIndex = null;
-    document.getElementById("lightbox").style.display = "none";
-    document.body.style.overflow = "";
-  }
+    function closeLightbox() {
+      currentIndex = null;
+      lightbox.classList.remove("is-open");
+      document.body.style.overflow = "";
+    }
 
-  function updateLightbox() {
-    if (currentIndex === null) return;
-    const w = worksData[currentIndex];
-    document.getElementById("lightbox-image").style.backgroundImage = `url("${encodeURI(w.image)}")`;
-    document.getElementById("lightbox-name").textContent = w.name;
-    document.getElementById("lightbox-counter").textContent = `${currentIndex + 1}/${worksData.length}`;
-  }
+    function updateLightbox() {
+      if (currentIndex === null) return;
+      const w = worksData[currentIndex];
+      lightboxImage.classList.add("is-transitioning");
+      setTimeout(() => {
+        lightboxImage.style.backgroundImage = `url("${encodeURI(w.image)}")`;
+        document.getElementById("lightbox-name").textContent = w.name;
+        document.getElementById("lightbox-counter").textContent = `${currentIndex + 1}/${worksData.length}`;
+        lightboxImage.classList.remove("is-transitioning");
+      }, 200);
+    }
 
-  function prevImage() {
-    if (currentIndex === null) return;
-    currentIndex = (currentIndex - 1 + worksData.length) % worksData.length;
-    updateLightbox();
-  }
+    function prevImage() {
+      if (currentIndex === null) return;
+      currentIndex = (currentIndex - 1 + worksData.length) % worksData.length;
+      updateLightbox();
+    }
 
-  function nextImage() {
-    if (currentIndex === null) return;
-    currentIndex = (currentIndex + 1) % worksData.length;
-    updateLightbox();
-  }
+    function nextImage() {
+      if (currentIndex === null) return;
+      currentIndex = (currentIndex + 1) % worksData.length;
+      updateLightbox();
+    }
 
-  document.querySelectorAll(".gallery-item").forEach((item) => {
-    item.addEventListener("click", () => {
-      openLightbox(parseInt(item.dataset.index));
+    document.querySelectorAll(".gallery-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        openLightbox(parseInt(item.dataset.index));
+      });
     });
-  });
 
-  document.getElementById("lightbox-close")?.addEventListener("click", closeLightbox);
-  document.getElementById("lightbox-overlay")?.addEventListener("click", (e) => {
-    if (e.target === e.currentTarget) closeLightbox();
-  });
-  document.getElementById("lightbox-prev")?.addEventListener("click", (e) => { e.stopPropagation(); prevImage(); });
-  document.getElementById("lightbox-next")?.addEventListener("click", (e) => { e.stopPropagation(); nextImage(); });
+    document.getElementById("lightbox-close")?.addEventListener("click", closeLightbox);
+    document.getElementById("lightbox-overlay")?.addEventListener("click", (e) => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+    document.getElementById("lightbox-prev")?.addEventListener("click", (e) => { e.stopPropagation(); prevImage(); });
+    document.getElementById("lightbox-next")?.addEventListener("click", (e) => { e.stopPropagation(); nextImage(); });
 
-  document.addEventListener("keydown", (e) => {
-    if (currentIndex === null) return;
-    if (e.key === "ArrowRight") nextImage();
-    else if (e.key === "ArrowLeft") prevImage();
-    else if (e.key === "Escape") closeLightbox();
-  });
+    document.addEventListener("keydown", (e) => {
+      if (currentIndex === null) return;
+      if (e.key === "ArrowRight") nextImage();
+      else if (e.key === "ArrowLeft") prevImage();
+      else if (e.key === "Escape") closeLightbox();
+    });
+  }
+
+  document.addEventListener("astro:page-load", setupCategory);
+</script>
+
+<script>
+  function setupGalleryLazyLoad() {
+    const lazyImages = document.querySelectorAll(".gallery-item-image[data-bg]");
+    if (!lazyImages.length) return;
+
+    const vh = window.innerHeight;
+    lazyImages.forEach((el) => {
+      if (el.getBoundingClientRect().top < vh) {
+        el.style.backgroundImage = el.dataset.bg;
+        el.removeAttribute("data-bg");
+      }
+    });
+
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.style.backgroundImage = el.dataset.bg;
+          el.removeAttribute("data-bg");
+          imageObserver.unobserve(el);
+        }
+      });
+    }, { rootMargin: "200px" });
+    lazyImages.forEach((img) => {
+      if (img.hasAttribute("data-bg")) imageObserver.observe(img);
+    });
+  }
+
+  document.addEventListener("astro:page-load", setupGalleryLazyLoad);
 </script>

@@ -32,7 +32,7 @@ const videosList = allVideos
             class="video-thumb"
           >
             {v.data.thumbnail ? (
-              <img src={img(v.data.thumbnail)} alt={v.data.title} loading="lazy" />
+              <img src={img(v.data.thumbnail)} alt={v.data.title} loading="lazy" decoding="async" />
             ) : null}
             <div class="video-thumb-overlay"></div>
             <div class="video-play-btn">
@@ -45,7 +45,7 @@ const videosList = allVideos
     </div>
 
     <div class="section-action">
-      <a href={`${base}${lang === "es" ? "/videos/" : "/en/videos/"}`} class="btn-pill">{txt.videos.verTodos}</a>
+      <a href={`${base}${lang === "es" ? "/videos/" : "/en/videos/"}`} class="btn-pill">{txt.videos.verTodos} <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>

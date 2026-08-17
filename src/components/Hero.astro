@@ -42,6 +42,8 @@ const slides = txt.hero.slides;
           ></button>
         ))}
       </div>
+
+      <div class="hero-progress" id="hero-progress"></div>
     </div>
   </div>
 </section>
@@ -176,7 +178,7 @@ const slides = txt.hero.slides;
     background: var(--color-muted);
     cursor: pointer;
     padding: 0;
-    transition: width 0.2s, background 0.2s;
+    transition: width var(--motion-fast), background var(--motion-fast);
   }
 
   .hero-dot.active {
@@ -206,28 +208,44 @@ const slides = txt.hero.slides;
 
 <script>
   let currentSlide = 0;
-  const slides = document.querySelectorAll(".hero-slide");
-  const dots = document.querySelectorAll(".hero-dot");
-  const total = slides.length;
+  let autoplayTimer: ReturnType<typeof setInterval> | null = null;
 
-  function goToSlide(index: number) {
-    slides[currentSlide]?.classList.remove("active");
-    dots[currentSlide]?.classList.remove("active");
-    currentSlide = (index + total) % total;
-    slides[currentSlide]?.classList.add("active");
-    dots[currentSlide]?.classList.add("active");
+  function setupHero() {
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".hero-dot");
+    const progress = document.getElementById("hero-progress");
+    const total = slides.length;
+    if (!total) return;
+
+    function restartProgress() {
+      progress?.classList.remove("running");
+      void progress?.offsetWidth;
+      progress?.classList.add("running");
+    }
+
+    function goToSlide(index: number) {
+      slides[currentSlide]?.classList.remove("active");
+      dots[currentSlide]?.classList.remove("active");
+      currentSlide = (index + total) % total;
+      slides[currentSlide]?.classList.add("active");
+      dots[currentSlide]?.classList.add("active");
+      restartProgress();
+    }
+
+    document.getElementById("hero-prev")?.addEventListener("click", () => goToSlide(currentSlide - 1));
+    document.getElementById("hero-next")?.addEventListener("click", () => goToSlide(currentSlide + 1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const idx = parseInt(dot.getAttribute("data-index") || "0");
+        goToSlide(idx);
+      });
+    });
+
+    restartProgress();
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
   }
 
-  document.getElementById("hero-prev")?.addEventListener("click", () => goToSlide(currentSlide - 1));
-  document.getElementById("hero-next")?.addEventListener("click", () => goToSlide(currentSlide + 1));
-
-  dots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      const idx = parseInt(dot.getAttribute("data-index") || "0");
-      goToSlide(idx);
-    });
-  });
-
-  // Auto-advance every 5s
-  setInterval(() => goToSlide(currentSlide + 1), 5000);
+  document.addEventListener("astro:page-load", setupHero);
 </script>
