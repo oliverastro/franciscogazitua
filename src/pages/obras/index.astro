@@ -31,6 +31,7 @@ const allObras = await getCollection("obras");
                 src={img((txt.obras.images as any)[o.data.category])}
                 alt={(txt.obras.categorias as any)[o.data.category] || o.data.title}
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="card-label">{(txt.obras.categorias as any)[o.data.category] || o.data.title}</div>

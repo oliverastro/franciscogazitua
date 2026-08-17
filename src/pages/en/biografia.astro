@@ -18,7 +18,7 @@ const categories = [...new Set(allObras.map((o) => o.data.category))];
     <div class="section-card-inner">
       <div class="bio-grid">
         <div class="bio-image">
-          <img src={`${base}/images/Perfil_FranciscoGazitua_003.webp`} alt="Francisco Gazitúa" />
+          <img src={`${base}/images/Perfil_FranciscoGazitua_003.webp`} alt="Francisco Gazitúa" loading="lazy" decoding="async" />
         </div>
         <div class="bio-text-block">
           <h1 style="font-size: 32px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; color: var(--color-text);">
@@ -67,7 +67,7 @@ const categories = [...new Set(allObras.map((o) => o.data.category))];
       <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 20px; aspect-ratio: 4 / 3;">
         {txt.biografia.gallery.map((g: any) => (
           <div style={`grid-column: ${g.colSpan}; grid-row: ${g.rowSpan}; border-radius: 16px; overflow: hidden; background: #D9DEE3;`}>
-            <img src={img(g.src)} alt="" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
+            <img src={img(g.src)} alt="" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" />
           </div>
         ))}
       </div>

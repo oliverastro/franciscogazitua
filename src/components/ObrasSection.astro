@@ -59,6 +59,7 @@ const slugMap: Record<string, string> = {
               src={img((txt.obras.images as any)[cat])}
               alt={(txt.obras.categorias as any)[cat]}
               loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="card-label">{(txt.obras.categorias as any)[cat]}</div>

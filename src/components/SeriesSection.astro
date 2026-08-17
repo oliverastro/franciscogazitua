@@ -23,7 +23,7 @@ const series = txt.series.items;
       {series.map((s: any) => (
         <div class="card">
           <div class="card-image">
-            <img src={img(s.image)} alt={s.name} loading="lazy" />
+            <img src={img(s.image)} alt={s.name} loading="lazy" decoding="async" />
           </div>
           <div class="card-label">{s.name}</div>
         </div>

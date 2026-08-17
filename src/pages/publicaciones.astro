@@ -67,7 +67,7 @@ const pubList = orderBySlug
           <div class="card">
             {p.data.image ? (
               <a href={img(p.data.image)} download class="pub-cover" style="position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg); display: block; text-decoration: none;">
-                <img src={img(p.data.image)} alt={p.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" />
+                <img src={img(p.data.image)} alt={p.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" decoding="async" />
                 <div class="pub-overlay">
                   <span class="pub-overlay-label">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 20h14"></path></svg>

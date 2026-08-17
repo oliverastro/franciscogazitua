@@ -27,7 +27,7 @@ const librosList = allLibros.slice(0, 5);
         <div class="card">
           <div style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); background: var(--color-bg); display: flex; align-items: center; justify-content: center;">
             {l.data.image ? (
-              <img src={img(l.data.image)} alt={l.data.title} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" />
+              <img src={img(l.data.image)} alt={l.data.title} style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async" />
             ) : (
               <span style="font-size: 0.85rem; color: var(--color-muted); text-align: center; padding: 16px;">{l.data.title}</span>
             )}
