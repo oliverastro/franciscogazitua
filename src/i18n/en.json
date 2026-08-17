@@ -88,7 +88,8 @@
       "seriesSauces": "Series · Willows",
       "seriesLengas": "Series · Lengas",
       "caupolican": "Caupolicán",
-      "antartica": "Antarctica"
+      "antartica": "Antarctica",
+      "arboles": "Trees"
     },
     "images": {
       "esculturasPiedra": "/images/CordilleraDeLosAndesAnderna.webp",
@@ -114,7 +115,8 @@
       "seriesSauces": "/images/Serie-Sauces-1.webp",
       "seriesLengas": "/images/Lenga-de-Selknam.webp",
       "caupolican": "/images/Caupolican9.webp",
-      "antartica": "/images/Antartica-1.webp"
+      "antartica": "/images/Antartica-1.webp",
+      "arboles": "/images/Lenga-de-Selknam.webp"
     }
   },
   "series": {
@@ -158,8 +160,8 @@
     "dev": "Developed by OmniWeb"
   },
   "catTexts": {
-    "esculturasPiedra": "To be defined.",
-    "esculturasAcero": "To be defined.",
+    "esculturasPiedra": "I work with the stones I find beneath the land I inhabit — those which, by their physical properties, their hardness, weight and fracturing, allow themselves to be shaped. Those stones are largely responsible for generating the specific form my sculpture will take in public space, so that from there it may speak as a word of emplaced stones.",
+    "esculturasAcero": "Sculpture in public space demands large dimensions, and steel allows this with ease. Sculpture is a language, an art akin to music, literature or cinema; it needs its reader in order to exist. To find that reader it must go out into the street and become a highly visible book, an emplaced Word that every passer-by reads while walking through the city.",
     "arteEspacio": "ART IN PUBLIC SPACE\nAll of my small-format sculpture, all of my sculptural research, is preparation for my large-format sculptures.\nSculptural language only works in contact with people, in the streets or parks of cities or in the landscape; it is born and ages with cities, slowly taking hold in the consciousness of ordinary people.\nMy sculpture is made for them. Sculpture is in the street, or it is nowhere.",
     "puentes": "BRIDGES FROM SCULPTURE\nIn the project's generative stage I worked as a sculptor, studying in depth the internal structures, the skeletons of well-known references, for example:\nA horse is a bridge that walks on four supports on the earth. A ship is a bridge face up that moves over the water. A scale is a bridge in balance. An arch of stones is a bridge that exists by its own weight.\nA swing bridge has a thousand entrances and a thousand exits and moves on a central axis. A fish is a bridge of elastic structure whose supporting pillars in the water change constantly. A drawbridge is a door that closes by rising.\nA feather is a bridge between the wind and flight. An oar is a bridge between the arm and the water. The rainbow is a bridge of light.",
     "piedras": "STONES This collection of granite sculptures, whose original stones were all quarried from my quarry in Pirque, takes as its content its place of origin, the Andes mountain range.\nLike the Cordillera, I show a great stone wall on the outside, but I carve its ravines, rivers, and inner valleys within.",
@@ -173,14 +175,15 @@
     "mobiliario": "URBAN FURNITURE\nTables, stairways, doors, planters, lamps — since ancient times these have been elements crafted by sculptors as an integral complement to architecture. To this long history I add my work in stone and steel, seeking to humanize public space.",
     "instrumentos": "WIND INSTRUMENTS\nIn these sculptures I seek the sculptural equivalent of music. Their reference points are the great rocks of the Andes and the mountain wind that makes them sound constantly.",
     "piedraYAcero": "This collection explores the dialogue between stone and forged steel, two materials of opposite character —one unchanging, the other flexible— joined in a single work.",
-    "mokomiros": "To be defined.",
-    "mesas": "To be defined.",
+    "mokomiros": "Mokomiro Variations. A view by Tim Scott. In 1989 Francisco and I travelled together to Easter Island (I had gone to Santiago to help him run a steel workshop). Not only did we see and marvel at the famous stone figures and their architectural setting, we also visited the local sculptor Bene Tuky, where — under his bed! — he kept a collection of wooden pieces based on the ancient traditions of Easter Island: not stone, but carved wood, for Easter Island was once covered in forest. Inspired by this tradition and by this man's noble effort to revive it, Francisco has spent the last three decades producing a series (\"Mokomiro Variations\") offering a new version of this ancient art within his own sculptural ethos of construction in steel and wood. This exhibition shows the fruits of his vision. Tim Scott is one of the United Kingdom's foremost sculptors and was formerly head of the celebrated BA in pure sculpture at St Martins School of Art. His work can be seen at the Tate Gallery.",
+    "mesas": "The table is one of the oldest objects of the trade: a horizontal surface where people gather. These tables are carved in granite and basalt, some accompanied by steel, and are made for open space: squares, gardens, courtyards, the edge of the sea. They measure between two and five metres and carry the name of the place where they were installed. Each one keeps the mark of the tool on the stone.",
     "avesPlumas": "BIRDS AND FEATHERS\nInspired by a classic passage of English literature, Bulwer-Lytton's \"The pen is mightier than the sword\"\nA poetic reminder of the transformative power of flight\nIts power to inspire and persuade, transforming societies toward truth, goodness and beauty",
     "instrumentosPrimordiales": "PRIMORDIAL INSTRUMENTS: Needle, comb, table, sculpture, pencil, tongs, ladder….\nObjects, the poetic marrow of language, beings created in a dialectical association between matter and human need, until they are made to appear, with all our intelligence and the lightness of our hands, and at last left «charged» with ourselves, like sacred letters.",
     "seriesLanzaderas": "The Shuttles series explores lightweight structures in wood and steel, drawn from the gesture of the loom and of flight.",
     "seriesSauces": "WILLOWS.\nThe sculptures in this collection are the fruit of research into the qualities and elasticity of steel, based on the real flexibility and ductility of eight willows on the canals of Pirque (Chile).",
     "seriesLengas": "LENGAS\nThe content of this sculpture series is the «Flag Lengas» of southern Patagonia. They grow horizontally, almost pressed to the ground, a functional shape for withstanding a relentless wind.",
     "caupolican": "CAUPOLICÁN\nIn this series I worked as the interpreter of a score written by the sculptor Nicanor Plaza.\n«At the bottom of the well of history, like a more sonorous and brilliant water, shine the eyes of dead poets». «The thread of sculpture is never cut», and celebrating the contributions of the post-statuary period I affirm that today's sculpture, a hundred years later, would not exist without the work and teaching of the academic masters. It was a journey into the «well of history» in search of the specific wisdom, manual and intellectual, of sculptural language.",
-    "antartica": "To be defined."
+    "antartica": "I am on the dark water of the Antarctic seas, on a blue ice floe… tonnes of frozen water, carving with an axe a transparent sphere, when the winds allowed it and the sea grew quiet… The clouds, vapour of the same water — \"rivers of the sky\" — moved in the air, with the frost and hail. The frozen water was the support of my sculpture, the movable matter of my sculpture, at the same time the support of my feet. The water, at 20 degrees below zero, was this time the hard material of my sculpture.",
+    "arboles": "LENGAS\nThe content of this sculpture series is the \"Flag Lengas\" of southern Patagonia. They grow horizontally, almost pressed to the ground, a functional shape for withstanding relentless wind."
   }
 }

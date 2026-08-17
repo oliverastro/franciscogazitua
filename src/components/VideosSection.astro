@@ -12,7 +12,9 @@ const { lang } = Astro.props;
 const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const allVideos = await getCollection("videos");
-const videosList = allVideos.slice(0, 5);
+const videosList = allVideos
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+  .slice(0, 5);
 ---
 
 <section class="section-card">

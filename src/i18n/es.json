@@ -88,7 +88,8 @@
       "seriesSauces": "Series · Sauces",
       "seriesLengas": "Series · Lengas",
       "caupolican": "Caupolicán",
-      "antartica": "Antártica"
+      "antartica": "Antártica",
+      "arboles": "Árboles"
     },
     "images": {
       "esculturasPiedra": "/images/CordilleraDeLosAndesAnderna.webp",
@@ -114,7 +115,8 @@
       "seriesSauces": "/images/Serie-Sauces-1.webp",
       "seriesLengas": "/images/Lenga-de-Selknam.webp",
       "caupolican": "/images/Caupolican9.webp",
-      "antartica": "/images/Antartica-1.webp"
+      "antartica": "/images/Antartica-1.webp",
+      "arboles": "/images/Lenga-de-Selknam.webp"
     }
   },
   "series": {
@@ -158,8 +160,8 @@
     "dev": "Desarrollado por OmniWeb"
   },
   "catTexts": {
-    "esculturasPiedra": "Por definir.",
-    "esculturasAcero": "Por definir.",
+    "esculturasPiedra": "Trabajo con las piedras que encuentro debajo de la tierra en que habito, las que, por sus propiedades físicas, su dureza, peso y fracturación, permiten ser modeladas, esas piedras son en buena parte, responsables de generar la forma específica que tomará  mi escultura en los espacios públicos , para  desde ahí dialogar como una palabra de piedras emplazadas.",
+    "esculturasAcero": "La escultura en el espacio público exige grandes dimensiones, el  acero, lo  permite con facilidad. La escultura un lenguaje, un arte hermano de la música, la literatura o el cine, necesita a su lector para existir, para encontrar lo requiere, salir a la calle y ser  un libro muy visible, una Palabra emplazada  que cada transeúnte lea  cuando camine por la ciudad.",
     "arteEspacio": "ARTE EN ESPACIO PUBLICO\nToda mi escultura en pequeño formato, toda mi investigación escultórica, es una preparación para mis esculturas de gran formato.\nEl lenguaje escultórico sólo funciona, al contacto con la gente, en las calles o parques de las ciudades o en el paisaje, nace y envejece con las ciudades, se fragua lentamente en la conciencia de la gente común.\nMi escultura está hecha para ellos. La escultura está en la calle o no está.",
     "puentes": "PUENTES DESDE LA ESCULTURA\nEn la etapa de generación del proyecto opere como escultor, eso es estudiando a fondo las estructuras internas, esqueletos de referentes bien conocidos, por ejemplo:\nUn caballo es un puente que camina sobre cuatro apoyos en la tierra. Un buque es un puente boca arriba que se mueve sobre el agua. Una balanza es un puente en equilibrio Un arco de piedras es un puente que existe por su propio peso.\nUn puente giratorio tiene mil entradas y mil salidas y se mueve sobre un eje central Un pez es un puente de estructura elástica cuyos pilares de apoyo en el agua cambian constantemente. Un puente levadizo es una puerta que se cierra levantándose.\nUna pluma es un puente entre al viento y el vuelo, Un remo es un puente entre el brazo y el agua El arcoíris es un puente de luz.",
     "piedras": "PIEDRAS Esta colección de esculturas en granito, cuyas piedras originales fueron todas extraídas de mi cantera de Pirque, tiene como contenido su lugar de origen, la Cordillera de los Andes.\nAl igual que la Cordillera, muestro por fuera una gran muralla de piedra, pero tallo por dentro sus quebradas; ríos y sus valles interiores.",
@@ -173,14 +175,15 @@
     "mobiliario": "MOBILIARIO URBANO\nMesas, escalinatas, puertas, jardineras, lámparas, son desde muy antiguo, elementos trabajados por escultores como complemento integral de la arquitectura. A esta larga historia agrego mi trabajo en piedra y acero que busca humanizar el espacio público.",
     "instrumentos": "INSTRUMENTOS DE VIENTO\nEn estas esculturas busco el equivalente escultórico a la música. Su referente son las grandes rocas de Los Andes y el viento de las montañas que las hace sonar constantemente.",
     "piedraYAcero": "Fue por la piedra blanca, el granito, que llegué a la cantera donde edifiqué mi casa y mi taller; pero fue el fierro de color oscuro el que creó las condiciones: los tecles y los camiones fueron de fierro, mientras que la fragua, los cinceles, las cuñas y los martillos para trabajar la piedra son de acero. Blanco y negro: el blanco de la piedra y el negro del acero. Poco a poco se unieron y, para hacerlo, junté partes de mí mismo que estaban separadas: mis personalidades de tallador y herrero, mi cabeza con mis dos manos, mi mano izquierda con mi mano derecha. Uní la cantera con la fragua, mientras juntaba en mi corazón el centro magnético de la Tierra con estas rocas blancas que pesan sobre él, por la fuerza de gravedad que el fierro genera. Uní dos mitades de mí mismo que necesitaron cuarenta años de viaje para volverse a juntar.",
-    "mokomiros": "Por definir.",
-    "mesas": "Por definir.",
+    "mokomiros": "Variaciones Mokomiro. Una visión de Tim Scott. En 1989 Francisco y yo fuimos juntos a la Isla de Pascua (yo había ido a Santiago para ayudarle a dirigir un taller de acero). ¡No sólo vimos y nos maravillamos con las famosas figuras de piedra y su entorno arquitectónico, sino que también visitamos al escultor local Bene Tuky, donde, debajo de su cama!, tenía una colección de piezas de madera basadas en las antiguas tradiciones de la Isla de Pascua, no de piedra, sino de madera tallada; ¡pues la Isla de Pascua estuvo una vez cubierta de bosque! Francisco, inspirado en esta tradición y en el noble esfuerzo de este hombre por revivirla, ha intentado durante las últimas tres décadas producir una serie (\"Variaciones Mokomiro\") con una nueva versión de este antiguo arte dentro de su propio ethos escultórico de construcción en acero y madera. Esta exposición muestra los frutos de su visión. Tim Scott es uno de los escultores más destacados del Reino Unido y anteriormente fue director de la célebre licenciatura en escultura pura de la Escuela de Arte St Martins. Su obra puede verse en la Tate Gallery.",
+    "mesas": "La mesa es uno de los objetos más antiguos del oficio: una superficie horizontal donde se reúne la gente. Estas mesas están talladas en granito y basalto, algunas acompañadas de acero, y están pensadas para el espacio abierto: plazas, jardines, patios, la orilla del mar. Miden entre dos y cinco metros y llevan el nombre del lugar donde quedaron emplazadas. Cada una conserva la huella de la herramienta sobre la piedra.",
     "avesPlumas": "AVES Y PLUMAS\nInspirada en  un párrafo clásico de la literatura inglesa  Bulwer -Lytton \"The pen is mightier than the sword\"\n«La pluma es tiene más fuerza que la espada»\nUn recordatorio poético, del poder transformador  del vuelo\nSu poder de inspirar, persuadir , transformando las sociedades, hacia la verdad el bien y la belleza",
     "instrumentosPrimordiales": "INSTRUMENTOS PRIMORDIALES: Aguja , peineta, mesa , escultura, lápiz, tenaza  escalera….\nObjetos la medula poética del lenguaje,  seres creados en una asociación dialéctica entre materia y necesidad humana ,hasta hacerlos aparecer, con toda nuestra inteligencia y la liviandad de nuestras  manos y al fin dejarlos  \"cargados \" de nosotros mismos ” como cartas sagradas",
     "seriesLanzaderas": "La serie Lanzaderas explora estructuras livianas en madera y acero, a partir del gesto del telar y del vuelo.",
     "seriesSauces": "SAUCES.\nLas esculturas de esta colección son el fruto de una investigación sobre las cualidades de dy elasticidad del acero, sobre la base de la flexibilidad y la ductibilidad reales de ocho sauces de los canales de Pirque (Chile).",
     "seriesLengas": "LENGAS\nEl contenido de esta serie de esculturas son las «Lengas en Bandera» de la Patagonia Sur. Ellas crecen en forma horizontal, casi pegadas al suelo, forma funcional para resistir una ventolera inclemente.",
     "caupolican": "CAUPOLICÁN\nEn esta serie trabaje  como intérprete de una partitura escrita Por el escultor Nicanor Plaza.\n«En el fondo del pozo de la historia, como un agua más sonora y brillante, brillan los ojos de los poetas muertos» . « El hilo de la escultura, no se corta», y celebrando los aportes del periodo post estatuario afirmo, que la escultura de hoy, cien años después, no existiría sin el trabajo y la enseñanza de los maestros académicos. Fue  viaje al «pozo de la historia» en busca de la especifica sabiduría, manual e intelectual del lenguaje escultórico..",
-    "antartica": "Por definir."
+    "antartica": "Estoy sobre el agua oscura de los mares antárticos, sobre un témpano de hielo azul… toneladas aguas congeladas Tallando , con una hacha, una esfera transparente , cuando los vientos  lo permitían y se aquieta el mar … Las nubes , vapor de la misma agua, \" Ríos del cielo\" se movían en el aire, con la escarcha el granizo . El agua congelada fue el soporte de mi escultura, la materia movedizo de mi escultura, a la vez el soporte de mis pies. El  agua, a 20°grados bajo cero  fue esta vez el material  duro de mi escultura.",
+    "arboles": "El contenido de esta serie de esculturas son las «Lengas en Bandera» de la Patagonia Sur. Ellas crecen en forma horizontal, casi pegadas al suelo, forma funcional para resistir una ventolera inclemente."
   }
 }

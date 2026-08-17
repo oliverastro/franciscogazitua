@@ -12,7 +12,10 @@ const { lang } = Astro.props;
 const txt = t(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const allPub = await getCollection("publicaciones");
-const pubList = allPub.filter((p) => p.data.image).slice(0, 4);
+const pubList = allPub
+  .filter((p) => p.data.image)
+  .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
+  .slice(0, 4);
 ---
 
 <section class="section-card">

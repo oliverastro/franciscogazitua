@@ -1,5 +1,6 @@
 ---
 title: "Cuerpo Materia Colectiva Escultura Chilena"
+order: 8
 author: "Libro"
 year: 0
 publication_type: "catalogo"

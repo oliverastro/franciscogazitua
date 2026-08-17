@@ -50,6 +50,7 @@ const videos = defineCollection({
     thumbnail: z.string().optional().default(""),
     duration: z.string().optional(),
     date: z.string().optional(),
+    order: z.number().optional().default(99),
   }),
 });
 
@@ -64,6 +65,7 @@ const publicaciones = defineCollection({
     description: z.string().optional(),
     image: z.string().optional(),
     link: z.string().optional(),
+    order: z.number().optional().default(99),
   }),
 });
 

@@ -1,0 +1,22 @@
+---
+title: "Árboles"
+category: "arboles"
+description: ""
+works:
+  - name: "Lenga de Selknam"
+    image: "/images/Lenga-de-Selknam.webp"
+  - name: "Lenga Patagonia"
+    image: "/images/Lenga-Patagonia-Acero.webp"
+  - name: "Lenga de Porvenir"
+    image: "/images/Lenga-de-Porvenir-Acero.webp"
+  - name: "Lenga de Magallanes"
+    image: "/images/Lenga-de-Magallanes-Acero.webp"
+  - name: "Lenga de Cabo San Pablo"
+    image: "/images/Lenga-de-Cabo-San-Pablo-Madera.webp"
+  - name: "Lenga de Bandera"
+    image: "/images/Lenga-de-Bandera-Acero.webp"
+  - name: "Lenga Arqueada"
+    image: "/images/Lenga-Arqueada.webp"
+  - name: "Lenga Anudada"
+    image: "/images/Lenga-Anudada.webp"
+---

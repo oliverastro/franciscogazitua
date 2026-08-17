@@ -1,5 +1,6 @@
 ---
 title: "Escultura Chilena Contemporánea 1986–2004"
+order: 48
 author: "Portada"
 year: 0
 publication_type: "catalogo"
