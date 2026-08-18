@@ -61,7 +61,7 @@ const galleryItems = works.map((w: any, i: number) => {
 
 <div class="gallery-grid" id="gallery">
         {galleryItems.map((g: any, i: number) => (
-          <div class="gallery-item" data-index={i}>
+          <div class="gallery-item" data-index={i} data-image={g.image} data-name={g.name}>
             <div class="gallery-item-image" {...g.attrs}></div>
             <div class="gallery-item-name">{g.name}</div>
           </div>
@@ -88,9 +88,9 @@ const galleryItems = works.map((w: any, i: number) => {
   <ContactSection lang={lang} />
 </BaseLayout>
 
-<script define:vars={{ works }}>
+<script>
   function setupCategory() {
-    const worksData = works;
+    const galleryItems = Array.from(document.querySelectorAll<HTMLElement>("#gallery .gallery-item"));
     let currentIndex = null;
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightbox-image");
@@ -110,29 +110,30 @@ const galleryItems = works.map((w: any, i: number) => {
 
     function updateLightbox() {
       if (currentIndex === null) return;
-      const w = worksData[currentIndex];
+      const item = galleryItems[currentIndex];
+      if (!item) return;
       lightboxImage.classList.add("is-transitioning");
       setTimeout(() => {
-        lightboxImage.style.backgroundImage = `url("${encodeURI(w.image)}")`;
-        document.getElementById("lightbox-name").textContent = w.name;
-        document.getElementById("lightbox-counter").textContent = `${currentIndex + 1}/${worksData.length}`;
+        lightboxImage.style.backgroundImage = `url("${encodeURI(item.dataset.image || "")}")`;
+        document.getElementById("lightbox-name").textContent = item.dataset.name || "";
+        document.getElementById("lightbox-counter").textContent = `${currentIndex + 1}/${galleryItems.length}`;
         lightboxImage.classList.remove("is-transitioning");
       }, 200);
     }
 
     function prevImage() {
       if (currentIndex === null) return;
-      currentIndex = (currentIndex - 1 + worksData.length) % worksData.length;
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
       updateLightbox();
     }
 
     function nextImage() {
       if (currentIndex === null) return;
-      currentIndex = (currentIndex + 1) % worksData.length;
+      currentIndex = (currentIndex + 1) % galleryItems.length;
       updateLightbox();
     }
 
-    document.querySelectorAll(".gallery-item").forEach((item) => {
+    galleryItems.forEach((item) => {
       item.addEventListener("click", () => {
         openLightbox(parseInt(item.dataset.index));
       });
