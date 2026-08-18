@@ -5,4 +5,5 @@ author: "Libro"
 year: 0
 publication_type: "catalogo"
 image: "/images/La Palabra Emplazada.webp"
+pdf: "/uploads/palabra-emplazada.pdf"
 ---

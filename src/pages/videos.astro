@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 
 const lang: Lang = "es";
 const txt = t(lang);
-const allVideos = await getCollection("videos");
+const allVideos = (await getCollection("videos")).sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
 ---
 
 <BaseLayout lang={lang} title="Videos">
