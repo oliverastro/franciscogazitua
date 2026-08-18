@@ -5,7 +5,6 @@ author: "Libro"
 year: 0
 publication_type: "catalogo"
 description: ""
-image: "/images/poesia-piedra-metal.webp"
+image: "/images/Materia, escultura y poesía (Cristián Warnken).jpeg"
 pdf: "/uploads/mis-maestros-materia-poetas.pdf"
 ---
-
