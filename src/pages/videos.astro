@@ -23,8 +23,14 @@ const allVideos = (await getCollection("videos")).sort((a, b) => (a.data.order ?
         {allVideos.map((v, i) => {
           const thumb = v.data.thumbnail ? img(v.data.thumbnail) : "";
           return (
-            <div class="card" data-index={i} data-url={v.data.url || ""}>
-              <div class="video-thumb" data-video-index={i}>
+            <div class="card" data-index={i}>
+              <a
+                class="video-thumb"
+                href={v.data.url || undefined}
+                target={v.data.url ? "_blank" : undefined}
+                rel={v.data.url ? "noopener noreferrer" : undefined}
+                aria-label={v.data.url ? `Abrir ${v.data.title} en YouTube` : undefined}
+              >
                 {thumb ? (
                   <img src={thumb} alt={v.data.title} loading="lazy" decoding="async" />
                 ) : (
@@ -40,7 +46,7 @@ const allVideos = (await getCollection("videos")).sort((a, b) => (a.data.order ?
                     </div>
                   </>
                 )}
-              </div>
+              </a>
               <div class="card-label card-label--sm">{v.data.title}</div>
             </div>
           );
@@ -51,25 +57,3 @@ const allVideos = (await getCollection("videos")).sort((a, b) => (a.data.order ?
 
   <ContactSection lang={lang} />
 </BaseLayout>
-
-<script>
-  function setupVideos() {
-    document.querySelectorAll(".video-thumb").forEach((thumb) => {
-      thumb.addEventListener("click", () => {
-        const card = thumb.closest(".card");
-        const url = card?.getAttribute("data-url");
-        if (!url) return;
-
-        const match = url.match(/(?:v=|youtu\.be\/)([\w-]{11})/);
-        if (!match) return;
-
-        const videoId = match[1];
-        const container = thumb as HTMLElement;
-        container.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="Video" style="width: 100%; height: 100%; border: 0; position: absolute; inset: 0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>`;
-        container.style.position = "relative";
-      });
-    });
-  }
-
-  document.addEventListener("astro:page-load", setupVideos);
-</script>
