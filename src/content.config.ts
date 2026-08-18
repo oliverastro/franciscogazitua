@@ -65,6 +65,7 @@ const publicaciones = defineCollection({
     description: z.string().optional(),
     image: z.string().optional(),
     link: z.string().optional(),
+    pdf: z.string().optional(),
     order: z.number().optional().default(99),
   }),
 });

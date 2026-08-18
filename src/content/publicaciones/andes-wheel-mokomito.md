@@ -5,4 +5,5 @@ author: "Libro"
 year: 0
 publication_type: "catalogo"
 image: "/images/The Andes Wheel and Mokomito Variations.webp"
+pdf: "/uploads/andes-wheel-and-mokomito-variations.pdf"
 ---

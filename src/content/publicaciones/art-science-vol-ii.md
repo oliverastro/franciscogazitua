@@ -5,4 +5,5 @@ author: "Libro"
 year: 0
 publication_type: "catalogo"
 image: "/images/Art-Science-vol-II.webp"
+pdf: "/uploads/art-science-vol-ii.pdf"
 ---
