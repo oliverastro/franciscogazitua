@@ -2,7 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ContactSection from "@/components/ContactSection.astro";
 import t from "@/i18n/translations";
-import { img } from "@/i18n/translations";
+import { img, paragraphs } from "@/i18n/translations";
 import type { Lang } from "@/i18n/translations";
 import { getCollection, getEntry } from "astro:content";
 
@@ -54,8 +54,10 @@ const galleryItems = works.map((w: any, i: number) => {
       </div>
 
       {catText && (
-        <div style="columns: 2; column-gap: 40px; text-align: left; max-width: 1000px; margin: 0 auto 40px;">
-          <p class="section-text" style="white-space: pre-line;">{catText}</p>
+        <div class="text-block">
+          {paragraphs(catText).map((p) => (
+            <p class="section-text">{p}</p>
+          ))}
         </div>
       )}
 

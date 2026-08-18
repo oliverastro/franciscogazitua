@@ -18,6 +18,14 @@ export function img(path: string) {
   return path;
 }
 
+export function paragraphs(text: string): string[] {
+  return text
+    .split(/\n+/)
+    .flatMap((block) => block.split(/(?<![A-ZÁÉÍÓÚÑ])\.\s+/))
+    .map((p) => p.trim())
+    .filter(Boolean);
+}
+
 export default function t(lang: Lang) {
   return translations[lang] || translations.es;
 }
