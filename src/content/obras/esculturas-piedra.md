@@ -7,7 +7,7 @@ works:
     image: "/images/PlazaPedroDeValdivia2.webp"
   - name: "Piedra y acero  2 x 2 x 1 m  Las Condes Chile"
     image: "/images/NaoVictoria.webp"
-  - name: "Piedra de 4 Miradas — Parque de las Esculturas - Santiago - Chile — Granito 2004 — 4 x 1 x 1 mts"
+  - name: "Piedra de 4 Miradas — Parque de las Esculturas - Santiago - Chile — Granito 2004 — 4 x 1 x 1 m"
     image: "/images/PiedraDe4Miradas.webp"
   - name: "Piedras de Rancagua — Rancagua - Chile - 1997 — Granito — 350 x 280 x 150 cm"
     image: "/images/PiedrasDeRancagua.webp"

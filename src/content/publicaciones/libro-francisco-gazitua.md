@@ -1,5 +1,5 @@
 ---
-title: "Libro Francisco Gazitua"
+title: "Libro Francisco Gazitúa"
 order: 2
 author: "Libro"
 year: 0
