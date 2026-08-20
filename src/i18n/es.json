@@ -6,7 +6,6 @@
     "videos": "Videos",
     "publicaciones": "Publicaciones",
     "biografia": "Biografía",
-    "artePublico": "Arte en Espacio Público",
     "contacto": "Contacto"
   },
   "hero": {
@@ -30,7 +29,7 @@
       },
       {
         "title": "Esmeralda II",
-        "desc": "Velero de acero suspendido en plena ciudad, homenaje al ímpetu marino en medio del paisaje urbano.",
+        "desc": "Santiago de Chile. Velero de acero suspendido en plena ciudad, homenaje al ímpetu marino en medio del paisaje urbano.",
         "image": "/images/esmeralda_blanca_hero.webp"
       }
     ]
@@ -45,29 +44,51 @@
     "verMas": "Ver más",
     "cvTitle": "Currículum",
     "cvEsLabel": "Currículum (Español)",
-    "cvEsSub": "Descargar PDF",
+    "cvEsSub": "Ver PDF",
     "cvEnLabel": "Resume (English)",
-    "cvEnSub": "Download PDF",
-    "cvEsPdf": "/images/CV-ESP-FranciscoGazitua2026_compressed.pdf",
-    "cvEnPdf": "/images/CV-ENG-FranciscoGazitua2026_compressed.pdf",
+    "cvEnSub": "View PDF",
+    "cvEsPdf": "/images/Curriculum_Francisco_Gazitua_Julio_2026_ESPANOL.pdf",
+    "cvEnPdf": "/images/Curriculum_Francisco_Gazitua_Julio_2026_ENGLISH.pdf",
     "photoPlaceholder": "Foto de Francisco",
     "gallery": [
-      { "id": "bio-gallery-1", "src": "/images/escultura_mecanica_en_taller_industrial.webp", "colSpan": "span 2", "rowSpan": "span 2" },
-      { "id": "bio-gallery-2", "src": "/images/a_close_up_outdoor_portrait_scene_in_natural_light.webp", "colSpan": "span 1", "rowSpan": "span 1" },
-      { "id": "bio-gallery-3", "src": "/images/ChatGPT-Image-27-jul-2026-09-38-45-pm.webp", "colSpan": "span 1", "rowSpan": "span 1" },
-      { "id": "bio-gallery-4", "src": "/images/a_close_well_lit_outdoor_woodland_workshop_scene.webp", "colSpan": "span 1", "rowSpan": "span 1" },
-      { "id": "bio-gallery-5", "src": "/images/trabajo_de_taller_en_detalle.webp", "colSpan": "span 1", "rowSpan": "span 1" }
+      {
+        "id": "bio-gallery-1",
+        "src": "/images/escultura_mecanica_en_taller_industrial.webp",
+        "colSpan": "span 2",
+        "rowSpan": "span 2"
+      },
+      {
+        "id": "bio-gallery-2",
+        "src": "/images/a_close_up_outdoor_portrait_scene_in_natural_light.webp",
+        "colSpan": "span 1",
+        "rowSpan": "span 1"
+      },
+      {
+        "id": "bio-gallery-3",
+        "src": "/images/ChatGPT-Image-27-jul-2026-09-38-45-pm.webp",
+        "colSpan": "span 1",
+        "rowSpan": "span 1"
+      },
+      {
+        "id": "bio-gallery-4",
+        "src": "/images/a_close_well_lit_outdoor_woodland_workshop_scene.webp",
+        "colSpan": "span 1",
+        "rowSpan": "span 1"
+      },
+      {
+        "id": "bio-gallery-5",
+        "src": "/images/trabajo_de_taller_en_detalle.webp",
+        "colSpan": "span 1",
+        "rowSpan": "span 1"
+      }
     ]
   },
   "obras": {
     "titulo": "Obras",
-    "desc": "En esta página podrás recorrer la diversidad de obras del artista, organizadas por categorías.",
     "subtitulo": "Explora las obras del artista por categoría",
-    "verTodas": "Ver todas las obras",
     "categorias": {
       "esculturasPiedra": "Esculturas Monumentales en Piedra",
       "esculturasAcero": "Esculturas Monumentales en Acero",
-      "arteEspacio": "Arte en Espacio Público",
       "puentes": "Puentes",
       "piedras": "Piedras",
       "buques": "Buques",
@@ -93,7 +114,6 @@
     "images": {
       "esculturasPiedra": "/images/CordilleraDeLosAndesAnderna.webp",
       "esculturasAcero": "/images/EsculturasAcero-Nueva-1.webp",
-      "arteEspacio": "/images/RuedaDeLarmahue.webp",
       "puentes": "/images/puente-de-luz-toronto-3.webp",
       "piedras": "/images/Piedras-Nueva-2.webp",
       "buques": "/images/Buques-Nueva-2.webp",
@@ -122,9 +142,21 @@
     "subtitulo": "Explora las principales series de obras del artista",
     "verTodas": "Ver todas las series",
     "items": [
-      { "key": "seriesLanzaderas", "name": "Lanzaderas", "image": "/images/Serie-Lanzaderas-1.webp" },
-      { "key": "seriesSauces", "name": "Sauces", "image": "/images/Serie-Sauces-1.webp" },
-      { "key": "seriesLengas", "name": "Lengas", "image": "/images/Lenga-de-Selknam.webp" }
+      {
+        "key": "seriesLanzaderas",
+        "name": "Lanzaderas",
+        "image": "/images/Serie-Lanzaderas-1.webp"
+      },
+      {
+        "key": "seriesSauces",
+        "name": "Sauces",
+        "image": "/images/Serie-Sauces-1.webp"
+      },
+      {
+        "key": "seriesLengas",
+        "name": "Lengas",
+        "image": "/images/Lenga-de-Selknam.webp"
+      }
     ]
   },
   "videos": {
@@ -135,7 +167,7 @@
   "publicaciones": {
     "titulo": "Publicaciones",
     "desc": "Artículos, catálogos y publicaciones sobre la obra del artista.",
-    "download": "Descargar PDF",
+    "download": "Ver PDF",
     "verTodas": "Ver todas las publicaciones"
   },
   "libros": {
@@ -160,7 +192,6 @@
   "catTexts": {
     "esculturasPiedra": "Trabajo con las piedras que encuentro debajo de la tierra en que habito, las que, por sus propiedades físicas, su dureza, peso y fracturación, permiten ser modeladas, esas piedras son en buena parte, responsables de generar la forma específica que tomará  mi escultura en los espacios públicos , para  desde ahí dialogar como una palabra de piedras emplazadas.",
     "esculturasAcero": "La escultura en el espacio público exige grandes dimensiones, el  acero, lo  permite con facilidad. La escultura un lenguaje, un arte hermano de la música, la literatura o el cine, necesita a su lector para existir, para encontrar lo requiere, salir a la calle y ser  un libro muy visible, una Palabra emplazada  que cada transeúnte lea  cuando camine por la ciudad.",
-    "arteEspacio": "ARTE EN ESPACIO PUBLICO\nToda mi escultura en pequeño formato, toda mi investigación escultórica, es una preparación para mis esculturas de gran formato.\nEl lenguaje escultórico sólo funciona, al contacto con la gente, en las calles o parques de las ciudades o en el paisaje, nace y envejece con las ciudades, se fragua lentamente en la conciencia de la gente común.\nMi escultura está hecha para ellos. La escultura está en la calle o no está.",
     "puentes": "PUENTES DESDE LA ESCULTURA.\nEn la etapa de generación del proyecto opere como escultor, eso es estudiando a fondo las estructuras internas, esqueletos de referentes bien conocidos, por ejemplo:\nUn caballo es un puente que camina sobre cuatro apoyos en la tierra. Un buque es un puente boca arriba que se mueve sobre el agua. Una balanza es un puente en equilibrio Un arco de piedras es un puente que existe por su propio peso.\nUn puente giratorio tiene mil entradas y mil salidas y se mueve sobre un eje central Un pez es un puente de estructura elástica cuyos pilares de apoyo en el agua cambian constantemente. Un puente levadizo es una puerta que se cierra levantándose.\nUna pluma es un puente entre al viento y el vuelo, Un remo es un puente entre el brazo y el agua El arcoíris es un puente de luz.",
     "piedras": "PIEDRAS Esta colección de esculturas en granito, cuyas piedras originales fueron todas extraídas de mi cantera de Pirque, tiene como contenido su lugar de origen, la Cordillera de los Andes.\nAl igual que la Cordillera, muestro por fuera una gran muralla de piedra, pero tallo por dentro sus quebradas; ríos y sus valles interiores.",
     "buques": "BUQUES\nLos buques escultóricos de acero de esta colección están relacionados con el Territorio Marítimo de Chile, Valparaíso y el Pacífico Sur, Cabo de Hornos, Antártica; están también relacionadas Lord Cochrane (Cruz del Sur), Chakelton, (Endurance y James Caired) Arturo Prat (La Esmeralda), con Verne, Salgari, Gabriela Mistral, Pablo Neruda D. H. Lawrence y Melville: el Nautilius, El Rayo, «Hija de la Voluntad del Mar», el Pequod, «El Barco de la Muerte» y, con Hernando de Magallanes, la Nao VictoriaTodos estos buques navegaron de noche bajo la Cruz del Sur.",

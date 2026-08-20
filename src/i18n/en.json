@@ -6,7 +6,6 @@
     "videos": "Videos",
     "publicaciones": "Publications",
     "biografia": "Biography",
-    "artePublico": "Public Art",
     "contacto": "Contact"
   },
   "hero": {
@@ -45,29 +44,51 @@
     "verMas": "Learn more",
     "cvTitle": "Curriculum",
     "cvEsLabel": "Currículum (Español)",
-    "cvEsSub": "Descargar PDF",
+    "cvEsSub": "Ver PDF",
     "cvEnLabel": "Resume (English)",
-    "cvEnSub": "Download PDF",
-    "cvEsPdf": "/images/CV-ESP-FranciscoGazitua2026_compressed.pdf",
-    "cvEnPdf": "/images/CV-ENG-FranciscoGazitua2026_compressed.pdf",
+    "cvEnSub": "View PDF",
+    "cvEsPdf": "/images/Curriculum_Francisco_Gazitua_Julio_2026_ESPANOL.pdf",
+    "cvEnPdf": "/images/Curriculum_Francisco_Gazitua_Julio_2026_ENGLISH.pdf",
     "photoPlaceholder": "Photo of Francisco",
     "gallery": [
-      { "id": "bio-gallery-1", "src": "/images/escultura_mecanica_en_taller_industrial.webp", "colSpan": "span 2", "rowSpan": "span 2" },
-      { "id": "bio-gallery-2", "src": "/images/a_close_up_outdoor_portrait_scene_in_natural_light.webp", "colSpan": "span 1", "rowSpan": "span 1" },
-      { "id": "bio-gallery-3", "src": "/images/ChatGPT-Image-27-jul-2026-09-38-45-pm.webp", "colSpan": "span 1", "rowSpan": "span 1" },
-      { "id": "bio-gallery-4", "src": "/images/a_close_well_lit_outdoor_woodland_workshop_scene.webp", "colSpan": "span 1", "rowSpan": "span 1" },
-      { "id": "bio-gallery-5", "src": "/images/trabajo_de_taller_en_detalle.webp", "colSpan": "span 1", "rowSpan": "span 1" }
+      {
+        "id": "bio-gallery-1",
+        "src": "/images/escultura_mecanica_en_taller_industrial.webp",
+        "colSpan": "span 2",
+        "rowSpan": "span 2"
+      },
+      {
+        "id": "bio-gallery-2",
+        "src": "/images/a_close_up_outdoor_portrait_scene_in_natural_light.webp",
+        "colSpan": "span 1",
+        "rowSpan": "span 1"
+      },
+      {
+        "id": "bio-gallery-3",
+        "src": "/images/ChatGPT-Image-27-jul-2026-09-38-45-pm.webp",
+        "colSpan": "span 1",
+        "rowSpan": "span 1"
+      },
+      {
+        "id": "bio-gallery-4",
+        "src": "/images/a_close_well_lit_outdoor_woodland_workshop_scene.webp",
+        "colSpan": "span 1",
+        "rowSpan": "span 1"
+      },
+      {
+        "id": "bio-gallery-5",
+        "src": "/images/trabajo_de_taller_en_detalle.webp",
+        "colSpan": "span 1",
+        "rowSpan": "span 1"
+      }
     ]
   },
   "obras": {
     "titulo": "Works",
-    "desc": "On this page you can explore the diversity of the artist's works, organized by category.",
     "subtitulo": "Explore the artist's works by category",
-    "verTodas": "View all works",
     "categorias": {
       "esculturasPiedra": "Monumental Stone Sculptures",
       "esculturasAcero": "Monumental Steel Sculptures",
-      "arteEspacio": "Public Art",
       "puentes": "Bridges",
       "piedras": "Stones",
       "buques": "Ships",
@@ -93,7 +114,6 @@
     "images": {
       "esculturasPiedra": "/images/CordilleraDeLosAndesAnderna.webp",
       "esculturasAcero": "/images/EsculturasAcero-Nueva-1.webp",
-      "arteEspacio": "/images/RuedaDeLarmahue.webp",
       "puentes": "/images/puente-de-luz-toronto-3.webp",
       "piedras": "/images/Piedras-Nueva-2.webp",
       "buques": "/images/Buques-Nueva-2.webp",
@@ -122,9 +142,21 @@
     "subtitulo": "Explore the artist's main series of works",
     "verTodas": "View all series",
     "items": [
-      { "key": "seriesLanzaderas", "name": "Shuttles", "image": "/images/Serie-Lanzaderas-1.webp" },
-      { "key": "seriesSauces", "name": "Willows", "image": "/images/Serie-Sauces-1.webp" },
-      { "key": "seriesLengas", "name": "Lengas", "image": "/images/Lenga-de-Selknam.webp" }
+      {
+        "key": "seriesLanzaderas",
+        "name": "Shuttles",
+        "image": "/images/Serie-Lanzaderas-1.webp"
+      },
+      {
+        "key": "seriesSauces",
+        "name": "Willows",
+        "image": "/images/Serie-Sauces-1.webp"
+      },
+      {
+        "key": "seriesLengas",
+        "name": "Lengas",
+        "image": "/images/Lenga-de-Selknam.webp"
+      }
     ]
   },
   "videos": {
@@ -135,7 +167,7 @@
   "publicaciones": {
     "titulo": "Publications",
     "desc": "Articles, catalogs, and publications about the artist's work.",
-    "download": "Download PDF",
+    "download": "View PDF",
     "verTodas": "View all publications"
   },
   "libros": {
@@ -160,7 +192,6 @@
   "catTexts": {
     "esculturasPiedra": "I work with the stones I find beneath the land I inhabit — those which, by their physical properties, their hardness, weight and fracturing, allow themselves to be shaped. Those stones are largely responsible for generating the specific form my sculpture will take in public space, so that from there it may speak as a word of emplaced stones.",
     "esculturasAcero": "Sculpture in public space demands large dimensions, and steel allows this with ease. Sculpture is a language, an art akin to music, literature or cinema; it needs its reader in order to exist. To find that reader it must go out into the street and become a highly visible book, an emplaced Word that every passer-by reads while walking through the city.",
-    "arteEspacio": "ART IN PUBLIC SPACE\nAll of my small-format sculpture, all of my sculptural research, is preparation for my large-format sculptures.\nSculptural language only works in contact with people, in the streets or parks of cities or in the landscape; it is born and ages with cities, slowly taking hold in the consciousness of ordinary people.\nMy sculpture is made for them. Sculpture is in the street, or it is nowhere.",
     "puentes": "BRIDGES FROM SCULPTURE\nIn the project's generative stage I worked as a sculptor, studying in depth the internal structures, the skeletons of well-known references, for example:\nA horse is a bridge that walks on four supports on the earth. A ship is a bridge face up that moves over the water. A scale is a bridge in balance. An arch of stones is a bridge that exists by its own weight.\nA swing bridge has a thousand entrances and a thousand exits and moves on a central axis. A fish is a bridge of elastic structure whose supporting pillars in the water change constantly. A drawbridge is a door that closes by rising.\nA feather is a bridge between the wind and flight. An oar is a bridge between the arm and the water. The rainbow is a bridge of light.",
     "piedras": "STONES This collection of granite sculptures, whose original stones were all quarried from my quarry in Pirque, takes as its content its place of origin, the Andes mountain range.\nLike the Cordillera, I show a great stone wall on the outside, but I carve its ravines, rivers, and inner valleys within.",
     "buques": "SHIPS\nThe steel sculptural ships in this collection relate to Chile's maritime territory, Valparaíso and the South Pacific, Cape Horn, Antarctica; they also connect to Lord Cochrane (Southern Cross), Shackleton (Endurance and the James Caird), Arturo Prat (La Esmeralda), and to Verne, Salgari, Gabriela Mistral, Pablo Neruda, D. H. Lawrence, and Melville: the Nautilus, El Rayo, \"Daughter of the Will of the Sea,\" the Pequod, \"The Ship of Death,\" and, with Ferdinand Magellan, the Nao Victoria. All of these ships sailed by night beneath the Southern Cross.",

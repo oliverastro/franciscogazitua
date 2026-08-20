@@ -2,6 +2,7 @@
 import t from "@/i18n/translations";
 import { img } from "@/i18n/translations";
 import type { Lang } from "@/i18n/translations";
+import { translateVideoTitle } from "@/i18n/workNames";
 import { getCollection } from "astro:content";
 
 export interface Props {
@@ -25,23 +26,26 @@ const videosList = allVideos
     </div>
 
     <div class="videos-grid">
-      {videosList.map((v) => (
-        <div class="card">
-          <a
-            href={`${base}${lang === "es" ? "" : "/en"}/videos/`}
-            class="video-thumb"
-          >
-            {v.data.thumbnail ? (
-              <img src={img(v.data.thumbnail)} alt={v.data.title} loading="lazy" decoding="async" />
-            ) : null}
-            <div class="video-thumb-overlay"></div>
-            <div class="video-play-btn">
-              <div class="video-play-triangle"></div>
-            </div>
-          </a>
-          <div class="card-label card-label--sm">{v.data.title}</div>
-        </div>
-      ))}
+      {videosList.map((v) => {
+        const title = translateVideoTitle(v.data.title, lang);
+        return (
+          <div class="card">
+            <a
+              href={`${base}${lang === "es" ? "" : "/en"}/videos/`}
+              class="video-thumb"
+            >
+              {v.data.thumbnail ? (
+                <img src={img(v.data.thumbnail)} alt={title} loading="lazy" decoding="async" />
+              ) : null}
+              <div class="video-thumb-overlay"></div>
+              <div class="video-play-btn">
+                <div class="video-play-triangle"></div>
+              </div>
+            </a>
+            <div class="card-label card-label--sm">{title}</div>
+          </div>
+        );
+      })}
     </div>
 
     <div class="section-action">

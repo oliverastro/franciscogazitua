@@ -99,7 +99,7 @@ const pubOnlyList = pubList.filter((p) => p!.data.author !== "Libro" && p!.data.
           <div class="card">
             {p!.data.image ? (
               p!.data.pdf ? (
-                <a href={img(p!.data.pdf)} download class="pub-cover" style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg);">
+                <a href={img(p!.data.pdf)} target="_blank" rel="noopener noreferrer" class="pub-cover" style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg);">
                   <img src={img(p!.data.image)} alt={p!.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" decoding="async" />
                   <div class="pub-overlay">
                     <span class="pub-overlay-label">
@@ -115,7 +115,7 @@ const pubOnlyList = pubList.filter((p) => p!.data.author !== "Libro" && p!.data.
               )
             ) : (
               p!.data.pdf ? (
-                <a href={img(p!.data.pdf)} download class="pub-cover" style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); background: var(--color-bg);">
+                <a href={img(p!.data.pdf)} target="_blank" rel="noopener noreferrer" class="pub-cover" style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); background: var(--color-bg);">
                   <div class="pub-placeholder">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
                     <div class="pub-placeholder-title">{p!.data.title}</div>
@@ -158,7 +158,7 @@ const pubOnlyList = pubList.filter((p) => p!.data.author !== "Libro" && p!.data.
           <div class="card">
             {p!.data.image ? (
               p!.data.pdf ? (
-                <a href={img(p!.data.pdf)} download class="pub-cover" style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg);">
+                <a href={img(p!.data.pdf)} target="_blank" rel="noopener noreferrer" class="pub-cover" style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); overflow: hidden; background: var(--color-bg);">
                   <img src={img(p!.data.image)} alt={p!.data.title} style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="lazy" decoding="async" />
                   <div class="pub-overlay">
                     <span class="pub-overlay-label">
@@ -174,7 +174,7 @@ const pubOnlyList = pubList.filter((p) => p!.data.author !== "Libro" && p!.data.
               )
             ) : (
               p!.data.pdf ? (
-                <a href={img(p!.data.pdf)} download class="pub-cover" style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); background: var(--color-bg);">
+                <a href={img(p!.data.pdf)} target="_blank" rel="noopener noreferrer" class="pub-cover" style="aspect-ratio: 3 / 4; border-radius: var(--radius-image); background: var(--color-bg);">
                   <div class="pub-placeholder">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="m21 15-5-5L5 21"></path></svg>
                     <div class="pub-placeholder-title">{p!.data.title}</div>
