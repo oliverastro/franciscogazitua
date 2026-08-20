@@ -20,7 +20,7 @@ const { category } = Astro.params;
 
 const entry = await getEntry("obras", category!);
 if (!entry) {
-  return Astro.redirect(`${base}/obras/`);
+  return Astro.redirect(`${base}/`);
 }
 
 const catTitle = (txt.obras.categorias as any)[entry.data.category] || entry.data.title;
@@ -54,7 +54,7 @@ const galleryItems = works.map((w: any, i: number) => {
       </div>
 
       {catText && (
-        <div class={`cat-description${entry.data.category === "arteEspacio" || entry.data.category === "puentes" ? " cat-description--columns" : entry.data.category === "toros" || entry.data.category === "naturaleza" ? " cat-description--narrow" : ""}`}>
+        <div class={`cat-description${entry.data.category === "puentes" ? " cat-description--columns" : entry.data.category === "toros" || entry.data.category === "naturaleza" ? " cat-description--narrow" : ""}`}>
           <p class="section-text">{catText}</p>
         </div>
       )}
