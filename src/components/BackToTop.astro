@@ -63,22 +63,18 @@ const label = lang === "en" ? "Back to top" : "Volver arriba";
 </style>
 
 <script>
-  function setupBackToTop() {
+  function updateBackToTop() {
     const btn = document.getElementById("back-to-top");
     if (!btn) return;
-
-    function update() {
-      btn.classList.toggle("is-visible", window.scrollY > window.innerHeight);
-    }
-
-    btn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    document.addEventListener("astro:page-load", update);
+    btn.classList.toggle("is-visible", window.scrollY > window.innerHeight);
   }
 
-  setupBackToTop();
+  document.addEventListener("click", (event) => {
+    const target = event.target && event.target.closest ? event.target.closest("#back-to-top") : null;
+    if (target) window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", updateBackToTop, { passive: true });
+  document.addEventListener("astro:page-load", updateBackToTop);
+  updateBackToTop();
 </script>
